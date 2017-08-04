@@ -1,0 +1,103 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><script async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML" integrity="sha384-crwIf/BuaWM9rM65iM+dWFldgQ1Un8jWZMuh3puxb8TOY9+linwLoI7ZHZT+aekW" crossorigin="anonymous"></script><title> FOG API文档 · 愤怒的泡面</title><meta name="description" content="FOG API文档 - AngryPowman"><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="icon" href="/favicon.ico"><link rel="stylesheet" href="/css/prontera.css"><link rel="search" type="application/opensearchdescription+xml" href="http://powman.org/atom.xml" title="愤怒的泡面"></head><body><header class="feature-header"><nav class="component-nav"><ul><div class="logo-container"><a href="/"><h2 class="title">愤怒的泡面</h2></a></div><a href="/" target="_self" class="li component-nav-item"><p>主页</p></a><a href="/archives" target="_self" class="li component-nav-item"><p>归档</p></a><a href="/feedback" target="_self" class="li component-nav-item"><p>留言板</p></a><a href="/about" target="_self" class="li component-nav-item"><p>关于我</p></a><ul class="shortcut-icons"><a href="https://github.com/AngryPowman" target="_blank"><img src="/images/github.svg" class="icon"></a><a href="https://www.zhihu.com/people/AngryPowman" target="_blank"><img src="/images/zhihu.svg" class="icon"></a><a href="/atom.xml" target="_blank"><img src="/images/rss.svg" class="icon"></a></ul></ul></nav></header><main class="container"><div id="post-container"><div class="post"><article class="post-block"><h1 class="post-title">FOG API文档</h1><div class="post-info">Mar 13, 2017</div><div class="post-content"><h1 id="用户系统"><a href="#用户系统" class="headerlink" title="用户系统"></a>用户系统</h1><p><strong>相关错误码</strong></p>
+<table>
+<thead>
+<tr>
+<th>错误码</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>101</td>
+<td>用户不存在</td>
+</tr>
+<tr>
+<td>102</td>
+<td>用户名或密码不匹配</td>
+</tr>
+<tr>
+<td>103</td>
+<td>用户被禁用</td>
+</tr>
+<tr>
+<td>104</td>
+<td>用户已存在</td>
+</tr>
+<tr>
+<td>105</td>
+<td>用户名或密码不合法</td>
+</tr>
+<tr>
+<td>106</td>
+<td>注册失败（未知原因）</td>
+</tr>
+</tbody>
+</table>
+<h2 id="查询UID"><a href="#查询UID" class="headerlink" title="查询UID"></a>查询UID</h2><p><strong>请求地址:</strong> <code>/api/user/uid</code><br><strong>提交方法:</strong> <code>GET/POST</code><br><strong>说明:</strong> 通过用户输入的账号查询唯一uid<br><strong>参数列表</strong></p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>username</code></td>
+<td>用户名（可能是邮箱/用户名/手机号等）</td>
+</tr>
+</tbody>
+</table>
+<p><strong>请求示例</strong><br><code>curl -d &#39;username=AngryPowman&#39; &#39;http://47.90.123.165:8000/api/user/uid&#39;</code></p>
+<p><strong>返回示例</strong><br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">  <span class="attr">code</span>: <span class="number">0</span>,</div><div class="line">  <span class="attr">message</span>: <span class="string">""</span>,</div><div class="line">  <span class="attr">data</span>: &#123;</div><div class="line">      <span class="attr">uid</span>: <span class="number">10000</span></div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h2 id="用户注册"><a href="#用户注册" class="headerlink" title="用户注册"></a>用户注册</h2><p><strong>请求地址:</strong> <code>/api/user/sign_up</code><br><strong>提交方法:</strong> <code>GET/POST</code><br><strong>说明:</strong> 注册用户<br><strong>参数列表</strong></p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>username</code></td>
+<td>注册用户名</td>
+</tr>
+<tr>
+<td><code>pwd</code></td>
+<td>明文注册密码</td>
+</tr>
+</tbody>
+</table>
+<p><strong>请求示例</strong><br><code>curl -d &#39;username=AngryPowman&amp;pwd=123456&#39; &#39;http://47.90.123.165:8000/api/user/sign_up&#39;</code></p>
+<p><strong>返回示例</strong><br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//注册成功</span></div><div class="line">&#123;</div><div class="line">  <span class="attr">code</span>: <span class="number">0</span>,</div><div class="line">  <span class="attr">message</span>: <span class="string">""</span>,</div><div class="line">  <span class="attr">data</span>: &#123;</div><div class="line">      <span class="attr">uid</span>: <span class="number">10000</span></div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h2 id="登录"><a href="#登录" class="headerlink" title="登录"></a>登录</h2><p><strong>请求地址:</strong> <code>/api/user/sign_in</code><br><strong>提交方法:</strong> <code>GET/POST</code><br><strong>说明:</strong> 登录账号并获取服务端返回的access token<br><strong>参数列表</strong></p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>uid</code></td>
+<td>用户唯一ID</td>
+</tr>
+<tr>
+<td><code>pwd</code></td>
+<td>md5(明文密码)</td>
+</tr>
+</tbody>
+</table>
+<p><strong>请求示例</strong><br><code>curl -d &#39;uid=10000&amp;pwd=e10adc3949ba59abbe56e057f20f883e&#39; &#39;http://47.90.123.165:8000/api/user/sign_in&#39;</code></p>
+<p><strong>返回示例</strong><br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">  <span class="attr">code</span>: <span class="number">0</span>,</div><div class="line">  <span class="attr">message</span>: <span class="string">""</span>,</div><div class="line">  <span class="attr">data</span>: &#123;</div><div class="line">      <span class="attr">token</span>: <span class="string">"202cb962ac59075b964b07152d234b70"</span></div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+</div></article></div><div id="disqus_thread"></div></div><script>var disqus_shortname = 'angrypowman';
+var disqus_identifier = 'archives/fog-api.html';
+var disqus_title = 'FOG API文档';
+var disqus_url = 'http://powman.org/archives/fog-api.html';
+(function() {
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+})();</script><script id="dsq-count-scr" src="//angrypowman.disqus.com/count.js" async></script></main><footer class="footer-container"><div class="paginator"><a href="/archives/theme-prontera.html" class="next">NEXT</a></div><div class="copyright"><p>© 2017 <a href="http://powman.org">AngryPowman</a>, powered by <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/AngryPowman/hexo-theme-prontera" target="_blank">hexo-theme-prontera</a>.</p></div></footer><script>(function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;e=o.createElement(i);r=o.getElementsByTagName(i)[0];e.src='//www.google-analytics.com/analytics.js';r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));ga('create',"UA-93668618-1",'auto');ga('send','pageview');</script></body></html>

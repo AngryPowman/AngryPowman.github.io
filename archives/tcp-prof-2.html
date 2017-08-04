@@ -1,0 +1,38 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><script async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML" integrity="sha384-crwIf/BuaWM9rM65iM+dWFldgQ1Un8jWZMuh3puxb8TOY9+linwLoI7ZHZT+aekW" crossorigin="anonymous"></script><title> TCP性能分析技术(2)：TCP层收发包行为分析 · 愤怒的泡面</title><meta name="description" content="TCP性能分析技术(2)：TCP层收发包行为分析 - AngryPowman"><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="icon" href="/favicon.ico"><link rel="stylesheet" href="/css/prontera.css"><link rel="search" type="application/opensearchdescription+xml" href="http://powman.org/atom.xml" title="愤怒的泡面"></head><body><header class="feature-header"><nav class="component-nav"><ul><div class="logo-container"><a href="/"><h2 class="title">愤怒的泡面</h2></a></div><a href="/" target="_self" class="li component-nav-item"><p>主页</p></a><a href="/archives" target="_self" class="li component-nav-item"><p>归档</p></a><a href="/feedback" target="_self" class="li component-nav-item"><p>留言板</p></a><a href="/about" target="_self" class="li component-nav-item"><p>关于我</p></a><ul class="shortcut-icons"><a href="https://github.com/AngryPowman" target="_blank"><img src="/images/github.svg" class="icon"></a><a href="https://www.zhihu.com/people/AngryPowman" target="_blank"><img src="/images/zhihu.svg" class="icon"></a><a href="/atom.xml" target="_blank"><img src="/images/rss.svg" class="icon"></a></ul></ul></nav></header><main class="container"><div id="post-container"><div class="post"><article class="post-block"><h1 class="post-title">TCP性能分析技术(2)：TCP层收发包行为分析</h1><div class="post-info">Jun 29, 2014</div><div class="post-content"><h3 id="基本原理"><a href="#基本原理" class="headerlink" title="基本原理"></a>基本原理</h3><p>两个缓冲区：</p>
+<ul>
+<li>TCP发送缓冲区</li>
+<li><p>TCP接收缓冲区<br>三个窗口：</p>
+</li>
+<li><p>接收窗口</p>
+</li>
+<li>发送窗口</li>
+<li>拥塞窗口（cwnd, congestion window）<br><a href="/images/wp-migrate-res/2014/06/tcp_wnds.png"><img src="/images/wp-migrate-res/2014/06/tcp_wnds.png" alt="tcp_wnds"></a></li>
+</ul>
+<a id="more"></a>
+<h3 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h3><p><table style="height: 350px;" width="658"></table></p>
+<p><tbody></tbody></p>
+<p><tr></tr></p>
+<p><td style="text-align: center;" width="120"><strong>名词</strong></td></p>
+<p><td style="text-align: center;"><strong>定义</strong></td><br></p>
+<p><tr></tr></p>
+<p><td style="text-align: center;">缓冲区</td></p>
+<p><td>操作系统需要为每个TCP连接分配相对应的接收缓冲区和发送缓冲区。</td><br></p>
+<p><tr></tr></p>
+<p><td style="text-align: center;">发送窗口</td></p>
+<p><td>发送缓冲区能接收数据的字节数（包括已发送但未确认的数据），实际上就是发送缓冲区的大小。</td><br></p>
+<p><tr></tr></p>
+<p><td style="text-align: center;">接收窗口</td></p>
+<p><td>接收缓冲区能接收数据的字节数（不包括未送往应用层的数据），实际上就是接收缓冲区的大小减去未送往应用层数据那部分。</td></p>
+<p>接收窗口的最大值就是接收缓冲区的大小。<br></p>
+<p><tr></tr></p>
+<p><td style="text-align: center;">拥塞窗口</td></p>
+<p><td>发送端站在避免拥塞的角度，根据收到的ACK数量计算的发送端应发送的字节数。TCP收到每个ACK都会对拥塞窗口进行更新。</td><br><br><br><br>&nbsp;</p>
+</div></article></div><div id="disqus_thread"></div></div><script>var disqus_shortname = 'angrypowman';
+var disqus_identifier = 'archives/tcp-prof-2.html';
+var disqus_title = 'TCP性能分析技术(2)：TCP层收发包行为分析';
+var disqus_url = 'http://powman.org/archives/tcp-prof-2.html';
+(function() {
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+})();</script><script id="dsq-count-scr" src="//angrypowman.disqus.com/count.js" async></script></main><footer class="footer-container"><div class="paginator"><a href="/archives/574.html" class="prev">PREV</a><a href="/archives/tcp-prof-1.html" class="next">NEXT</a></div><div class="copyright"><p>© 2017 <a href="http://powman.org">AngryPowman</a>, powered by <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/AngryPowman/hexo-theme-prontera" target="_blank">hexo-theme-prontera</a>.</p></div></footer><script>(function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;e=o.createElement(i);r=o.getElementsByTagName(i)[0];e.src='//www.google-analytics.com/analytics.js';r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));ga('create',"UA-93668618-1",'auto');ga('send','pageview');</script></body></html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><script async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML" integrity="sha384-crwIf/BuaWM9rM65iM+dWFldgQ1Un8jWZMuh3puxb8TOY9+linwLoI7ZHZT+aekW" crossorigin="anonymous"></script><title> TCP性能分析技术(4)：数据发送端行为分析 · 愤怒的泡面</title><meta name="description" content="TCP性能分析技术(4)：数据发送端行为分析 - AngryPowman"><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="icon" href="/favicon.ico"><link rel="stylesheet" href="/css/prontera.css"><link rel="search" type="application/opensearchdescription+xml" href="http://powman.org/atom.xml" title="愤怒的泡面"></head><body><header class="feature-header"><nav class="component-nav"><ul><div class="logo-container"><a href="/"><h2 class="title">愤怒的泡面</h2></a></div><a href="/" target="_self" class="li component-nav-item"><p>主页</p></a><a href="/archives" target="_self" class="li component-nav-item"><p>归档</p></a><a href="/feedback" target="_self" class="li component-nav-item"><p>留言板</p></a><a href="/about" target="_self" class="li component-nav-item"><p>关于我</p></a><ul class="shortcut-icons"><a href="https://github.com/AngryPowman" target="_blank"><img src="/images/github.svg" class="icon"></a><a href="https://www.zhihu.com/people/AngryPowman" target="_blank"><img src="/images/zhihu.svg" class="icon"></a><a href="/atom.xml" target="_blank"><img src="/images/rss.svg" class="icon"></a></ul></ul></nav></header><main class="container"><div id="post-container"><div class="post"><article class="post-block"><h1 class="post-title">TCP性能分析技术(4)：数据发送端行为分析</h1><div class="post-info">Jul 20, 2014</div><div class="post-content"><h3 id="基本行为"><a href="#基本行为" class="headerlink" title="基本行为"></a>基本行为</h3><p><strong>（1） 发包的时机</strong><br>每个ACK都有可能触发发包，是否发包取决于根据’(2)’中的公式所算结果是否大于零。</p>
+<ul>
+<li>RTT测量的ACK会启动发包。（这一条是错的）</li>
+<li>重复ACK会启动发包。</li>
+<li>紧跟在重复ACK后回复的第一个新的ACK会启动发包。</li>
+<li>快速重传、超时重传也会启动发包。<br><strong>（2）发包的数量：</strong><br>发送端根据启动发包时刻的发送窗口、接收窗口、拥塞窗口大小来确定发包数量。计算公式如下：<br><span style="color: #ff0000;">发包数量 = min(发送窗口大小, 接收窗口大小, 拥塞窗口大小) - 已发送未确认数据的字节数</span></li>
+</ul>
+<a id="more"></a>
+<h3 id="RTT测量原理"><a href="#RTT测量原理" class="headerlink" title="RTT测量原理"></a>RTT测量原理</h3><p>基本原理：在一个RTT时间内只会启动一次测量。用于RTT测量的ACK才会启动发包，期间收到的其它ACK不启动发包（重复ACK以及跟随其后的第一个新的ACK除外~）</p>
+<p><a href="/images/wp-migrate-res/2014/07/RTT_Measurement.jpg"><img src="/images/wp-migrate-res/2014/07/RTT_Measurement.jpg" alt="RTT_Measurement"></a></p>
+<p>（数据包交换以及RTT测量，图来源于网络我不想画图了。。。大概就这样）</p>
+<h3 id="滑动窗口原理"><a href="#滑动窗口原理" class="headerlink" title="滑动窗口原理"></a>滑动窗口原理</h3><p>参见 <a href="http://powman.org/archives/tcp_prof_1.html">《TCP性能分析技术：Windows下TCP/IP协议栈的实现中》的协议栈图</a>。</p>
+<p>在接收窗口受限的情况下，发包数量取决于接收窗口的大小：接收窗口增大，则发包数量增加；接收窗口减小，则发包数量减少。</p>
+<h3 id="拥塞窗口更新"><a href="#拥塞窗口更新" class="headerlink" title="拥塞窗口更新"></a>拥塞窗口更新</h3><p>发送端对接收到的每个ACK都会启动拥塞窗口更新。具体如何更新和接收到ACK时所处的阶段是有关的。</p>
+<p><strong>（1）慢阶段启动</strong><br>TCP建立的时候，CWND = 1(MSS)，之后每收到一个ACK，CWND = CWND + 1，直到满足 CWND ≤ ssthresh(慢启动阈值)，则慢启动阶段结束。之所以叫“慢启动”，是相对于没有拥塞控制只有流控制的情况下发送端一次发下不超过接收窗口大小的数据来讲的。</p>
+<p>启动过程：<br>[慢启动门限更新] ：初始化为65535 Bytes，发生拥塞时调整为当前拥塞窗口的一半。<br>[拥塞窗口更新]：CWND = CWND + 1，假设接收端收到了1个包，回1个ACK，ssthresh = 16</p>
+<p>CWND = 1，第一个RTT期间，发出1个包，回来1个ACK<br>CWND = 2，第二个RTT期间，发出2个包，回来2个ACK<br>CWND = 4，第三个RTT期间，发出4个包，回来4个ACK<br>CWND = 8，第四个RTT期间，发出8个包，回来8个ACK<br>CWND = 16，达到慢启动门限，慢启动阶段结束。</p>
+<p>这里为了方便，在描述拥塞窗口的时候用的单位都是1个MSS（最大报文段长度，Maximum Segment Size），实际上使用的拥塞窗口单位都是Bytes（字节）。</p>
+<p>慢启动特征：<br>拥塞窗口大小是随着时间指数上升的。<br><a href="/images/wp-migrate-res/2014/07/slow_start_stage.jpg"><img src="/images/wp-migrate-res/2014/07/slow_start_stage.jpg" alt="slow_start_stage"></a><br>（慢启动和拥塞避免情况下拥塞窗口大小随时间的变化规律，图来源于网络我不想画图了。。。大概就这样）</p>
+<p><strong>（2）拥塞避免阶段</strong><br>CWND超过慢启动门限就会进入拥塞避免阶段。</p>
+<p>拥塞避免过程：<br>[拥塞窗口更新] ：CWND = CWND + 1 / CWND，<br>假设CWND = 16,<br>CWND = 16， 第一个RTT期间，发出16个包，回来16个ACK，<br>CWND = 17， 第二个RTT期间，发出17个包，回来17个ACK，<br>CWND = 18， 第三个RTT期间，发出18个包，回来18个ACK，<br>CWND = 19， 第四个RTT期间，发出19个包，回来19个ACK，<br>CWND = 20， ——————</p>
+<p>拥塞窗口的大小会随着时间线性上升。</p>
+<p><strong>（3）快速重传阶段</strong><br>收到3个重复ACK就会启动快速重传而进入快速重传阶段。<br>重传数据包，不需要等待重传定时器超时。收到3个重复ACK后立即重传数据包。</p>
+<p><strong>（4）快速恢复阶段</strong><br>快速重传结束后，不进入慢启动阶段，而是进入拥塞避免阶段，这就是快速恢复。</p>
+<p>快速恢复过程：<br>[慢启动门限更新] ：更新为当前CWND 的一半，即 ssthresh = CWND / 2<br>[拥塞窗口更新] ： CWND = ssthresh + 3(MSS)</p>
+<p><strong>（5）超时重传阶段</strong><br>在超时定时器超时之前，没有收到ACK，也没有收到重复ACK，就会进入超时重传阶段。<br>重传定时器超时后，重发数据包。</p>
+<p>CWND = 1,<br>ssthresh = 65535</p>
+<p>进入慢启动阶段。</p>
+<hr>
+<p>上面5个阶段划分都是站在发送端的角度去考虑的。这章比较长而且不容易理解，可以消化一段时间了。</p>
+</div></article></div><div id="disqus_thread"></div></div><script>var disqus_shortname = 'angrypowman';
+var disqus_identifier = 'archives/tcp-prof-4.html';
+var disqus_title = 'TCP性能分析技术(4)：数据发送端行为分析';
+var disqus_url = 'http://powman.org/archives/tcp-prof-4.html';
+(function() {
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+})();</script><script id="dsq-count-scr" src="//angrypowman.disqus.com/count.js" async></script></main><footer class="footer-container"><div class="paginator"><a href="/archives/tcp-prof-5.html" class="prev">PREV</a><a href="/archives/tcp-prof-3.html" class="next">NEXT</a></div><div class="copyright"><p>© 2017 <a href="http://powman.org">AngryPowman</a>, powered by <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/AngryPowman/hexo-theme-prontera" target="_blank">hexo-theme-prontera</a>.</p></div></footer><script>(function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;e=o.createElement(i);r=o.getElementsByTagName(i)[0];e.src='//www.google-analytics.com/analytics.js';r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));ga('create',"UA-93668618-1",'auto');ga('send','pageview');</script></body></html>

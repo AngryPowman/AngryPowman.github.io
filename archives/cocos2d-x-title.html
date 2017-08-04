@@ -1,0 +1,119 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><script async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML" integrity="sha384-crwIf/BuaWM9rM65iM+dWFldgQ1Un8jWZMuh3puxb8TOY9+linwLoI7ZHZT+aekW" crossorigin="anonymous"></script><title> cocos2d-x狩猎：打造有大作既视感的游戏标题画面 · 愤怒的泡面</title><meta name="description" content="cocos2d-x狩猎：打造有大作既视感的游戏标题画面 - AngryPowman"><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="icon" href="/favicon.ico"><link rel="stylesheet" href="/css/prontera.css"><link rel="search" type="application/opensearchdescription+xml" href="http://powman.org/atom.xml" title="愤怒的泡面"></head><body><header class="feature-header"><nav class="component-nav"><ul><div class="logo-container"><a href="/"><h2 class="title">愤怒的泡面</h2></a></div><a href="/" target="_self" class="li component-nav-item"><p>主页</p></a><a href="/archives" target="_self" class="li component-nav-item"><p>归档</p></a><a href="/feedback" target="_self" class="li component-nav-item"><p>留言板</p></a><a href="/about" target="_self" class="li component-nav-item"><p>关于我</p></a><ul class="shortcut-icons"><a href="https://github.com/AngryPowman" target="_blank"><img src="/images/github.svg" class="icon"></a><a href="https://www.zhihu.com/people/AngryPowman" target="_blank"><img src="/images/zhihu.svg" class="icon"></a><a href="/atom.xml" target="_blank"><img src="/images/rss.svg" class="icon"></a></ul></ul></nav></header><main class="container"><div id="post-container"><div class="post"><article class="post-block"><h1 class="post-title">cocos2d-x狩猎：打造有大作既视感的游戏标题画面</h1><div class="post-info">Aug 11, 2013</div><div class="post-content"><p>首先要准备一张看起来有大作水准的图片，最好带有火焰色彩的，然后准备几个按钮素材，最后是一首激情澎湃的BGM.<br>我们要做的效果是利用cocos2d-x的物理引擎打造一片火海的效果。cocos2d-x提供了很强的物理引擎，给我们提供了相当多的粒子效果。按照传统的图形算法实现粒子特效，是一种体力活。物理引擎主要作用是提供粒子发射器，粒子有属于自己的运动规则，如果N个粒子一起运动，就变成了带有物理规则的特效。<br><a id="more"></a><br>场景代码：<br>TitleMenuScene.h:</p>
+<p>[cpp]</p>
+<p>#ifndef <strong>HELLOWORLD_SCENE_H</strong></p>
+<p>#define <strong>HELLOWORLD_SCENE_H</strong></p>
+<p>#include &quot;cocos2d.h&quot;</p>
+<p>class TitleMenu : public cocos2d::Layer<br>{<br>public:<br>    // Here’s a difference. Method ‘init’ in cocos2d-x returns bool, instead of returning ‘id’ in cocos2d-iphone<br>    virtual bool init();</p>
+<pre><code>// there&apos;s no &apos;id&apos; in cpp, so we recommend returning the class instance pointer
+static cocos2d::Scene* scene();
+
+// a selector callback
+void startGameCallback(Object* sender);
+void loadGameCallback(Object* sender);
+void creditsCallback(Object* sender);
+void exitGameCallback(Object* sender);
+
+// implement the &amp;quot;static node()&amp;quot; method manually
+CREATE_FUNC(TitleMenu);
+</code></pre><p>};</p>
+<p>#endif // <strong>HELLOWORLD_SCENE_H</strong><br>[/cpp]</p>
+<p>TitleMenuScene.cpp</p>
+<p>[cpp]</p>
+<p>#include &quot;TitleMenuScene.h&quot;</p>
+<p>#include &quot;CodePage.hpp&quot;</p>
+<p>#include &quot;SimpleAudioEngine.h&quot;</p>
+<p>USING_NS_CC;</p>
+<p>Scene<em> TitleMenu::scene()<br>{<br>    // ‘scene’ is an autorelease object<br>    Scene </em>scene = Scene::create();</p>
+<pre><code>// &apos;layer&apos; is an autorelease object
+TitleMenu *layer = TitleMenu::create();
+
+// add layer as a child to scene
+scene-&amp;gt;addChild(layer);
+
+// return the scene
+return scene;
+</code></pre><p>}</p>
+<p>bool TitleMenu::init()<br>{<br>    if ( !Layer::init() )<br>    {<br>        return false;<br>    }</p>
+<pre><code>Size visibleSize = Director::getInstance()-&amp;gt;getVisibleSize();
+Point origin = Director::getInstance()-&amp;gt;getVisibleOrigin();
+
+//播放背景音乐
+CocosDenshion::SimpleAudioEngine::getInstance()-&amp;gt;playBackgroundMusic(&amp;quot;Audio/BGM/attack_on_titan.mp3&amp;quot;, true);
+
+//画背景图
+Sprite* sprite = Sprite::create(&amp;quot;Title/title_bg.png&amp;quot;);
+sprite-&amp;gt;setPosition(Point(visibleSize.width/2 + origin.x, visibleSize.height/2 + origin.y));
+this-&amp;gt;addChild(sprite, 0);
+
+//加载火焰纹理
+cocos2d::Texture2D* fireTex = CCTextureCache::sharedTextureCache()-&amp;gt;addImage(&amp;quot;Effect/fire.png&amp;quot;);
+
+const int fireCount = 11;
+CCParticleSystem* fires[fireCount];
+
+//初始化所有火焰
+for (int i = 0; i &amp;lt; fireCount; ++i)
+    fires[i] = CCParticleFire::create();
+
+fires[0]-&amp;gt;setPosition(Point(100.0f, visibleSize.height - 502.0f));
+fires[1]-&amp;gt;setPosition(Point(200.0f, visibleSize.height - 563.0f));
+fires[2]-&amp;gt;setPosition(Point(300.0f, visibleSize.height - 563.0f));
+fires[3]-&amp;gt;setPosition(Point(400.0f, visibleSize.height - 563.0f));
+fires[4]-&amp;gt;setPosition(Point(500.0f, visibleSize.height - 563.0f));
+fires[5]-&amp;gt;setPosition(Point(600.0f, visibleSize.height - 563.0f));
+fires[6]-&amp;gt;setPosition(Point(700.0f, visibleSize.height - 563.0f));
+fires[7]-&amp;gt;setPosition(Point(800.0f, visibleSize.height - 563.0f));
+fires[8]-&amp;gt;setPosition(Point(900.0f, visibleSize.height - 563.0f));
+fires[9]-&amp;gt;setPosition(Point(1000.0f, visibleSize.height - 563.0f));
+fires[10]-&amp;gt;setPosition(Point(476.0f, visibleSize.height - 170.0f));
+
+for (int i = 0; i &amp;lt; fireCount; ++i)
+{
+    fires[i]-&amp;gt;setTexture(fireTex);
+    fires[i]-&amp;gt;setSpeed(100.0f);
+    this-&amp;gt;addChild(fires[i], 5);
+}
+
+//初始化菜单
+enum { START_GAME, LOAD_GAME, CREDITS, EXIT, MAX_FLAG };
+MenuItemImage* menuItems[MAX_FLAG] =
+{
+    MenuItemImage::create(&amp;quot;Title/newgame_normal.png&amp;quot;, &amp;quot;Title/newgame_selected.png&amp;quot;, CC_CALLBACK_1(TitleMenu::startGameCallback, this)),
+    MenuItemImage::create(&amp;quot;Title/loadgame_normal.png&amp;quot;, &amp;quot;Title/loadgame_selected.png&amp;quot;, CC_CALLBACK_1(TitleMenu::loadGameCallback, this)),
+    MenuItemImage::create(&amp;quot;Title/credits_normal.png&amp;quot;, &amp;quot;Title/credits_selected.png&amp;quot;, CC_CALLBACK_1(TitleMenu::creditsCallback, this)),
+    MenuItemImage::create(&amp;quot;Title/exit_normal.png&amp;quot;, &amp;quot;Title/exit_selected.png&amp;quot;, CC_CALLBACK_1(TitleMenu::exitGameCallback, this))
+};
+
+Menu* menu  = Menu::create();
+for (int i = 0; i &amp;lt; MAX_FLAG; ++i)
+{
+    menuItems[i]-&amp;gt;setPosition(Point(0, (((MAX_FLAG - 1)) - i) * 30));
+    menu-&amp;gt;addChild(menuItems[i]);
+}
+
+menu-&amp;gt;setPosition(ccp(visibleSize.width / 2 - 90, visibleSize.height / 2 - 50));
+this-&amp;gt;addChild(menu, 1);
+
+return true;
+</code></pre><p>}</p>
+<p>void TitleMenu::startGameCallback(Object* sender)<br>{</p>
+<p>}</p>
+<p>void TitleMenu::loadGameCallback(Object* sender)<br>{</p>
+<p>}</p>
+<p>void TitleMenu::creditsCallback(Object* sender)<br>{</p>
+<p>}</p>
+<p>void TitleMenu::exitGameCallback(Object* sender)<br>{<br>    Director::getInstance()-&gt;end();</p>
+<p>#if (CC_TARGET_PLATFORM == CC_PLATFORM_IOS)<br>    exit(0);</p>
+<p>#endif<br>}<br>[/cpp]</p>
+<p>具体实现是在有大作风范背景的适当位置加入火焰。火焰特效通过纹理来表现出效果，火焰扭曲运动则通过cocos2d-x的物理引擎计算。如果你觉得很难调整特效的坐标，可以尝试在PhotoShop中打开背景图，然后把画布的尺寸设置为和游戏窗口分辨率一致，通过信息视图就可以看到鼠标指针当前的坐标了。</p>
+<p>静态效果图：<br><a href="/images/wp-migrate-res/2013/08/ccx_effect_pic.jpg"><img src="/images/wp-migrate-res/2013/08/ccx_effect_pic.jpg" alt="ccx_effect_pic"></a></p>
+<p>素材与可执行文件下载（已带所需库文件，下载后可直接运行游戏）：<a href="/images/wp-migrate-res/2013/08/ccx_title_effect.zip">ccx_title_effect</a></p>
+</div></article></div><div id="disqus_thread"></div></div><script>var disqus_shortname = 'angrypowman';
+var disqus_identifier = 'archives/cocos2d-x-title.html';
+var disqus_title = 'cocos2d-x狩猎：打造有大作既视感的游戏标题画面';
+var disqus_url = 'http://powman.org/archives/cocos2d-x-title.html';
+(function() {
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+})();</script><script id="dsq-count-scr" src="//angrypowman.disqus.com/count.js" async></script></main><footer class="footer-container"><div class="paginator"><a href="/archives/trie.html" class="prev">PREV</a><a href="/archives/io-service-detail-1.html" class="next">NEXT</a></div><div class="copyright"><p>© 2017 <a href="http://powman.org">AngryPowman</a>, powered by <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/AngryPowman/hexo-theme-prontera" target="_blank">hexo-theme-prontera</a>.</p></div></footer><script>(function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;e=o.createElement(i);r=o.getElementsByTagName(i)[0];e.src='//www.google-analytics.com/analytics.js';r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));ga('create',"UA-93668618-1",'auto');ga('send','pageview');</script></body></html>

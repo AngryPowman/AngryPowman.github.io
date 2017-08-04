@@ -1,0 +1,140 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><script async src="//cdn.bootcss.com/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML" integrity="sha384-crwIf/BuaWM9rM65iM+dWFldgQ1Un8jWZMuh3puxb8TOY9+linwLoI7ZHZT+aekW" crossorigin="anonymous"></script><title> Trie字典树算法 · 愤怒的泡面</title><meta name="description" content="Trie字典树算法 - AngryPowman"><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="icon" href="/favicon.ico"><link rel="stylesheet" href="/css/prontera.css"><link rel="search" type="application/opensearchdescription+xml" href="http://powman.org/atom.xml" title="愤怒的泡面"></head><body><header class="feature-header"><nav class="component-nav"><ul><div class="logo-container"><a href="/"><h2 class="title">愤怒的泡面</h2></a></div><a href="/" target="_self" class="li component-nav-item"><p>主页</p></a><a href="/archives" target="_self" class="li component-nav-item"><p>归档</p></a><a href="/feedback" target="_self" class="li component-nav-item"><p>留言板</p></a><a href="/about" target="_self" class="li component-nav-item"><p>关于我</p></a><ul class="shortcut-icons"><a href="https://github.com/AngryPowman" target="_blank"><img src="/images/github.svg" class="icon"></a><a href="https://www.zhihu.com/people/AngryPowman" target="_blank"><img src="/images/zhihu.svg" class="icon"></a><a href="/atom.xml" target="_blank"><img src="/images/rss.svg" class="icon"></a></ul></ul></nav></header><main class="container"><div id="post-container"><div class="post"><article class="post-block"><h1 class="post-title">Trie字典树算法</h1><div class="post-info">Aug 30, 2013</div><div class="post-content"><p>前一段时间写了个微型输入法，使用map进行查找，发现效率不高。正好最近也在针对一个查找功能做优化，针对我的应用场景使用了Trie字典树。</p>
+<a id="more"></a>
+<h1 id="特性"><a href="#特性" class="headerlink" title="特性"></a>特性</h1><p>Trie树属于树形结构，查询效率比红黑树和哈希表都要快。假设有这么一种应用场景：有若干个英文单词，需要快速查找某个单词是否存在于字典中。使用Trie时先从根节点开始查找，直至匹配到给出字符串的最后一个节点。在建立字典树结构时，预先把带有相同前缀的单词合并在同一节点，直至两个单词的某一个字母不同，则再从发生差异的节点中分叉一个子节点。</p>
+<p><strong>节点结构：</strong><br>每个节点对应一个最大可储存字符数组。假设字典只存26个小写英文字母，那么每个节点下应该有一个长度为26的数组。换言说，可存的元素类型越多，单个节点占用内存越大。如果用字典树储存汉字，那么每个节点必须为数千个常用汉字开辟一个数组作为储存空间，占用的内存实在不是一个数量级。不过Trie树就是一种用空间换时间的数据结构，鱼和熊掌往往不可兼得。</p>
+<p><strong>建树细节：</strong></p>
+<ul>
+<li>取要插入字符串的首个字符，从根节点的孩子节点开始，匹配当前字符是否已有节点，有则把指针指向该节点。无则为该字符创建节点，并把指针指向该新建节点。</li>
+<li>迭代。</li>
+<li>遇到要插入字符串末尾结束符时停止迭代，并把最后一个非’\0’字符对应的节点设为末端节点。<br><strong>查找细节：</strong><br>循环取要插入字符串的首个字符，从根节点的孩子节点开始，匹配当前字符是否已有节点，有则继续循环，无则返回False. 直至匹配到最后一个字符则完成查找。</li>
+</ul>
+<p><strong>树结构图：</strong><br>我们用apps, apply, apple, append, back, basic, backen几英文单词创建树形结构：<br><a href="/images/wp-migrate-res/2013/08/trie.png"><img src="/images/wp-migrate-res/2013/08/trie.png" alt="trie"></a></p>
+<p>上图很容易看出，有相同前缀的英文单词，会合并在同一个节点，Trie树顺着一个个节点进行检索，直至找到最后一个节点。代码如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div></pre></td><td class="code"><pre><div class="line">#include &lt;stdio.h&gt;;</div><div class="line"></div><div class="line">struct trie_node</div><div class="line">&#123;</div><div class="line">    static const int letter_count = 26;</div><div class="line"></div><div class="line">    int count;</div><div class="line">    bool is_terminal;</div><div class="line">    char letter;</div><div class="line">    trie_node* childs[letter_count];</div><div class="line"></div><div class="line">    trie_node()</div><div class="line">        : letter(0), count(1), is_terminal(false)</div><div class="line">    &#123;</div><div class="line">        for (int i = 0; i &amp;lt; letter_count; ++i)</div><div class="line">            childs[i] = NULL;</div><div class="line">    &#125;</div><div class="line">&#125;;</div><div class="line"></div><div class="line">class trie</div><div class="line">&#123;</div><div class="line">public:</div><div class="line">    trie()</div><div class="line">        : root_node_(NULL)</div><div class="line">    &#123;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    ~trie()</div><div class="line">    &#123;</div><div class="line">        delete_trie(root_node_);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">public:</div><div class="line">    trie_node* create()</div><div class="line">    &#123;</div><div class="line">        trie_node* n = new trie_node();</div><div class="line">        return n;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    void insert(const char* str)</div><div class="line">    &#123;</div><div class="line">        if (!root_node_ || !str)</div><div class="line">            root_node_ = create();</div><div class="line"></div><div class="line">        trie_node* next_element_node = root_node_;</div><div class="line">        while (*str != 0)</div><div class="line">        &#123;</div><div class="line">            char element_index = *str - &apos;a&apos;;</div><div class="line">            if (!next_element_node-&amp;gt;childs[element_index])</div><div class="line">            &#123;</div><div class="line">                next_element_node-&amp;gt;childs[element_index] = create();</div><div class="line">            &#125;</div><div class="line">            else</div><div class="line">            &#123;</div><div class="line">                next_element_node-&amp;gt;childs[element_index]-&amp;gt;count++;</div><div class="line">            &#125;</div><div class="line"></div><div class="line">            next_element_node = next_element_node-&amp;gt;childs[element_index];</div><div class="line">            next_element_node-&amp;gt;letter = *str;</div><div class="line">            str++;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        next_element_node-&amp;gt;is_terminal = true;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    bool find_word_exists(const char* str)</div><div class="line">    &#123;</div><div class="line">        if (!root_node_ || !str)</div><div class="line">            return NULL;</div><div class="line"></div><div class="line">        trie_node* element_node = root_node_;</div><div class="line">        do</div><div class="line">        &#123;</div><div class="line">            element_node = element_node-&amp;gt;childs[*str - &apos;a&apos;];</div><div class="line">            if (!element_node) return false;</div><div class="line">            str++;</div><div class="line">        &#125; while (*str != 0);</div><div class="line"></div><div class="line">        return element_node-&amp;gt;is_terminal;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    void delete_trie(trie_node* node)</div><div class="line">    &#123;</div><div class="line">        if (!node) return;</div><div class="line">        for(int i = 0; i &amp;lt; trie_node::letter_count; i++)</div><div class="line">        &#123;</div><div class="line">            if(node-&amp;gt;childs[i] != NULL)</div><div class="line">                delete_trie(node-&amp;gt;childs[i]);</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        delete node;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">private:</div><div class="line">    trie_node* root_node_;</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+<h1 id="Trie、红黑树和哈希表的效率对比"><a href="#Trie、红黑树和哈希表的效率对比" class="headerlink" title="Trie、红黑树和哈希表的效率对比"></a>Trie、红黑树和哈希表的效率对比</h1><p>为了测试三者效率，我使用了一份大约有20万个英文词汇，大小约2.2MB的字典文件分别向Trie、红黑树和哈希表进行插入、查询两种操作对比，并做了时间计算。</p>
+<p>测试环境：</p>
+<p><table border="0"></table></p>
+<p><tbody></tbody></p>
+<p><tr></tr></p>
+<p><td>操作系统</td></p>
+<p><td>CentOS 64-bit</td><br></p>
+<p><tr></tr></p>
+<p><td>CPU</td></p>
+<p><td>Intel(R) Core(TM) i7-2600K</td><br></p>
+<p><tr></tr></p>
+<p><td>编译环境</td></p>
+<p><td>g++ 4.4.7</td><br><br><br><br>测试代码：</p>
+<p>[cpp]</p>
+<p>#include &lt;string&gt;</p>
+<p>#include &lt;iostream&gt;</p>
+<p>#include &lt;fstream&gt;</p>
+<p>#include &lt;set&gt;</p>
+<p>#include &lt;unordered_map&gt;</p>
+<p>#include &lt;sys/time.h&gt;</p>
+<p>int main(int argc, char* argv[])<br>{<br>    std::set&lt;std::string&gt; rbtree_dict;<br>    std::unordered_map&lt;std::string, std::string&gt; hash_map_dict;</p>
+<pre><code>trie t;
+long time_sp = 0, time_sp_rbtree = 0, time_sp_hash_map = 0;
+std::ifstream stream_in(&amp;quot;./dict.txt&amp;quot;, std::ios::in);
+if (stream_in.is_open())
+{
+    int count = 0;
+    int lineLength = 1024;
+    char* buffer = new char[lineLength];
+    while(stream_in.getline(buffer, lineLength))
+    {
+        count++;
+        timeval trie_tv_start, trie_tv_end, rbtree_tv_start, rbtree_tv_end, hashmap_tv_start, hashmap_tv_end;
+
+        gettimeofday(&amp;amp;trie_tv_start, NULL);
+        long trie_start = ((long)trie_tv_start.tv_sec) * 1000 + (long)trie_tv_start.tv_usec / 1000;
+        t.insert(buffer);
+        gettimeofday(&amp;amp;trie_tv_end, NULL);
+        time_sp += (((long)trie_tv_end.tv_sec) * 1000 + (long)trie_tv_end.tv_usec / 1000) - trie_start;
+
+        gettimeofday(&amp;amp;rbtree_tv_start, NULL);
+        long rbtree_start = ((long)rbtree_tv_start.tv_sec) * 1000 + (long)rbtree_tv_start.tv_usec / 1000;
+        rbtree_dict.insert(buffer);
+        gettimeofday(&amp;amp;rbtree_tv_end, NULL);
+        time_sp_rbtree += (((long)rbtree_tv_end.tv_sec) * 1000 + (long)rbtree_tv_end.tv_usec / 1000) - rbtree_start;
+
+        gettimeofday(&amp;amp;hashmap_tv_start, NULL);
+        long hashmap_start = ((long)hashmap_tv_start.tv_sec) * 1000 + (long)hashmap_tv_start.tv_usec / 1000;
+        hash_map_dict.insert(std::make_pair(buffer, buffer));
+        gettimeofday(&amp;amp;hashmap_tv_end, NULL);
+        time_sp_hash_map += (((long)hashmap_tv_end.tv_sec) * 1000 + (long)hashmap_tv_end.tv_usec / 1000) - hashmap_start;
+    }
+}
+
+std::cout &amp;lt;&amp;lt; &amp;quot;Build dictionary : \n&amp;quot;
+    &amp;quot;   Trie      : &amp;quot; &amp;lt;&amp;lt; time_sp &amp;lt;&amp;lt; &amp;quot; ms.\n&amp;quot; &amp;lt;&amp;lt;
+    &amp;quot;   Rbtree    : &amp;quot; &amp;lt;&amp;lt; time_sp_rbtree &amp;lt;&amp;lt; &amp;quot; ms.\n&amp;quot; &amp;lt;&amp;lt;
+    &amp;quot;   HashTable : &amp;quot; &amp;lt;&amp;lt; time_sp_hash_map &amp;lt;&amp;lt; &amp;quot; ms.&amp;quot; &amp;lt;&amp;lt; std::endl;
+
+const char* keyword = &amp;quot;zygomaticoauricularis&amp;quot;;
+
+timeval trie_find_tv_start, trie_find_tv_end, rbtree_find_tv_start, rbtree_find_tv_end, hashmap_find_tv_start, hashmap_find_tv_end;
+
+gettimeofday(&amp;amp;trie_find_tv_start, NULL);
+std::string status;
+long trie_start = ((long)trie_find_tv_start.tv_sec) * 1000 + (long)trie_find_tv_start.tv_usec / 1000;
+for (int i = 0; i &amp;lt; 10000; i++)
+{
+    status = t.find_word_exists(keyword) == true ? &amp;quot;true&amp;quot; : &amp;quot;false&amp;quot;;
+}
+gettimeofday(&amp;amp;trie_find_tv_end, NULL);
+long trie_end_time = (((long)trie_find_tv_end.tv_sec) * 1000 + (long)trie_find_tv_end.tv_usec / 1000) - trie_start;
+
+gettimeofday(&amp;amp;rbtree_find_tv_start, NULL);
+long rbtree_start = ((long)rbtree_find_tv_start.tv_sec) * 1000 + (long)rbtree_find_tv_start.tv_usec / 1000;
+for (int i = 0; i &amp;lt; 10000; i++)
+{
+    rbtree_dict.find(keyword);
+}
+gettimeofday(&amp;amp;rbtree_find_tv_end, NULL);
+long rbtree_end_time = (((long)rbtree_find_tv_end.tv_sec) * 1000 + (long)rbtree_find_tv_end.tv_usec / 1000) - rbtree_start;
+
+gettimeofday(&amp;amp;hashmap_find_tv_start, NULL);
+long hashtable_start = ((long)hashmap_find_tv_start.tv_sec) * 1000 + (long)hashmap_find_tv_start.tv_usec / 1000;
+for (int i = 0; i &amp;lt; 10000; i++)
+{
+    hash_map_dict.find(keyword);
+}
+gettimeofday(&amp;amp;hashmap_find_tv_end, NULL);
+long hashtable_end_time = (((long)hashmap_find_tv_end.tv_sec) * 1000 + (long)hashmap_find_tv_end.tv_usec / 1000) - hashtable_start;
+
+std::cout &amp;lt;&amp;lt; &amp;quot;Word &amp;lt;&apos;&amp;quot; &amp;lt;&amp;lt; keyword &amp;lt;&amp;lt; &amp;quot;&apos;&amp;gt; search result : &amp;quot; &amp;lt;&amp;lt; status &amp;lt;&amp;lt; &amp;quot;, elapsed time : \n&amp;quot;
+    &amp;quot;   Trie : &amp;quot; &amp;lt;&amp;lt; trie_end_time &amp;lt;&amp;lt; &amp;quot; ms.\n&amp;quot; &amp;lt;&amp;lt;
+    &amp;quot;   Rbtree : &amp;quot; &amp;lt;&amp;lt; rbtree_end_time &amp;lt;&amp;lt; &amp;quot; ms.\n&amp;quot; &amp;lt;&amp;lt;
+    &amp;quot;   HashTable : &amp;quot; &amp;lt;&amp;lt; hashtable_end_time &amp;lt;&amp;lt; &amp;quot; ms.&amp;quot; &amp;lt;&amp;lt; std::endl;
+
+return 0;
+</code></pre><p>}<br>[/cpp]</p>
+<p>测试结果如下：</p>
+<p><table border="0"></table></p>
+<p><tbody></tbody></p>
+<p><tr></tr></p>
+<p><td></td></p>
+<p><td style="text-align: center;">建表（耗时/ms）</td></p>
+<p><td style="text-align: center;">查询（耗时/ms）</td><br></p>
+<p><tr></tr></p>
+<p><td>Trie（字典树）</td></p>
+<p><td style="text-align: center;">143ms</td></p>
+<p><td style="text-align: center;">0ms</td><br></p>
+<p><tr></tr></p>
+<p><td>std::set（红黑树）</td></p>
+<p><td style="text-align: center;">235ms</td></p>
+<p><td style="text-align: center;">14ms</td><br></p>
+<p><tr></tr></p>
+<p><td>std::unordered_map（哈希表）</td></p>
+<p><td style="text-align: center;">188ms</td></p>
+<p><td style="text-align: center;">8ms</td><br><br><br><br>从测试数据看来，结果无论是建树还是查询，Trie都仅仅是略胜红黑树和哈希表，但也可以看出Trie树这种非常简单的数据结构在这方面的效率足以和红黑树以及哈希表持平甚至略占优势。但并不能因此表明Trie是一种超越红黑树和哈希表的数据结构，它只是更加适合这种以公共前缀进行查询的场合。不过对于上面测试代码，仍然有失公平，比如说在哈希表建表时仍然会把hash key的消耗计算在内。但有趣的是，在VS2012环境下编译并一样在关闭编译器优化的情况下，Windows下的测试数据却普遍比在gcc编译的要慢好几倍甚至好几十倍，这是为什么呢？</p>
+<p>字典文件下载：<a href="/images/wp-migrate-res/2013/08/dict_linux.zip">dict_linux</a></p>
+</div></article></div><div id="disqus_thread"></div></div><script>var disqus_shortname = 'angrypowman';
+var disqus_identifier = 'archives/trie.html';
+var disqus_title = 'Trie字典树算法';
+var disqus_url = 'http://powman.org/archives/trie.html';
+(function() {
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+})();</script><script id="dsq-count-scr" src="//angrypowman.disqus.com/count.js" async></script></main><footer class="footer-container"><div class="paginator"><a href="/archives/confluence-pagetree-expand.html" class="prev">PREV</a><a href="/archives/cocos2d-x-title.html" class="next">NEXT</a></div><div class="copyright"><p>© 2017 <a href="http://powman.org">AngryPowman</a>, powered by <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/AngryPowman/hexo-theme-prontera" target="_blank">hexo-theme-prontera</a>.</p></div></footer><script>(function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;e=o.createElement(i);r=o.getElementsByTagName(i)[0];e.src='//www.google-analytics.com/analytics.js';r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));ga('create',"UA-93668618-1",'auto');ga('send','pageview');</script></body></html>
