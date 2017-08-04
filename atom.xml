@@ -73,7 +73,7 @@
 </tbody>
 </table>
 <p><strong>请求示例</strong><br><code>curl -d &#39;username=AngryPowman&#39; &#39;http://47.90.123.165:8000/api/user/uid&#39;</code></p>
-<p><strong>返回示例</strong><br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">  <span class="attr">code</span>: <span class="number">0</span>,</div><div class="line">  <span class="attr">message</span>: <span class="string">""</span>,</div><div class="line">  <span class="attr">data</span>: &#123;</div><div class="line">      <span class="attr">uid</span>: <span class="number">10000</span></div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p><strong>返回示例</strong><br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">  code: <span class="number">0</span>,</div><div class="line">  message: <span class="string">""</span>,</div><div class="line">  data: &#123;</div><div class="line">      uid: <span class="number">10000</span></div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 <h2 id="用户注册"><a href="#用户注册" class="headerlink" title="用户注册"></a>用户注册</h2><p><strong>请求地址:</strong> <code>/api/user/sign_up</code><br><strong>提交方法:</strong> <code>GET/POST</code><br><strong>说明:</strong> 注册用户<br><strong>参数列表</strong></p>
 <table>
 <thead>
@@ -94,7 +94,7 @@
 </tbody>
 </table>
 <p><strong>请求示例</strong><br><code>curl -d &#39;username=AngryPowman&amp;pwd=123456&#39; &#39;http://47.90.123.165:8000/api/user/sign_up&#39;</code></p>
-<p><strong>返回示例</strong><br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//注册成功</span></div><div class="line">&#123;</div><div class="line">  <span class="attr">code</span>: <span class="number">0</span>,</div><div class="line">  <span class="attr">message</span>: <span class="string">""</span>,</div><div class="line">  <span class="attr">data</span>: &#123;</div><div class="line">      <span class="attr">uid</span>: <span class="number">10000</span></div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p><strong>返回示例</strong><br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//注册成功</span></div><div class="line">&#123;</div><div class="line">  code: <span class="number">0</span>,</div><div class="line">  message: <span class="string">""</span>,</div><div class="line">  data: &#123;</div><div class="line">      uid: <span class="number">10000</span></div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 <h2 id="登录"><a href="#登录" class="headerlink" title="登录"></a>登录</h2><p><strong>请求地址:</strong> <code>/api/user/sign_in</code><br><strong>提交方法:</strong> <code>GET/POST</code><br><strong>说明:</strong> 登录账号并获取服务端返回的access token<br><strong>参数列表</strong></p>
 <table>
 <thead>
@@ -115,7 +115,7 @@
 </tbody>
 </table>
 <p><strong>请求示例</strong><br><code>curl -d &#39;uid=10000&amp;pwd=e10adc3949ba59abbe56e057f20f883e&#39; &#39;http://47.90.123.165:8000/api/user/sign_in&#39;</code></p>
-<p><strong>返回示例</strong><br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">  <span class="attr">code</span>: <span class="number">0</span>,</div><div class="line">  <span class="attr">message</span>: <span class="string">""</span>,</div><div class="line">  <span class="attr">data</span>: &#123;</div><div class="line">      <span class="attr">token</span>: <span class="string">"202cb962ac59075b964b07152d234b70"</span></div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p><strong>返回示例</strong><br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">  code: <span class="number">0</span>,</div><div class="line">  message: <span class="string">""</span>,</div><div class="line">  data: &#123;</div><div class="line">      token: <span class="string">"202cb962ac59075b964b07152d234b70"</span></div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 ]]></content>
     
     <summary type="html">
@@ -171,9 +171,9 @@
     
     <summary type="html">
     
-      &lt;p&gt;前些天把博客从WordPress改为了Hexo, 本来用了开源社区上发布的一款Light主题 &lt;a href=&quot;https://github.com/pinggod/hexo-theme-apollo&quot;&gt;Apollo&lt;/a&gt; ,  初衷是简单在其基础上做些改动。但大家都知道的事实是，程序员往往喜欢把事情弄复杂。于是变成了在其基础上开发出了一款新的主题。&lt;/p&gt;
+      &lt;p&gt;前些天把博客从WordPress改为了Hexo, 本来用了开源社区上发布的一款Light主题 &lt;a href=&quot;https://github.com/pinggod/hexo-theme-apollo&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Apollo&lt;/a&gt; ,  初衷是简单在其基础上做些改动。但大家都知道的事实是，程序员往往喜欢把事情弄复杂。于是变成了在其基础上开发出了一款新的主题。&lt;/p&gt;
 &lt;p&gt;这款主题取名 &lt;strong&gt;Prontera（普隆德拉）&lt;/strong&gt; ，纪念我曾经热爱的一个游戏。之前没有Hexo主题的开发经验，几乎是赶鸭子上架，不过目前的完成度也算满意。模板使用Jade开发（我只学习了10分钟），于是就直接操刀改起了代码，过程还挺顺利的。至于这个样式，是之前跟小伙伴开了一个叫做FOG的开源项目，我在Sketch设计的。不过碎碎之前曾经实现了导航，所以我也很无耻地把他的CSS直接拷贝过来。&lt;/p&gt;
-&lt;p&gt;Github：&lt;a href=&quot;https://github.com/AngryPowman/hexo-theme-prontera&quot;&gt;https://github.com/AngryPowman/hexo-theme-prontera&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Github：&lt;a href=&quot;https://github.com/AngryPowman/hexo-theme-prontera&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://github.com/AngryPowman/hexo-theme-prontera&lt;/a&gt;&lt;/p&gt;
     
     </summary>
     
@@ -199,7 +199,7 @@
       &lt;p&gt;博客好久没更新，再不做点什么感觉会长草。服务器中途也更换了好几次，搬过好几个不同的机房。不过唯有博客一直没更新过，毕竟懒。&lt;/p&gt;
 &lt;p&gt;Hexo是个不错的博客引擎，从WordPress搬到这里的时候其实没花很多心思，直接通过Migrate插件从RSS源生成数据。只是文章内容要做一些修改，Hexo对Markdown友好而WordPress是Html.&lt;/p&gt;
 &lt;p&gt;另外多说是个好插件，之前WordPress也用了多说，目前评论都被保留了下来，不需要手工迁移数据。为了能正确请求到文章的评论，在迁移到Hexo之后，我把URL的结构也改得跟之前一模一样。&lt;/p&gt;
-&lt;p&gt;其次是目前这个主题是用的开源社区第三方分享的 &lt;a href=&quot;https://github.com/pinggod/hexo-theme-apollo&quot;&gt;Apollo&lt;/a&gt; ，很简洁的主题，感谢作者。虽然已经被我改了很多，并且打算抽时间做二次开发。&lt;/p&gt;
+&lt;p&gt;其次是目前这个主题是用的开源社区第三方分享的 &lt;a href=&quot;https://github.com/pinggod/hexo-theme-apollo&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Apollo&lt;/a&gt; ，很简洁的主题，感谢作者。虽然已经被我改了很多，并且打算抽时间做二次开发。&lt;/p&gt;
 &lt;p&gt;给自己挖了个坑，这是时隔好久之后的一次博客更新。&lt;br&gt;
     
     </summary>
@@ -217,7 +217,7 @@
     <content type="html"><![CDATA[<blockquote>
 <p>Quake-III Arena里面有一个闻名游戏界的开平方取倒函数：</p>
 </blockquote>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/*</span></div><div class="line">** float q_rsqrt( float number )</div><div class="line">*/</div><div class="line"><span class="function"><span class="keyword">float</span> <span class="title">Q_rsqrt</span><span class="params">( <span class="keyword">float</span> number )</span></span></div><div class="line">&#123;</div><div class="line">	<span class="keyword">long</span> i;</div><div class="line">	<span class="keyword">float</span> x2, y;</div><div class="line">	<span class="keyword">const</span> <span class="keyword">float</span> threehalfs = <span class="number">1.5F</span>;</div><div class="line"></div><div class="line">	x2 = number * <span class="number">0.5F</span>;</div><div class="line">	y  = number;</div><div class="line">	i  = * ( <span class="keyword">long</span> * ) &amp;y;                       <span class="comment">// evil floating point bit level hacking</span></div><div class="line">	i  = <span class="number">0x5f3759df</span> - ( i &gt;&gt; <span class="number">1</span> );               <span class="comment">// what the fuck?</span></div><div class="line">	y  = * ( <span class="keyword">float</span> * ) &amp;i;</div><div class="line">	y  = y * ( threehalfs - ( x2 * y * y ) );   <span class="comment">// 1st iteration</span></div><div class="line"><span class="comment">//	y  = y * ( threehalfs - ( x2 * y * y ) ); // 2nd iteration, this can be removed</span></div><div class="line"></div><div class="line"><span class="meta">#<span class="meta-keyword">ifndef</span> Q3_VM</span></div><div class="line"><span class="meta">#<span class="meta-keyword">ifdef</span> __linux__</span></div><div class="line">	assert( !isnan(y) ); <span class="comment">// bk010122 - FPE?</span></div><div class="line"><span class="meta">#<span class="meta-keyword">endif</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">endif</span></span></div><div class="line">	<span class="keyword">return</span> y;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/*</span></div><div class="line"><span class="comment">** float q_rsqrt( float number )</span></div><div class="line"><span class="comment">*/</span></div><div class="line"><span class="function"><span class="keyword">float</span> <span class="title">Q_rsqrt</span><span class="params">( <span class="keyword">float</span> number )</span></span></div><div class="line"><span class="function"></span>&#123;</div><div class="line">	<span class="keyword">long</span> i;</div><div class="line">	<span class="keyword">float</span> x2, y;</div><div class="line">	<span class="keyword">const</span> <span class="keyword">float</span> threehalfs = <span class="number">1.5F</span>;</div><div class="line"></div><div class="line">	x2 = number * <span class="number">0.5F</span>;</div><div class="line">	y  = number;</div><div class="line">	i  = * ( <span class="keyword">long</span> * ) &amp;y;                       <span class="comment">// evil floating point bit level hacking</span></div><div class="line">	i  = <span class="number">0x5f3759df</span> - ( i &gt;&gt; <span class="number">1</span> );               <span class="comment">// what the fuck?</span></div><div class="line">	y  = * ( <span class="keyword">float</span> * ) &amp;i;</div><div class="line">	y  = y * ( threehalfs - ( x2 * y * y ) );   <span class="comment">// 1st iteration</span></div><div class="line"><span class="comment">//	y  = y * ( threehalfs - ( x2 * y * y ) ); // 2nd iteration, this can be removed</span></div><div class="line"></div><div class="line"><span class="meta">#<span class="meta-keyword">ifndef</span> Q3_VM</span></div><div class="line"><span class="meta">#<span class="meta-keyword">ifdef</span> __linux__</span></div><div class="line">	assert( !isnan(y) ); <span class="comment">// bk010122 - FPE?</span></div><div class="line"><span class="meta">#<span class="meta-keyword">endif</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">endif</span></span></div><div class="line">	<span class="keyword">return</span> y;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p>第一次看到时着实被酷炫了一把，感觉很厉害，但却无法弄懂它的原理。这个函数的作用是用于对一个数开平方并取倒数，比用C库的sqrt实现(1.0f/sqrt(x))快了将近4倍。实现原理其实是牛顿迭代，也是平方根的一般算法，反复执行 y = y <em> ( threehalfs – ( x2 </em> y * y ) ); 其中y趋向于(1.0f/sqrt(x))，拿到的结果可以无限接近于我们想要的精度。<br><a id="more"></a><br>这个函数实现的算法被称为‘Fast Inverse Square Root’, 而它神奇的地方在于函数里面的实现采用了一个神秘的常数：0x5f3759df. 这个常数的来源目前无法被考究，也不能追溯确定这个常数的方法。</p>
 <p>这里还有个典故，在Q3的代码公布，并且数学家Chris Lomont得知0x5f3759df这个常数之后，他通过用暴力搜索得出了与0x5f3759df非常接近、并且代入后得出的结果更加精确的魔数0x5f375a86，当然，实际上和0x5f3759df还是非常接近。</p>
 <p>3D游戏引擎设计的作者David Eberly曾经发表论文解释了这个算法：<br><a href="http://www.geometrictools.com/Documentation/FastInverseSqrt.pdf" target="_blank" rel="external">http://www.geometrictools.com/Documentation/FastInverseSqrt.pdf</a></p>
@@ -231,7 +231,7 @@
       &lt;blockquote&gt;
 &lt;p&gt;Quake-III Arena里面有一个闻名游戏界的开平方取倒函数：&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;figure class=&quot;highlight cpp&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;4&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;5&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;6&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;7&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;8&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;9&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;10&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;11&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;12&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;13&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;14&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;15&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;16&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;17&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;18&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;19&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;20&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;21&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;22&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;23&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;24&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;/*&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;** float q_rsqrt( float number )&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;*/&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;float&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;Q_rsqrt&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;( &lt;span class=&quot;keyword&quot;&gt;float&lt;/span&gt; number )&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;/span&gt;&amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;	&lt;span class=&quot;keyword&quot;&gt;long&lt;/span&gt; i;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;	&lt;span class=&quot;keyword&quot;&gt;float&lt;/span&gt; x2, y;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;	&lt;span class=&quot;keyword&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;float&lt;/span&gt; threehalfs = &lt;span class=&quot;number&quot;&gt;1.5F&lt;/span&gt;;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;	x2 = number * &lt;span class=&quot;number&quot;&gt;0.5F&lt;/span&gt;;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;	y  = number;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;	i  = * ( &lt;span class=&quot;keyword&quot;&gt;long&lt;/span&gt; * ) &amp;amp;y;                       &lt;span class=&quot;comment&quot;&gt;// evil floating point bit level hacking&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;	i  = &lt;span class=&quot;number&quot;&gt;0x5f3759df&lt;/span&gt; - ( i &amp;gt;&amp;gt; &lt;span class=&quot;number&quot;&gt;1&lt;/span&gt; );               &lt;span class=&quot;comment&quot;&gt;// what the fuck?&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;	y  = * ( &lt;span class=&quot;keyword&quot;&gt;float&lt;/span&gt; * ) &amp;amp;i;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;	y  = y * ( threehalfs - ( x2 * y * y ) );   &lt;span class=&quot;comment&quot;&gt;// 1st iteration&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;//	y  = y * ( threehalfs - ( x2 * y * y ) ); // 2nd iteration, this can be removed&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;meta&quot;&gt;#&lt;span class=&quot;meta-keyword&quot;&gt;ifndef&lt;/span&gt; Q3_VM&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;meta&quot;&gt;#&lt;span class=&quot;meta-keyword&quot;&gt;ifdef&lt;/span&gt; __linux__&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;	assert( !isnan(y) ); &lt;span class=&quot;comment&quot;&gt;// bk010122 - FPE?&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;meta&quot;&gt;#&lt;span class=&quot;meta-keyword&quot;&gt;endif&lt;/span&gt;&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;meta&quot;&gt;#&lt;span class=&quot;meta-keyword&quot;&gt;endif&lt;/span&gt;&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;	&lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; y;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&amp;#125;&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;figure class=&quot;highlight cpp&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;4&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;5&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;6&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;7&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;8&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;9&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;10&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;11&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;12&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;13&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;14&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;15&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;16&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;17&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;18&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;19&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;20&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;21&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;22&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;23&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;24&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;/*&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;** float q_rsqrt( float number )&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;*/&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;float&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;Q_rsqrt&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;( &lt;span class=&quot;keyword&quot;&gt;float&lt;/span&gt; number )&lt;/span&gt;&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;function&quot;&gt;&lt;/span&gt;&amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;	&lt;span class=&quot;keyword&quot;&gt;long&lt;/span&gt; i;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;	&lt;span class=&quot;keyword&quot;&gt;float&lt;/span&gt; x2, y;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;	&lt;span class=&quot;keyword&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;float&lt;/span&gt; threehalfs = &lt;span class=&quot;number&quot;&gt;1.5F&lt;/span&gt;;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;	x2 = number * &lt;span class=&quot;number&quot;&gt;0.5F&lt;/span&gt;;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;	y  = number;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;	i  = * ( &lt;span class=&quot;keyword&quot;&gt;long&lt;/span&gt; * ) &amp;amp;y;                       &lt;span class=&quot;comment&quot;&gt;// evil floating point bit level hacking&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;	i  = &lt;span class=&quot;number&quot;&gt;0x5f3759df&lt;/span&gt; - ( i &amp;gt;&amp;gt; &lt;span class=&quot;number&quot;&gt;1&lt;/span&gt; );               &lt;span class=&quot;comment&quot;&gt;// what the fuck?&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;	y  = * ( &lt;span class=&quot;keyword&quot;&gt;float&lt;/span&gt; * ) &amp;amp;i;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;	y  = y * ( threehalfs - ( x2 * y * y ) );   &lt;span class=&quot;comment&quot;&gt;// 1st iteration&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;//	y  = y * ( threehalfs - ( x2 * y * y ) ); // 2nd iteration, this can be removed&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;meta&quot;&gt;#&lt;span class=&quot;meta-keyword&quot;&gt;ifndef&lt;/span&gt; Q3_VM&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;meta&quot;&gt;#&lt;span class=&quot;meta-keyword&quot;&gt;ifdef&lt;/span&gt; __linux__&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;	assert( !isnan(y) ); &lt;span class=&quot;comment&quot;&gt;// bk010122 - FPE?&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;meta&quot;&gt;#&lt;span class=&quot;meta-keyword&quot;&gt;endif&lt;/span&gt;&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;meta&quot;&gt;#&lt;span class=&quot;meta-keyword&quot;&gt;endif&lt;/span&gt;&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;	&lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; y;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&amp;#125;&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
 &lt;p&gt;第一次看到时着实被酷炫了一把，感觉很厉害，但却无法弄懂它的原理。这个函数的作用是用于对一个数开平方并取倒数，比用C库的sqrt实现(1.0f/sqrt(x))快了将近4倍。实现原理其实是牛顿迭代，也是平方根的一般算法，反复执行 y = y &lt;em&gt; ( threehalfs – ( x2 &lt;/em&gt; y * y ) ); 其中y趋向于(1.0f/sqrt(x))，拿到的结果可以无限接近于我们想要的精度。&lt;br&gt;
     
     </summary>
@@ -305,17 +305,17 @@
     </summary>
     
     
-      <category term="技术" scheme="http://powman.org/tags/%E6%8A%80%E6%9C%AF/"/>
-    
-      <category term="网游服务器" scheme="http://powman.org/tags/%E7%BD%91%E6%B8%B8%E6%9C%8D%E5%8A%A1%E5%99%A8/"/>
-    
       <category term="其它技术" scheme="http://powman.org/tags/%E5%85%B6%E5%AE%83%E6%8A%80%E6%9C%AF/"/>
     
       <category term="协议" scheme="http://powman.org/tags/%E5%8D%8F%E8%AE%AE/"/>
     
+      <category term="技术" scheme="http://powman.org/tags/%E6%8A%80%E6%9C%AF/"/>
+    
       <category term="游戏开发" scheme="http://powman.org/tags/%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91/"/>
     
       <category term="算法" scheme="http://powman.org/tags/%E7%AE%97%E6%B3%95/"/>
+    
+      <category term="网游服务器" scheme="http://powman.org/tags/%E7%BD%91%E6%B8%B8%E6%9C%8D%E5%8A%A1%E5%99%A8/"/>
     
   </entry>
   
@@ -547,13 +547,13 @@
     </summary>
     
     
-      <category term="技术" scheme="http://powman.org/tags/%E6%8A%80%E6%9C%AF/"/>
-    
-      <category term="网络与底层" scheme="http://powman.org/tags/%E7%BD%91%E7%BB%9C%E4%B8%8E%E5%BA%95%E5%B1%82/"/>
-    
       <category term="协议" scheme="http://powman.org/tags/%E5%8D%8F%E8%AE%AE/"/>
     
+      <category term="技术" scheme="http://powman.org/tags/%E6%8A%80%E6%9C%AF/"/>
+    
       <category term="算法" scheme="http://powman.org/tags/%E7%AE%97%E6%B3%95/"/>
+    
+      <category term="网络与底层" scheme="http://powman.org/tags/%E7%BD%91%E7%BB%9C%E4%B8%8E%E5%BA%95%E5%B1%82/"/>
     
   </entry>
   
@@ -576,13 +576,13 @@
     </summary>
     
     
-      <category term="技术" scheme="http://powman.org/tags/%E6%8A%80%E6%9C%AF/"/>
-    
-      <category term="网络与底层" scheme="http://powman.org/tags/%E7%BD%91%E7%BB%9C%E4%B8%8E%E5%BA%95%E5%B1%82/"/>
-    
       <category term="协议" scheme="http://powman.org/tags/%E5%8D%8F%E8%AE%AE/"/>
     
+      <category term="技术" scheme="http://powman.org/tags/%E6%8A%80%E6%9C%AF/"/>
+    
       <category term="算法" scheme="http://powman.org/tags/%E7%AE%97%E6%B3%95/"/>
+    
+      <category term="网络与底层" scheme="http://powman.org/tags/%E7%BD%91%E7%BB%9C%E4%B8%8E%E5%BA%95%E5%B1%82/"/>
     
   </entry>
   
@@ -605,13 +605,13 @@
     </summary>
     
     
-      <category term="技术" scheme="http://powman.org/tags/%E6%8A%80%E6%9C%AF/"/>
-    
-      <category term="网络与底层" scheme="http://powman.org/tags/%E7%BD%91%E7%BB%9C%E4%B8%8E%E5%BA%95%E5%B1%82/"/>
-    
       <category term="协议" scheme="http://powman.org/tags/%E5%8D%8F%E8%AE%AE/"/>
     
+      <category term="技术" scheme="http://powman.org/tags/%E6%8A%80%E6%9C%AF/"/>
+    
       <category term="算法" scheme="http://powman.org/tags/%E7%AE%97%E6%B3%95/"/>
+    
+      <category term="网络与底层" scheme="http://powman.org/tags/%E7%BD%91%E7%BB%9C%E4%B8%8E%E5%BA%95%E5%B1%82/"/>
     
   </entry>
   
@@ -667,13 +667,13 @@
     </summary>
     
     
-      <category term="技术" scheme="http://powman.org/tags/%E6%8A%80%E6%9C%AF/"/>
-    
-      <category term="网络与底层" scheme="http://powman.org/tags/%E7%BD%91%E7%BB%9C%E4%B8%8E%E5%BA%95%E5%B1%82/"/>
-    
       <category term="协议" scheme="http://powman.org/tags/%E5%8D%8F%E8%AE%AE/"/>
     
+      <category term="技术" scheme="http://powman.org/tags/%E6%8A%80%E6%9C%AF/"/>
+    
       <category term="算法" scheme="http://powman.org/tags/%E7%AE%97%E6%B3%95/"/>
+    
+      <category term="网络与底层" scheme="http://powman.org/tags/%E7%BD%91%E7%BB%9C%E4%B8%8E%E5%BA%95%E5%B1%82/"/>
     
   </entry>
   
@@ -710,13 +710,13 @@
     </summary>
     
     
-      <category term="技术" scheme="http://powman.org/tags/%E6%8A%80%E6%9C%AF/"/>
-    
-      <category term="网络与底层" scheme="http://powman.org/tags/%E7%BD%91%E7%BB%9C%E4%B8%8E%E5%BA%95%E5%B1%82/"/>
-    
       <category term="协议" scheme="http://powman.org/tags/%E5%8D%8F%E8%AE%AE/"/>
     
+      <category term="技术" scheme="http://powman.org/tags/%E6%8A%80%E6%9C%AF/"/>
+    
       <category term="算法" scheme="http://powman.org/tags/%E7%AE%97%E6%B3%95/"/>
+    
+      <category term="网络与底层" scheme="http://powman.org/tags/%E7%BD%91%E7%BB%9C%E4%B8%8E%E5%BA%95%E5%B1%82/"/>
     
   </entry>
   
@@ -742,13 +742,13 @@
     
       <category term="技术" scheme="http://powman.org/tags/%E6%8A%80%E6%9C%AF/"/>
     
-      <category term="脚本语言" scheme="http://powman.org/tags/%E8%84%9A%E6%9C%AC%E8%AF%AD%E8%A8%80/"/>
-    
       <category term="Coeus" scheme="http://powman.org/tags/Coeus/"/>
     
       <category term="flatbuffers" scheme="http://powman.org/tags/flatbuffers/"/>
     
       <category term="第三方库" scheme="http://powman.org/tags/%E7%AC%AC%E4%B8%89%E6%96%B9%E5%BA%93/"/>
+    
+      <category term="脚本语言" scheme="http://powman.org/tags/%E8%84%9A%E6%9C%AC%E8%AF%AD%E8%A8%80/"/>
     
   </entry>
   
