@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://powman.org/"/>
-  <updated>2017-03-13T07:37:47.000Z</updated>
+  <updated>2017-03-14T06:46:42.000Z</updated>
   <id>http://powman.org/</id>
   
   <author>
@@ -14,123 +14,6 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
-  
-  <entry>
-    <title>FOG API文档</title>
-    <link href="http://powman.org/archives/fog-api.html"/>
-    <id>http://powman.org/archives/fog-api.html</id>
-    <published>2017-03-13T06:42:39.000Z</published>
-    <updated>2017-03-13T07:37:47.000Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="用户系统"><a href="#用户系统" class="headerlink" title="用户系统"></a>用户系统</h1><p><strong>相关错误码</strong></p>
-<table>
-<thead>
-<tr>
-<th>错误码</th>
-<th>描述</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>101</td>
-<td>用户不存在</td>
-</tr>
-<tr>
-<td>102</td>
-<td>用户名或密码不匹配</td>
-</tr>
-<tr>
-<td>103</td>
-<td>用户被禁用</td>
-</tr>
-<tr>
-<td>104</td>
-<td>用户已存在</td>
-</tr>
-<tr>
-<td>105</td>
-<td>用户名或密码不合法</td>
-</tr>
-<tr>
-<td>106</td>
-<td>注册失败（未知原因）</td>
-</tr>
-</tbody>
-</table>
-<h2 id="查询UID"><a href="#查询UID" class="headerlink" title="查询UID"></a>查询UID</h2><p><strong>请求地址:</strong> <code>/api/user/uid</code><br><strong>提交方法:</strong> <code>GET/POST</code><br><strong>说明:</strong> 通过用户输入的账号查询唯一uid<br><strong>参数列表</strong></p>
-<table>
-<thead>
-<tr>
-<th>参数</th>
-<th>说明</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>username</code></td>
-<td>用户名（可能是邮箱/用户名/手机号等）</td>
-</tr>
-</tbody>
-</table>
-<p><strong>请求示例</strong><br><code>curl -d &#39;username=AngryPowman&#39; &#39;http://47.90.123.165:8000/api/user/uid&#39;</code></p>
-<p><strong>返回示例</strong><br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">  code: <span class="number">0</span>,</div><div class="line">  message: <span class="string">""</span>,</div><div class="line">  data: &#123;</div><div class="line">      uid: <span class="number">10000</span></div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<h2 id="用户注册"><a href="#用户注册" class="headerlink" title="用户注册"></a>用户注册</h2><p><strong>请求地址:</strong> <code>/api/user/sign_up</code><br><strong>提交方法:</strong> <code>GET/POST</code><br><strong>说明:</strong> 注册用户<br><strong>参数列表</strong></p>
-<table>
-<thead>
-<tr>
-<th>参数</th>
-<th>说明</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>username</code></td>
-<td>注册用户名</td>
-</tr>
-<tr>
-<td><code>pwd</code></td>
-<td>明文注册密码</td>
-</tr>
-</tbody>
-</table>
-<p><strong>请求示例</strong><br><code>curl -d &#39;username=AngryPowman&amp;pwd=123456&#39; &#39;http://47.90.123.165:8000/api/user/sign_up&#39;</code></p>
-<p><strong>返回示例</strong><br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//注册成功</span></div><div class="line">&#123;</div><div class="line">  code: <span class="number">0</span>,</div><div class="line">  message: <span class="string">""</span>,</div><div class="line">  data: &#123;</div><div class="line">      uid: <span class="number">10000</span></div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<h2 id="登录"><a href="#登录" class="headerlink" title="登录"></a>登录</h2><p><strong>请求地址:</strong> <code>/api/user/sign_in</code><br><strong>提交方法:</strong> <code>GET/POST</code><br><strong>说明:</strong> 登录账号并获取服务端返回的access token<br><strong>参数列表</strong></p>
-<table>
-<thead>
-<tr>
-<th>参数</th>
-<th>说明</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>uid</code></td>
-<td>用户唯一ID</td>
-</tr>
-<tr>
-<td><code>pwd</code></td>
-<td>md5(明文密码)</td>
-</tr>
-</tbody>
-</table>
-<p><strong>请求示例</strong><br><code>curl -d &#39;uid=10000&amp;pwd=e10adc3949ba59abbe56e057f20f883e&#39; &#39;http://47.90.123.165:8000/api/user/sign_in&#39;</code></p>
-<p><strong>返回示例</strong><br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">  code: <span class="number">0</span>,</div><div class="line">  message: <span class="string">""</span>,</div><div class="line">  data: &#123;</div><div class="line">      token: <span class="string">"202cb962ac59075b964b07152d234b70"</span></div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h1 id=&quot;用户系统&quot;&gt;&lt;a href=&quot;#用户系统&quot; class=&quot;headerlink&quot; title=&quot;用户系统&quot;&gt;&lt;/a&gt;用户系统&lt;/h1&gt;&lt;p&gt;&lt;strong&gt;相关错误码&lt;/strong&gt;&lt;/p&gt;
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;错误码&lt;/th&gt;
-&lt;
-    
-    </summary>
-    
-    
-  </entry>
   
   <entry>
     <title>发布本博客Hexo主题：Prontera</title>
@@ -835,6 +718,34 @@
     <summary type="html">
     
       &lt;p&gt;今天听逗啦对我们提起他的无名指没反应了，不能动，替他难过。前段时间他伤到了右手，划了一道很大的口子，手掌伤势接近被对半分开，甚至看到露在外面的骨头。当时是我送他去医院的，一路上流了很多血，伤口看着触目惊心。&lt;br&gt;
+    
+    </summary>
+    
+    
+      <category term="杂项" scheme="http://powman.org/tags/%E6%9D%82%E9%A1%B9/"/>
+    
+      <category term="随笔" scheme="http://powman.org/tags/%E9%9A%8F%E7%AC%94/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>调整</title>
+    <link href="http://powman.org/archives/574.html"/>
+    <id>http://powman.org/archives/574.html</id>
+    <published>2014-07-04T08:41:00.000Z</published>
+    <updated>2017-03-11T09:38:31.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>这几天我终于把作息时间调整过来了，这是个很好的坚持，我想应该能持续很长的一段时间。如果你发现我1点之后还在，请监督我。我发现一件事，早上的工作效率果然是比较高的，我可以用来写代码，但是晚上练琴的效率却相当低，不过不得不说，Summer真是一首非常耐听的曲子，越练越带感，就是后面速度对我来说有点太快了。<br><a id="more"></a><br>可以做个总结，在不晚睡的情况下，早上的状态做任何事都比较好。</p>
+<p>一般情况下我都不会按时作息，可能是长期习惯导致的，我经常是凌晨两三点睡觉，然后中午10点多才起床。大家把这种习惯称为晚睡强迫症。</p>
+<p>最近又发现了一件比较厉害的事，我每天实际上在工作的时间居然不到3小时，其它时间不是在看书就是看AB站和公开课。不过还是耽误到工作进度了，这个习惯也算不上太好，只是工作上的东西的确有点琐碎，断断续续的让人不知所措。其实有时候我经常盯着群聊天看各种嘴炮并且听着音乐发呆，思考人生大道理，我是不怎么喜欢插嘴了，很多相同的话题都老生常谈，反复争论也没什么意思，发个表情刷刷存在感，太高调也不好。我看我是比同龄人老了些，不过同时也羡慕他们有这么好的争论激情，估计这就是参加工作和还没参加工作的人的区别，我开始步入了中年男人的行列了。。</p>
+<p>临近毕业，又有各种担忧前途党、入坑党、找工作党来咨询问题了，我就知道。作为一名伪心理辅导师，我觉得应该要明白一句话，那就是少壮不努力，老大抢小米。合理安排娱乐，正事儿可不能落下。。好吧，我没有贬低小米或者任何人的意思。</p>
+<p><img src="/images/wp-migrate-res/2014/07/doge.jpeg" alt="doge"></p>
+<p>最近应该算是把附近能吃的地方都吃过了，不得不说附近能吃东西的地方真的很少！<br>如果换工作，一定要去一个附近有很多吃的地方。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;这几天我终于把作息时间调整过来了，这是个很好的坚持，我想应该能持续很长的一段时间。如果你发现我1点之后还在，请监督我。我发现一件事，早上的工作效率果然是比较高的，我可以用来写代码，但是晚上练琴的效率却相当低，不过不得不说，Summer真是一首非常耐听的曲子，越练越带感，就是后面速度对我来说有点太快了。&lt;br&gt;
     
     </summary>
     
