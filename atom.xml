@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title>愤怒的泡面</title>
+  
   <subtitle>十年饮冰，难凉热血</subtitle>
   <link href="/atom.xml" rel="self"/>
   
-  <link href="http://powman.org/"/>
+  <link href="https://powman.org/"/>
   <updated>2017-03-14T06:46:42.000Z</updated>
-  <id>http://powman.org/</id>
+  <id>https://powman.org/</id>
   
   <author>
     <name>AngryPowman</name>
@@ -17,46 +18,18 @@
   
   <entry>
     <title>发布本博客Hexo主题：Prontera</title>
-    <link href="http://powman.org/archives/theme-prontera.html"/>
-    <id>http://powman.org/archives/theme-prontera.html</id>
+    <link href="https://powman.org/archives/theme-prontera.html"/>
+    <id>https://powman.org/archives/theme-prontera.html</id>
     <published>2017-03-12T19:46:00.000Z</published>
     <updated>2017-03-14T06:46:42.000Z</updated>
     
-    <content type="html"><![CDATA[<p>前些天把博客从WordPress改为了Hexo, 本来用了开源社区上发布的一款Light主题 <a href="https://github.com/pinggod/hexo-theme-apollo" target="_blank" rel="external">Apollo</a> ,  初衷是简单在其基础上做些改动。但大家都知道的事实是，程序员往往喜欢把事情弄复杂。于是变成了在其基础上开发出了一款新的主题。</p>
-<p>这款主题取名 <strong>Prontera（普隆德拉）</strong> ，纪念我曾经热爱的一个游戏。之前没有Hexo主题的开发经验，几乎是赶鸭子上架，不过目前的完成度也算满意。模板使用Jade开发（我只学习了10分钟），于是就直接操刀改起了代码，过程还挺顺利的。至于这个样式，是之前跟小伙伴开了一个叫做FOG的开源项目，我在Sketch设计的。不过碎碎之前曾经实现了导航，所以我也很无耻地把他的CSS直接拷贝过来。</p>
-<p>Github：<a href="https://github.com/AngryPowman/hexo-theme-prontera" target="_blank" rel="external">https://github.com/AngryPowman/hexo-theme-prontera</a></p>
-<a id="more"></a>
-<h2 id="插件依赖"><a href="#插件依赖" class="headerlink" title="插件依赖"></a>插件依赖</h2><ul>
-<li>hexo-generator-archive</li>
-</ul>
-<h2 id="安装步骤"><a href="#安装步骤" class="headerlink" title="安装步骤"></a>安装步骤</h2><p>从Github把代码clone到Hexo博客的主题目录中：<br><code>git clone https://github.com/AngryPowman/hexo-theme-prontera themes/prontera</code></p>
-<p>修改Hexo根目录的_config.yml中应用的主题为 <strong>prontera</strong>:<br><figure class="highlight yaml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># Extensions</span></div><div class="line"><span class="comment">## Plugins: https://hexo.io/plugins/</span></div><div class="line"><span class="comment">## Themes: https://hexo.io/themes/</span></div><div class="line"><span class="attr">theme:</span> <span class="string">prontera</span></div></pre></td></tr></table></figure></p>
-<p>增加hexo-generator-archive的配置：<br><figure class="highlight yaml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># Show all articles on archive page</span></div><div class="line"><span class="attr">archive_generator:</span></div><div class="line"><span class="attr">    per_page:</span> <span class="number">0</span></div><div class="line"><span class="attr">    yearly:</span> <span class="literal">false</span></div><div class="line"><span class="attr">    monthly:</span> <span class="literal">true</span></div><div class="line"><span class="attr">    daily:</span> <span class="literal">false</span></div></pre></td></tr></table></figure></p>
-<h2 id="主题特性"><a href="#主题特性" class="headerlink" title="主题特性"></a>主题特性</h2><ul>
-<li>自定义导航菜单</li>
-<li>自定义快捷图标</li>
-<li>首页关于信息</li>
-<li>支持多说评论以及disqus</li>
-<li>支持Google Analytics以及腾讯统计</li>
-</ul>
-<h2 id="主题配置（范例）"><a href="#主题配置（范例）" class="headerlink" title="主题配置（范例）"></a>主题配置（范例）</h2><p>themes/prontera/_config.yml:<br><figure class="highlight yaml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># Nav Menus</span></div><div class="line"><span class="attr">menu:</span></div><div class="line">    <span class="string">主页:</span> <span class="string">/</span></div><div class="line">    <span class="string">归档:</span> <span class="string">/archives/</span></div><div class="line">    <span class="string">关于我:</span> <span class="string">/about.html</span></div><div class="line"></div><div class="line"><span class="comment"># Nav Shortcut Icons</span></div><div class="line"><span class="attr">nav_icons:</span></div><div class="line"><span class="bullet">    -</span> <span class="string">['/images/github.svg',</span> <span class="string">'https://github.com/AngryPowman'</span><span class="string">]</span></div><div class="line"><span class="bullet">    -</span> <span class="string">['/images/rss.svg',</span> <span class="string">'/atom.xml'</span><span class="string">]</span></div><div class="line"></div><div class="line"><span class="attr">favicon:</span> <span class="string">/favicon.ico</span></div><div class="line"></div><div class="line"><span class="comment"># About</span></div><div class="line"><span class="attr">about_info:</span></div><div class="line"><span class="attr">    name:</span> <span class="string">"愤怒的泡面"</span></div><div class="line"><span class="attr">    bio:</span> <span class="string">"十年饮冰·难凉热血"</span></div><div class="line"><span class="attr">    avatar:</span> <span class="string">"/images/avatar.png"</span></div><div class="line"></div><div class="line"><span class="comment"># Comment</span></div><div class="line"><span class="comment"># e.g disqus: seansun</span></div><div class="line"><span class="attr">disqus:</span></div><div class="line"><span class="attr">duoshuo:</span> <span class="string">angrypowman</span></div><div class="line"></div><div class="line"><span class="comment"># Analytics</span></div><div class="line"><span class="comment"># google_analytics: UA-65933410-1</span></div><div class="line"><span class="attr">tencent_analytics:</span> <span class="number">27319631</span></div><div class="line"> </div><div class="line"><span class="comment"># Copyright Infomation</span></div><div class="line"><span class="attr">startyear:</span> <span class="number">2017</span></div></pre></td></tr></table></figure></p>
-<h2 id="关于二次开发"><a href="#关于二次开发" class="headerlink" title="关于二次开发"></a>关于二次开发</h2><p>如果你希望修改这个主题，可以直接通过修改主题目录下的scss文件进行样式调整。</p>
-<p>如果你对配色不满意，可以简单地通过更改主色调。方法如下：<br>找到 <code>themes/prontera/source/scss/_partial/base.scss</code> ，修改 <code>$MAIN_COLOR</code> 常量即可。</p>
-<p>因为使用了sass预处理, 在修改scss文件之后，需要在 <code>themes/prontera</code> 目录下执行 <code>gulp</code>.</p>
-<h2 id="后续开发计划"><a href="#后续开发计划" class="headerlink" title="后续开发计划"></a>后续开发计划</h2><ul>
-<li>友情链接</li>
-<li>Tags聚合</li>
-<li>留言板</li>
-<li>适配移动设备</li>
-</ul>
-<p>使用过程中有问题可以在这里留言，也可以到Github给我提ISSUE或PR.</p>
-]]></content>
+    <content type="html"><![CDATA[<p>前些天把博客从WordPress改为了Hexo, 本来用了开源社区上发布的一款Light主题 <a href="https://github.com/pinggod/hexo-theme-apollo" target="_blank" rel="noopener">Apollo</a> ,  初衷是简单在其基础上做些改动。但大家都知道的事实是，程序员往往喜欢把事情弄复杂。于是变成了在其基础上开发出了一款新的主题。</p><p>这款主题取名 <strong>Prontera（普隆德拉）</strong> ，纪念我曾经热爱的一个游戏。之前没有Hexo主题的开发经验，几乎是赶鸭子上架，不过目前的完成度也算满意。模板使用Jade开发（我只学习了10分钟），于是就直接操刀改起了代码，过程还挺顺利的。至于这个样式，是之前跟小伙伴开了一个叫做FOG的开源项目，我在Sketch设计的。不过碎碎之前曾经实现了导航，所以我也很无耻地把他的CSS直接拷贝过来。</p><p>Github：<a href="https://github.com/AngryPowman/hexo-theme-prontera" target="_blank" rel="noopener">https://github.com/AngryPowman/hexo-theme-prontera</a></p><a id="more"></a><h2 id="插件依赖"><a href="#插件依赖" class="headerlink" title="插件依赖"></a>插件依赖</h2><ul><li>hexo-generator-archive</li></ul><h2 id="安装步骤"><a href="#安装步骤" class="headerlink" title="安装步骤"></a>安装步骤</h2><p>从Github把代码clone到Hexo博客的主题目录中：<br><code>git clone https://github.com/AngryPowman/hexo-theme-prontera themes/prontera</code></p><p>修改Hexo根目录的_config.yml中应用的主题为 <strong>prontera</strong>:<br><figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Extensions</span></span><br><span class="line"><span class="comment">## Plugins: https://hexo.io/plugins/</span></span><br><span class="line"><span class="comment">## Themes: https://hexo.io/themes/</span></span><br><span class="line"><span class="attr">theme:</span> <span class="string">prontera</span></span><br></pre></td></tr></table></figure></p><p>增加hexo-generator-archive的配置：<br><figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Show all articles on archive page</span></span><br><span class="line"><span class="attr">archive_generator:</span></span><br><span class="line"><span class="attr">    per_page:</span> <span class="number">0</span></span><br><span class="line"><span class="attr">    yearly:</span> <span class="literal">false</span></span><br><span class="line"><span class="attr">    monthly:</span> <span class="literal">true</span></span><br><span class="line"><span class="attr">    daily:</span> <span class="literal">false</span></span><br></pre></td></tr></table></figure></p><h2 id="主题特性"><a href="#主题特性" class="headerlink" title="主题特性"></a>主题特性</h2><ul><li>自定义导航菜单</li><li>自定义快捷图标</li><li>首页关于信息</li><li>支持多说评论以及disqus</li><li>支持Google Analytics以及腾讯统计</li></ul><h2 id="主题配置（范例）"><a href="#主题配置（范例）" class="headerlink" title="主题配置（范例）"></a>主题配置（范例）</h2><p>themes/prontera/_config.yml:<br><figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Nav Menus</span></span><br><span class="line"><span class="attr">menu:</span></span><br><span class="line">    <span class="string">主页:</span> <span class="string">/</span></span><br><span class="line">    <span class="string">归档:</span> <span class="string">/archives/</span></span><br><span class="line">    <span class="string">关于我:</span> <span class="string">/about.html</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Nav Shortcut Icons</span></span><br><span class="line"><span class="attr">nav_icons:</span></span><br><span class="line"><span class="bullet">    -</span> <span class="string">['/images/github.svg',</span> <span class="string">'https://github.com/AngryPowman'</span><span class="string">]</span></span><br><span class="line"><span class="bullet">    -</span> <span class="string">['/images/rss.svg',</span> <span class="string">'/atom.xml'</span><span class="string">]</span></span><br><span class="line"></span><br><span class="line"><span class="attr">favicon:</span> <span class="string">/favicon.ico</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># About</span></span><br><span class="line"><span class="attr">about_info:</span></span><br><span class="line"><span class="attr">    name:</span> <span class="string">"愤怒的泡面"</span></span><br><span class="line"><span class="attr">    bio:</span> <span class="string">"十年饮冰·难凉热血"</span></span><br><span class="line"><span class="attr">    avatar:</span> <span class="string">"/images/avatar.png"</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Comment</span></span><br><span class="line"><span class="comment"># e.g disqus: seansun</span></span><br><span class="line"><span class="attr">disqus:</span></span><br><span class="line"><span class="attr">duoshuo:</span> <span class="string">angrypowman</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Analytics</span></span><br><span class="line"><span class="comment"># google_analytics: UA-65933410-1</span></span><br><span class="line"><span class="attr">tencent_analytics:</span> <span class="number">27319631</span></span><br><span class="line"> </span><br><span class="line"><span class="comment"># Copyright Infomation</span></span><br><span class="line"><span class="attr">startyear:</span> <span class="number">2017</span></span><br></pre></td></tr></table></figure></p><h2 id="关于二次开发"><a href="#关于二次开发" class="headerlink" title="关于二次开发"></a>关于二次开发</h2><p>如果你希望修改这个主题，可以直接通过修改主题目录下的scss文件进行样式调整。</p><p>如果你对配色不满意，可以简单地通过更改主色调。方法如下：<br>找到 <code>themes/prontera/source/scss/_partial/base.scss</code> ，修改 <code>$MAIN_COLOR</code> 常量即可。</p><p>因为使用了sass预处理, 在修改scss文件之后，需要在 <code>themes/prontera</code> 目录下执行 <code>gulp</code>.</p><h2 id="后续开发计划"><a href="#后续开发计划" class="headerlink" title="后续开发计划"></a>后续开发计划</h2><ul><li>友情链接</li><li>Tags聚合</li><li>留言板</li><li>适配移动设备</li></ul><p>使用过程中有问题可以在这里留言，也可以到Github给我提ISSUE或PR.</p>]]></content>
     
     <summary type="html">
     
-      &lt;p&gt;前些天把博客从WordPress改为了Hexo, 本来用了开源社区上发布的一款Light主题 &lt;a href=&quot;https://github.com/pinggod/hexo-theme-apollo&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Apollo&lt;/a&gt; ,  初衷是简单在其基础上做些改动。但大家都知道的事实是，程序员往往喜欢把事情弄复杂。于是变成了在其基础上开发出了一款新的主题。&lt;/p&gt;
+      &lt;p&gt;前些天把博客从WordPress改为了Hexo, 本来用了开源社区上发布的一款Light主题 &lt;a href=&quot;https://github.com/pinggod/hexo-theme-apollo&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Apollo&lt;/a&gt; ,  初衷是简单在其基础上做些改动。但大家都知道的事实是，程序员往往喜欢把事情弄复杂。于是变成了在其基础上开发出了一款新的主题。&lt;/p&gt;
 &lt;p&gt;这款主题取名 &lt;strong&gt;Prontera（普隆德拉）&lt;/strong&gt; ，纪念我曾经热爱的一个游戏。之前没有Hexo主题的开发经验，几乎是赶鸭子上架，不过目前的完成度也算满意。模板使用Jade开发（我只学习了10分钟），于是就直接操刀改起了代码，过程还挺顺利的。至于这个样式，是之前跟小伙伴开了一个叫做FOG的开源项目，我在Sketch设计的。不过碎碎之前曾经实现了导航，所以我也很无耻地把他的CSS直接拷贝过来。&lt;/p&gt;
-&lt;p&gt;Github：&lt;a href=&quot;https://github.com/AngryPowman/hexo-theme-prontera&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://github.com/AngryPowman/hexo-theme-prontera&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Github：&lt;a href=&quot;https://github.com/AngryPowman/hexo-theme-prontera&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;https://github.com/AngryPowman/hexo-theme-prontera&lt;/a&gt;&lt;/p&gt;
     
     </summary>
     
@@ -65,24 +38,19 @@
   
   <entry>
     <title>复活：博客迁移到Hexo</title>
-    <link href="http://powman.org/archives/migrate-hexo.html"/>
-    <id>http://powman.org/archives/migrate-hexo.html</id>
+    <link href="https://powman.org/archives/migrate-hexo.html"/>
+    <id>https://powman.org/archives/migrate-hexo.html</id>
     <published>2017-03-10T14:49:00.000Z</published>
     <updated>2017-03-11T09:46:54.000Z</updated>
     
-    <content type="html"><![CDATA[<p>博客好久没更新，再不做点什么感觉会长草。服务器中途也更换了好几次，搬过好几个不同的机房。不过唯有博客一直没更新过，毕竟懒。</p>
-<p>Hexo是个不错的博客引擎，从WordPress搬到这里的时候其实没花很多心思，直接通过Migrate插件从RSS源生成数据。只是文章内容要做一些修改，Hexo对Markdown友好而WordPress是Html.</p>
-<p>另外多说是个好插件，之前WordPress也用了多说，目前评论都被保留了下来，不需要手工迁移数据。为了能正确请求到文章的评论，在迁移到Hexo之后，我把URL的结构也改得跟之前一模一样。</p>
-<p>其次是目前这个主题是用的开源社区第三方分享的 <a href="https://github.com/pinggod/hexo-theme-apollo" target="_blank" rel="external">Apollo</a> ，很简洁的主题，感谢作者。虽然已经被我改了很多，并且打算抽时间做二次开发。</p>
-<p>给自己挖了个坑，这是时隔好久之后的一次博客更新。<br><a id="more"></a></p>
-]]></content>
+    <content type="html"><![CDATA[<p>博客好久没更新，再不做点什么感觉会长草。服务器中途也更换了好几次，搬过好几个不同的机房。不过唯有博客一直没更新过，毕竟懒。</p><p>Hexo是个不错的博客引擎，从WordPress搬到这里的时候其实没花很多心思，直接通过Migrate插件从RSS源生成数据。只是文章内容要做一些修改，Hexo对Markdown友好而WordPress是Html.</p><p>另外多说是个好插件，之前WordPress也用了多说，目前评论都被保留了下来，不需要手工迁移数据。为了能正确请求到文章的评论，在迁移到Hexo之后，我把URL的结构也改得跟之前一模一样。</p><p>其次是目前这个主题是用的开源社区第三方分享的 <a href="https://github.com/pinggod/hexo-theme-apollo" target="_blank" rel="noopener">Apollo</a> ，很简洁的主题，感谢作者。虽然已经被我改了很多，并且打算抽时间做二次开发。</p><p>给自己挖了个坑，这是时隔好久之后的一次博客更新。<br><a id="more"></a></p>]]></content>
     
     <summary type="html">
     
       &lt;p&gt;博客好久没更新，再不做点什么感觉会长草。服务器中途也更换了好几次，搬过好几个不同的机房。不过唯有博客一直没更新过，毕竟懒。&lt;/p&gt;
 &lt;p&gt;Hexo是个不错的博客引擎，从WordPress搬到这里的时候其实没花很多心思，直接通过Migrate插件从RSS源生成数据。只是文章内容要做一些修改，Hexo对Markdown友好而WordPress是Html.&lt;/p&gt;
 &lt;p&gt;另外多说是个好插件，之前WordPress也用了多说，目前评论都被保留了下来，不需要手工迁移数据。为了能正确请求到文章的评论，在迁移到Hexo之后，我把URL的结构也改得跟之前一模一样。&lt;/p&gt;
-&lt;p&gt;其次是目前这个主题是用的开源社区第三方分享的 &lt;a href=&quot;https://github.com/pinggod/hexo-theme-apollo&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Apollo&lt;/a&gt; ，很简洁的主题，感谢作者。虽然已经被我改了很多，并且打算抽时间做二次开发。&lt;/p&gt;
+&lt;p&gt;其次是目前这个主题是用的开源社区第三方分享的 &lt;a href=&quot;https://github.com/pinggod/hexo-theme-apollo&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Apollo&lt;/a&gt; ，很简洁的主题，感谢作者。虽然已经被我改了很多，并且打算抽时间做二次开发。&lt;/p&gt;
 &lt;p&gt;给自己挖了个坑，这是时隔好久之后的一次博客更新。&lt;br&gt;
     
     </summary>
@@ -92,94 +60,62 @@
   
   <entry>
     <title>神奇的0x5f3759df</title>
-    <link href="http://powman.org/archives/0x5f3759df.html"/>
-    <id>http://powman.org/archives/0x5f3759df.html</id>
+    <link href="https://powman.org/archives/0x5f3759df.html"/>
+    <id>https://powman.org/archives/0x5f3759df.html</id>
     <published>2015-03-18T18:15:00.000Z</published>
     <updated>2017-03-17T13:11:05.000Z</updated>
     
-    <content type="html"><![CDATA[<blockquote>
-<p>Quake-III Arena里面有一个闻名游戏界的开平方取倒函数：</p>
-</blockquote>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/*</span></div><div class="line"><span class="comment">** float q_rsqrt( float number )</span></div><div class="line"><span class="comment">*/</span></div><div class="line"><span class="function"><span class="keyword">float</span> <span class="title">Q_rsqrt</span><span class="params">( <span class="keyword">float</span> number )</span></span></div><div class="line"><span class="function"></span>&#123;</div><div class="line">	<span class="keyword">long</span> i;</div><div class="line">	<span class="keyword">float</span> x2, y;</div><div class="line">	<span class="keyword">const</span> <span class="keyword">float</span> threehalfs = <span class="number">1.5F</span>;</div><div class="line"></div><div class="line">	x2 = number * <span class="number">0.5F</span>;</div><div class="line">	y  = number;</div><div class="line">	i  = * ( <span class="keyword">long</span> * ) &amp;y;                       <span class="comment">// evil floating point bit level hacking</span></div><div class="line">	i  = <span class="number">0x5f3759df</span> - ( i &gt;&gt; <span class="number">1</span> );               <span class="comment">// what the fuck?</span></div><div class="line">	y  = * ( <span class="keyword">float</span> * ) &amp;i;</div><div class="line">	y  = y * ( threehalfs - ( x2 * y * y ) );   <span class="comment">// 1st iteration</span></div><div class="line"><span class="comment">//	y  = y * ( threehalfs - ( x2 * y * y ) ); // 2nd iteration, this can be removed</span></div><div class="line"></div><div class="line"><span class="meta">#<span class="meta-keyword">ifndef</span> Q3_VM</span></div><div class="line"><span class="meta">#<span class="meta-keyword">ifdef</span> __linux__</span></div><div class="line">	assert( !isnan(y) ); <span class="comment">// bk010122 - FPE?</span></div><div class="line"><span class="meta">#<span class="meta-keyword">endif</span></span></div><div class="line"><span class="meta">#<span class="meta-keyword">endif</span></span></div><div class="line">	<span class="keyword">return</span> y;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>第一次看到时着实被酷炫了一把，感觉很厉害，但却无法弄懂它的原理。这个函数的作用是用于对一个数开平方并取倒数，比用C库的sqrt实现(1.0f/sqrt(x))快了将近4倍。实现原理其实是牛顿迭代，也是平方根的一般算法，反复执行 y = y <em> ( threehalfs – ( x2 </em> y * y ) ); 其中y趋向于(1.0f/sqrt(x))，拿到的结果可以无限接近于我们想要的精度。<br><a id="more"></a><br>这个函数实现的算法被称为‘Fast Inverse Square Root’, 而它神奇的地方在于函数里面的实现采用了一个神秘的常数：0x5f3759df. 这个常数的来源目前无法被考究，也不能追溯确定这个常数的方法。</p>
-<p>这里还有个典故，在Q3的代码公布，并且数学家Chris Lomont得知0x5f3759df这个常数之后，他通过用暴力搜索得出了与0x5f3759df非常接近、并且代入后得出的结果更加精确的魔数0x5f375a86，当然，实际上和0x5f3759df还是非常接近。</p>
-<p>3D游戏引擎设计的作者David Eberly曾经发表论文解释了这个算法：<br><a href="http://www.geometrictools.com/Documentation/FastInverseSqrt.pdf" target="_blank" rel="external">http://www.geometrictools.com/Documentation/FastInverseSqrt.pdf</a></p>
-<p>不过最早还是Lomont在2003发表的：<br><a href="http://www.lomont.org/Math/Papers/2003/InvSqrt.pdf" target="_blank" rel="external">http://www.lomont.org/Math/Papers/2003/InvSqrt.pdf</a></p>
-<p>而David Eberly最近的一次补充是在2010年。</p>
-<p>See also: <a href="http://en.wikipedia.org/wiki/Fast_inverse_square_root" target="_blank" rel="external">http://en.wikipedia.org/wiki/Fast_inverse_square_root</a></p>
-]]></content>
+    <content type="html"><![CDATA[<blockquote><p>Quake-III Arena里面有一个闻名游戏界的开平方取倒函数：</p></blockquote><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">** float q_rsqrt( float number )</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="function"><span class="keyword">float</span> <span class="title">Q_rsqrt</span><span class="params">( <span class="keyword">float</span> number )</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line"><span class="keyword">long</span> i;</span><br><span class="line"><span class="keyword">float</span> x2, y;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">float</span> threehalfs = <span class="number">1.5F</span>;</span><br><span class="line"></span><br><span class="line">x2 = number * <span class="number">0.5F</span>;</span><br><span class="line">y  = number;</span><br><span class="line">i  = * ( <span class="keyword">long</span> * ) &amp;y;                       <span class="comment">// evil floating point bit level hacking</span></span><br><span class="line">i  = <span class="number">0x5f3759df</span> - ( i &gt;&gt; <span class="number">1</span> );               <span class="comment">// what the fuck?</span></span><br><span class="line">y  = * ( <span class="keyword">float</span> * ) &amp;i;</span><br><span class="line">y  = y * ( threehalfs - ( x2 * y * y ) );   <span class="comment">// 1st iteration</span></span><br><span class="line"><span class="comment">//y  = y * ( threehalfs - ( x2 * y * y ) ); // 2nd iteration, this can be removed</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">ifndef</span> Q3_VM</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">ifdef</span> __linux__</span></span><br><span class="line">assert( !isnan(y) ); <span class="comment">// bk010122 - FPE?</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">endif</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">endif</span></span></span><br><span class="line"><span class="keyword">return</span> y;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>第一次看到时着实被酷炫了一把，感觉很厉害，但却无法弄懂它的原理。这个函数的作用是用于对一个数开平方并取倒数，比用C库的sqrt实现(1.0f/sqrt(x))快了将近4倍。实现原理其实是牛顿迭代，也是平方根的一般算法，反复执行 y = y <em> ( threehalfs – ( x2 </em> y * y ) ); 其中y趋向于(1.0f/sqrt(x))，拿到的结果可以无限接近于我们想要的精度。<br><a id="more"></a><br>这个函数实现的算法被称为‘Fast Inverse Square Root’, 而它神奇的地方在于函数里面的实现采用了一个神秘的常数：0x5f3759df. 这个常数的来源目前无法被考究，也不能追溯确定这个常数的方法。</p><p>这里还有个典故，在Q3的代码公布，并且数学家Chris Lomont得知0x5f3759df这个常数之后，他通过用暴力搜索得出了与0x5f3759df非常接近、并且代入后得出的结果更加精确的魔数0x5f375a86，当然，实际上和0x5f3759df还是非常接近。</p><p>3D游戏引擎设计的作者David Eberly曾经发表论文解释了这个算法：<br><a href="http://www.geometrictools.com/Documentation/FastInverseSqrt.pdf" target="_blank" rel="noopener">http://www.geometrictools.com/Documentation/FastInverseSqrt.pdf</a></p><p>不过最早还是Lomont在2003发表的：<br><a href="http://www.lomont.org/Math/Papers/2003/InvSqrt.pdf" target="_blank" rel="noopener">http://www.lomont.org/Math/Papers/2003/InvSqrt.pdf</a></p><p>而David Eberly最近的一次补充是在2010年。</p><p>See also: <a href="http://en.wikipedia.org/wiki/Fast_inverse_square_root" target="_blank" rel="noopener">http://en.wikipedia.org/wiki/Fast_inverse_square_root</a></p>]]></content>
     
     <summary type="html">
     
       &lt;blockquote&gt;
 &lt;p&gt;Quake-III Arena里面有一个闻名游戏界的开平方取倒函数：&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;figure class=&quot;highlight cpp&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;4&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;5&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;6&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;7&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;8&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;9&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;10&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;11&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;12&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;13&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;14&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;15&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;16&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;17&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;18&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;19&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;20&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;21&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;22&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;23&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;24&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;/*&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;** float q_rsqrt( float number )&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;*/&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;float&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;Q_rsqrt&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;( &lt;span class=&quot;keyword&quot;&gt;float&lt;/span&gt; number )&lt;/span&gt;&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;function&quot;&gt;&lt;/span&gt;&amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;	&lt;span class=&quot;keyword&quot;&gt;long&lt;/span&gt; i;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;	&lt;span class=&quot;keyword&quot;&gt;float&lt;/span&gt; x2, y;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;	&lt;span class=&quot;keyword&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;float&lt;/span&gt; threehalfs = &lt;span class=&quot;number&quot;&gt;1.5F&lt;/span&gt;;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;	x2 = number * &lt;span class=&quot;number&quot;&gt;0.5F&lt;/span&gt;;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;	y  = number;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;	i  = * ( &lt;span class=&quot;keyword&quot;&gt;long&lt;/span&gt; * ) &amp;amp;y;                       &lt;span class=&quot;comment&quot;&gt;// evil floating point bit level hacking&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;	i  = &lt;span class=&quot;number&quot;&gt;0x5f3759df&lt;/span&gt; - ( i &amp;gt;&amp;gt; &lt;span class=&quot;number&quot;&gt;1&lt;/span&gt; );               &lt;span class=&quot;comment&quot;&gt;// what the fuck?&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;	y  = * ( &lt;span class=&quot;keyword&quot;&gt;float&lt;/span&gt; * ) &amp;amp;i;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;	y  = y * ( threehalfs - ( x2 * y * y ) );   &lt;span class=&quot;comment&quot;&gt;// 1st iteration&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;//	y  = y * ( threehalfs - ( x2 * y * y ) ); // 2nd iteration, this can be removed&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;meta&quot;&gt;#&lt;span class=&quot;meta-keyword&quot;&gt;ifndef&lt;/span&gt; Q3_VM&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;meta&quot;&gt;#&lt;span class=&quot;meta-keyword&quot;&gt;ifdef&lt;/span&gt; __linux__&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;	assert( !isnan(y) ); &lt;span class=&quot;comment&quot;&gt;// bk010122 - FPE?&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;meta&quot;&gt;#&lt;span class=&quot;meta-keyword&quot;&gt;endif&lt;/span&gt;&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;meta&quot;&gt;#&lt;span class=&quot;meta-keyword&quot;&gt;endif&lt;/span&gt;&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;	&lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; y;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&amp;#125;&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;figure class=&quot;highlight cpp&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;16&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;17&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;18&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;19&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;20&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;21&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;22&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;23&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;24&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;/*&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;** float q_rsqrt( float number )&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;*/&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;float&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;Q_rsqrt&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;( &lt;span class=&quot;keyword&quot;&gt;float&lt;/span&gt; number )&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;function&quot;&gt;&lt;/span&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	&lt;span class=&quot;keyword&quot;&gt;long&lt;/span&gt; i;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	&lt;span class=&quot;keyword&quot;&gt;float&lt;/span&gt; x2, y;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	&lt;span class=&quot;keyword&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;float&lt;/span&gt; threehalfs = &lt;span class=&quot;number&quot;&gt;1.5F&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	x2 = number * &lt;span class=&quot;number&quot;&gt;0.5F&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	y  = number;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	i  = * ( &lt;span class=&quot;keyword&quot;&gt;long&lt;/span&gt; * ) &amp;amp;y;                       &lt;span class=&quot;comment&quot;&gt;// evil floating point bit level hacking&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	i  = &lt;span class=&quot;number&quot;&gt;0x5f3759df&lt;/span&gt; - ( i &amp;gt;&amp;gt; &lt;span class=&quot;number&quot;&gt;1&lt;/span&gt; );               &lt;span class=&quot;comment&quot;&gt;// what the fuck?&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	y  = * ( &lt;span class=&quot;keyword&quot;&gt;float&lt;/span&gt; * ) &amp;amp;i;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	y  = y * ( threehalfs - ( x2 * y * y ) );   &lt;span class=&quot;comment&quot;&gt;// 1st iteration&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;//	y  = y * ( threehalfs - ( x2 * y * y ) ); // 2nd iteration, this can be removed&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;meta&quot;&gt;#&lt;span class=&quot;meta-keyword&quot;&gt;ifndef&lt;/span&gt; Q3_VM&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;meta&quot;&gt;#&lt;span class=&quot;meta-keyword&quot;&gt;ifdef&lt;/span&gt; __linux__&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	assert( !isnan(y) ); &lt;span class=&quot;comment&quot;&gt;// bk010122 - FPE?&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;meta&quot;&gt;#&lt;span class=&quot;meta-keyword&quot;&gt;endif&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;meta&quot;&gt;#&lt;span class=&quot;meta-keyword&quot;&gt;endif&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	&lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; y;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
 &lt;p&gt;第一次看到时着实被酷炫了一把，感觉很厉害，但却无法弄懂它的原理。这个函数的作用是用于对一个数开平方并取倒数，比用C库的sqrt实现(1.0f/sqrt(x))快了将近4倍。实现原理其实是牛顿迭代，也是平方根的一般算法，反复执行 y = y &lt;em&gt; ( threehalfs – ( x2 &lt;/em&gt; y * y ) ); 其中y趋向于(1.0f/sqrt(x))，拿到的结果可以无限接近于我们想要的精度。&lt;br&gt;
     
     </summary>
     
     
-      <category term="Programming" scheme="http://powman.org/tags/Programming/"/>
+      <category term="Programming" scheme="https://powman.org/tags/Programming/"/>
     
-      <category term="Game Development" scheme="http://powman.org/tags/Game-Development/"/>
+      <category term="Game Development" scheme="https://powman.org/tags/Game-Development/"/>
     
   </entry>
   
   <entry>
     <title>Mathematica求极限</title>
-    <link href="http://powman.org/archives/mathematica-lim.html"/>
-    <id>http://powman.org/archives/mathematica-lim.html</id>
+    <link href="https://powman.org/archives/mathematica-lim.html"/>
+    <id>https://powman.org/archives/mathematica-lim.html</id>
     <published>2015-02-21T14:08:16.000Z</published>
     <updated>2017-03-11T09:42:06.000Z</updated>
     
-    <content type="html"><![CDATA[<p><strong>x趋于0时tan2x/x的极限</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">In[3]= Limit[Tan[2 x]/x, x -&amp;gt; 0]</div><div class="line">Out[3]= 2</div></pre></td></tr></table></figure>
-<p>某群以前设置过的累人的入群问题，但结果很明显不是无穷大：</p>
-<p><strong>x趋向0时x^7/(tansinx-sintanx)的极限</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">In[3]= Limit[x^7/(Tan[Sin[x]] - Sin[Tan[x]]), x -&amp;gt; 0]</div><div class="line">Out[3]= 30</div></pre></td></tr></table></figure></p>
-<p>不过可惜大作业都是要写过程的。</p>
-<a id="more"></a>]]></content>
+    <content type="html"><![CDATA[<p><strong>x趋于0时tan2x/x的极限</strong></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">In[3]= Limit[Tan[2 x]/x, x -&amp;gt; 0]</span><br><span class="line">Out[3]= 2</span><br></pre></td></tr></table></figure><p>某群以前设置过的累人的入群问题，但结果很明显不是无穷大：</p><p><strong>x趋向0时x^7/(tansinx-sintanx)的极限</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">In[3]= Limit[x^7/(Tan[Sin[x]] - Sin[Tan[x]]), x -&amp;gt; 0]</span><br><span class="line">Out[3]= 30</span><br></pre></td></tr></table></figure></p><p>不过可惜大作业都是要写过程的。</p><a id="more"></a>]]></content>
     
     <summary type="html">
     
       &lt;p&gt;&lt;strong&gt;x趋于0时tan2x/x的极限&lt;/strong&gt;&lt;/p&gt;
-&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;In[3]= Limit[Tan[2 x]/x, x -&amp;amp;gt; 0]&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;Out[3]= 2&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;In[3]= Limit[Tan[2 x]/x, x -&amp;amp;gt; 0]&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;Out[3]= 2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
 &lt;p&gt;某群以前设置过的累人的入群问题，但结果很明显不是无穷大：&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;x趋向0时x^7/(tansinx-sintanx)的极限&lt;/strong&gt;&lt;br&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;In[3]= Limit[x^7/(Tan[Sin[x]] - Sin[Tan[x]]), x -&amp;amp;gt; 0]&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;Out[3]= 30&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;x趋向0时x^7/(tansinx-sintanx)的极限&lt;/strong&gt;&lt;br&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;In[3]= Limit[x^7/(Tan[Sin[x]] - Sin[Tan[x]]), x -&amp;amp;gt; 0]&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;Out[3]= 30&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
 &lt;p&gt;不过可惜大作业都是要写过程的。&lt;/p&gt;
     
     </summary>
     
     
-      <category term="杂项" scheme="http://powman.org/tags/%E6%9D%82%E9%A1%B9/"/>
+      <category term="杂项" scheme="https://powman.org/tags/%E6%9D%82%E9%A1%B9/"/>
     
   </entry>
   
   <entry>
     <title>苹果IAP安全支付与防范技巧</title>
-    <link href="http://powman.org/archives/apple-iap.html"/>
-    <id>http://powman.org/archives/apple-iap.html</id>
+    <link href="https://powman.org/archives/apple-iap.html"/>
+    <id>https://powman.org/archives/apple-iap.html</id>
     <published>2014-12-11T18:21:51.000Z</published>
     <updated>2017-03-11T09:39:58.000Z</updated>
     
-    <content type="html"><![CDATA[<p>这两天我在筹备我们的游戏APP的内购，仔细考虑了几个付费安全上的问题。凡是涉及到付费的问题都很敏感，任何一方出现损失都是不能接受的，所以在这里整理一些支付安全的要点分享一下。IAP是指In-App Purchase, 是一种付费方式，而并不是苹果专有的付费方式，在其它平台上也会有不同的实现，这里针对Apple IAP。<br><a id="more"></a><br>说到IAP安全问题，在苹果的IAP流程中有一个比较明显的逻辑漏洞，这个逻辑漏洞是建立在我们处理不当的情况下发生的，会导致己方提供的服务和玩家之间出现问题。先看看IAP支付时序图：<br><a href="/images/wp-migrate-res/2014/12/05C05FF2-C0FB-46C4-9517-D95ED21D595F.jpg"><img src="/images/wp-migrate-res/2014/12/05C05FF2-C0FB-46C4-9517-D95ED21D595F.jpg" alt="sequence_iap"></a></p>
-<p>整个支付流程如下：<br>1.客户端向Appstore请求购买产品（假设产品信息已经取得），Appstore验证产品成功后，从用户的Apple账户余额中扣费。<br>2.Appstore向客户端返回一段receipt-data，里面记录了本次交易的证书和签名信息。<br>3.客户端向我们可以信任的游戏服务器提供receipt-data<br>4.游戏服务器对receipt-data进行一次base64编码<br>5.把编码后的receipt-data发往itunes.appstore进行验证<br>6.itunes.appstore返回验证结果给游戏服务器<br>7.游戏服务器对商品购买状态以及商品类型，向客户端发放相应的道具与推送数据更新通知</p>
-<p>这七个步骤实际上是一个很安全的流程了。那问题出在哪里呢？我们谈谈两种苹果IAP的验证模型。</p>
-<h2 id="IAP-built-in-Model，本地验证"><a href="#IAP-built-in-Model，本地验证" class="headerlink" title="IAP built-in Model，本地验证"></a>IAP built-in Model，本地验证</h2><p>有些单机游戏甚至是网游，都直接跳过了3~7步骤，在第2步拿到receipt-data之后，直接由客户端向itunes.appstore发送验证请求，并且拿到结果，根据结果修改游戏数据。</p>
-<p>我们在设计游戏的时候都遵循一个真理，“凡是在客户端的数据都是不安全的”，深以为然。如果没有独立服务器辅助验证，这样也就避免不了数据被修改的事实了，是的，你会少赚钱。不过如果网游也不通过独立服务器验证，而是在客户端验证之后再告知服务器状态让其发放游戏道具，那就太可怕了点。这是IAP built-in Model，经常出现安全问题的逻辑如下：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">void paymentQueue(...)</div><div class="line">&#123;</div><div class="line">    if (transaction != nullptr)</div><div class="line">    &#123;</div><div class="line">        me.money += 1000;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>上面的代码在接收到付费成功的response就直接给游戏发放商品，不对产品和单据进行验证。如果receipt-data允许放在本地验证，就可能发生我们说的免费内购的BUG. 而实际上也真的有类似IAPCracker/IAPFree等工具专门利用这样的IAP漏洞的。而对于已经越狱了的iOS设备就太简单了，甚至不需要通过伪造或者跳过receipt-data验证就可以修改本地数据达到目的。</p>
-<p>那是不是就完全不能让这个过程变得安全了呢？也不是，但这个安全保障只是让修改变得困难而已。苹果官方提供了 <a href="https://developer.apple.com/library/ios/releasenotes/General/ValidateAppStoreReceipt/Chapters/ValidateLocally.html#//apple_ref/doc/uid/TP40010573-CH1-SW2" target="_blank" rel="external">Validating Receipts Locally</a> 在客户端对receipt-data进行安全验证，主要是对证书以及签名的合法性验证。如果不想自己写代码验证，也可以借助第三方机构提供的receipt-data验证API，比较著名的有 <a href="http://urbanairship.com/products" target="_blank" rel="external">urbanairship</a> 和 <a href="https://www.beeblex.com/public/" target="_blank" rel="external">beeblex</a> 。</p>
-<p>但如果能伪造一个完全合法的receipt-data，是不是一样可以达到欺骗目的。是的，为了绕过Validating Locally，于是黑客开始用自己伪造的receipt-data进行移花接木，所以出现了可以伪造”合法订单”的 <a href="http://in-appstore.com/" target="_blank" rel="external">in-appstore</a> 。因此这种本地加强验证的方法也不能完全避免IAP攻击。</p>
-<h2 id="IAP-Server-Model，服务器验证"><a href="#IAP-Server-Model，服务器验证" class="headerlink" title="IAP Server Model，服务器验证"></a>IAP Server Model，服务器验证</h2><p>而如果我们把验证逻辑移到服务器上，这个过程就变得容易多了。因为不再需要担心receipt-data被伪造的问题。不过就算把步骤4～7在服务器上做了，同样也会产生一些幼稚的逻辑漏洞：</p>
-<p>对验证receipt-data的reponse content不进行验证和记录，只根据Product直接发放商品。这样只要客户端不断提交receipt-data，按照正常逻辑你就需要不断验证并且重复发放商品。较为安全的做法是：</p>
-<p><span style="color: #ff0000;">在每一次收到receipt-data之后，都把提交的玩家账号以及receipt-data中的单号建立映射并记录下来，在每次验证receipt-data时，先判断其是否已经存在。</span></p>
-<p>只要做了这样的验证，整个支付流程都变得明朗起来。</p>
-<h2 id="确保receipt-data的成功提交与异常处理"><a href="#确保receipt-data的成功提交与异常处理" class="headerlink" title="确保receipt-data的成功提交与异常处理"></a>确保receipt-data的成功提交与异常处理</h2><p>建立在IAP Server Model的基础上，并且我们知道手机网络是不稳定的，在付款成功后不能确保把receipt-data一定提交到服务器。如果出现了这样的情况，那就意味着玩家被appstore扣费了，却没收到服务器发放的道具。</p>
-<p>解决这个问题的方法是在提交receipt-data的协议上设一个返回值，让服务端告知它已经成功收到并验证了receipt-data. 在没有收到这样的回复之前，客户端必须要把receipt-data保存好，并且定期向服务端发起请求，直至收到服务端的回复为止。</p>
-<p>如果是客户端没成功提交receipt-data，那怎么办？就是玩家被扣费了，也收到appstore的消费收据了，却依然没收到游戏道具，于是投诉到游戏客服处。</p>
-<p>这种情况在以往的经验中也会出现，常见的玩家和游戏运营商发生的纠纷。游戏客服向玩家索要游戏账号和appstore的收据单号，通过查询itunes-connect看是否确有这笔订单。如果订单存在，则要联系研发方去查询游戏服务器，看订单号与玩家名是否对应，并且是否已经被使用了，做这一点检查的目的是<span style="color: #ff0000;">为了防止恶意玩家利用已经使用过了的订单号进行欺骗</span>，谎称自己没收到商品。这就是上面一节IAP Server Model中红字所提到的安全逻辑的目的。当然了，如果查不到这个订单号，就意味着这个订单确实还没使用过，手动给玩家补发商品即可。</p>
-]]></content>
+    <content type="html"><![CDATA[<p>这两天我在筹备我们的游戏APP的内购，仔细考虑了几个付费安全上的问题。凡是涉及到付费的问题都很敏感，任何一方出现损失都是不能接受的，所以在这里整理一些支付安全的要点分享一下。IAP是指In-App Purchase, 是一种付费方式，而并不是苹果专有的付费方式，在其它平台上也会有不同的实现，这里针对Apple IAP。<br><a id="more"></a><br>说到IAP安全问题，在苹果的IAP流程中有一个比较明显的逻辑漏洞，这个逻辑漏洞是建立在我们处理不当的情况下发生的，会导致己方提供的服务和玩家之间出现问题。先看看IAP支付时序图：<br><a href="/images/wp-migrate-res/2014/12/05C05FF2-C0FB-46C4-9517-D95ED21D595F.jpg"><img src="/images/wp-migrate-res/2014/12/05C05FF2-C0FB-46C4-9517-D95ED21D595F.jpg" alt="sequence_iap"></a></p><p>整个支付流程如下：<br>1.客户端向Appstore请求购买产品（假设产品信息已经取得），Appstore验证产品成功后，从用户的Apple账户余额中扣费。<br>2.Appstore向客户端返回一段receipt-data，里面记录了本次交易的证书和签名信息。<br>3.客户端向我们可以信任的游戏服务器提供receipt-data<br>4.游戏服务器对receipt-data进行一次base64编码<br>5.把编码后的receipt-data发往itunes.appstore进行验证<br>6.itunes.appstore返回验证结果给游戏服务器<br>7.游戏服务器对商品购买状态以及商品类型，向客户端发放相应的道具与推送数据更新通知</p><p>这七个步骤实际上是一个很安全的流程了。那问题出在哪里呢？我们谈谈两种苹果IAP的验证模型。</p><h2 id="IAP-built-in-Model，本地验证"><a href="#IAP-built-in-Model，本地验证" class="headerlink" title="IAP built-in Model，本地验证"></a>IAP built-in Model，本地验证</h2><p>有些单机游戏甚至是网游，都直接跳过了3~7步骤，在第2步拿到receipt-data之后，直接由客户端向itunes.appstore发送验证请求，并且拿到结果，根据结果修改游戏数据。</p><p>我们在设计游戏的时候都遵循一个真理，“凡是在客户端的数据都是不安全的”，深以为然。如果没有独立服务器辅助验证，这样也就避免不了数据被修改的事实了，是的，你会少赚钱。不过如果网游也不通过独立服务器验证，而是在客户端验证之后再告知服务器状态让其发放游戏道具，那就太可怕了点。这是IAP built-in Model，经常出现安全问题的逻辑如下：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">void paymentQueue(...)</span><br><span class="line">&#123;</span><br><span class="line">    if (transaction != nullptr)</span><br><span class="line">    &#123;</span><br><span class="line">        me.money += 1000;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>上面的代码在接收到付费成功的response就直接给游戏发放商品，不对产品和单据进行验证。如果receipt-data允许放在本地验证，就可能发生我们说的免费内购的BUG. 而实际上也真的有类似IAPCracker/IAPFree等工具专门利用这样的IAP漏洞的。而对于已经越狱了的iOS设备就太简单了，甚至不需要通过伪造或者跳过receipt-data验证就可以修改本地数据达到目的。</p><p>那是不是就完全不能让这个过程变得安全了呢？也不是，但这个安全保障只是让修改变得困难而已。苹果官方提供了 <a href="https://developer.apple.com/library/ios/releasenotes/General/ValidateAppStoreReceipt/Chapters/ValidateLocally.html#//apple_ref/doc/uid/TP40010573-CH1-SW2" target="_blank" rel="noopener">Validating Receipts Locally</a> 在客户端对receipt-data进行安全验证，主要是对证书以及签名的合法性验证。如果不想自己写代码验证，也可以借助第三方机构提供的receipt-data验证API，比较著名的有 <a href="http://urbanairship.com/products" target="_blank" rel="noopener">urbanairship</a> 和 <a href="https://www.beeblex.com/public/" target="_blank" rel="noopener">beeblex</a> 。</p><p>但如果能伪造一个完全合法的receipt-data，是不是一样可以达到欺骗目的。是的，为了绕过Validating Locally，于是黑客开始用自己伪造的receipt-data进行移花接木，所以出现了可以伪造”合法订单”的 <a href="http://in-appstore.com/" target="_blank" rel="noopener">in-appstore</a> 。因此这种本地加强验证的方法也不能完全避免IAP攻击。</p><h2 id="IAP-Server-Model，服务器验证"><a href="#IAP-Server-Model，服务器验证" class="headerlink" title="IAP Server Model，服务器验证"></a>IAP Server Model，服务器验证</h2><p>而如果我们把验证逻辑移到服务器上，这个过程就变得容易多了。因为不再需要担心receipt-data被伪造的问题。不过就算把步骤4～7在服务器上做了，同样也会产生一些幼稚的逻辑漏洞：</p><p>对验证receipt-data的reponse content不进行验证和记录，只根据Product直接发放商品。这样只要客户端不断提交receipt-data，按照正常逻辑你就需要不断验证并且重复发放商品。较为安全的做法是：</p><p><span style="color: #ff0000;">在每一次收到receipt-data之后，都把提交的玩家账号以及receipt-data中的单号建立映射并记录下来，在每次验证receipt-data时，先判断其是否已经存在。</span></p><p>只要做了这样的验证，整个支付流程都变得明朗起来。</p><h2 id="确保receipt-data的成功提交与异常处理"><a href="#确保receipt-data的成功提交与异常处理" class="headerlink" title="确保receipt-data的成功提交与异常处理"></a>确保receipt-data的成功提交与异常处理</h2><p>建立在IAP Server Model的基础上，并且我们知道手机网络是不稳定的，在付款成功后不能确保把receipt-data一定提交到服务器。如果出现了这样的情况，那就意味着玩家被appstore扣费了，却没收到服务器发放的道具。</p><p>解决这个问题的方法是在提交receipt-data的协议上设一个返回值，让服务端告知它已经成功收到并验证了receipt-data. 在没有收到这样的回复之前，客户端必须要把receipt-data保存好，并且定期向服务端发起请求，直至收到服务端的回复为止。</p><p>如果是客户端没成功提交receipt-data，那怎么办？就是玩家被扣费了，也收到appstore的消费收据了，却依然没收到游戏道具，于是投诉到游戏客服处。</p><p>这种情况在以往的经验中也会出现，常见的玩家和游戏运营商发生的纠纷。游戏客服向玩家索要游戏账号和appstore的收据单号，通过查询itunes-connect看是否确有这笔订单。如果订单存在，则要联系研发方去查询游戏服务器，看订单号与玩家名是否对应，并且是否已经被使用了，做这一点检查的目的是<span style="color: #ff0000;">为了防止恶意玩家利用已经使用过了的订单号进行欺骗</span>，谎称自己没收到商品。这就是上面一节IAP Server Model中红字所提到的安全逻辑的目的。当然了，如果查不到这个订单号，就意味着这个订单确实还没使用过，手动给玩家补发商品即可。</p>]]></content>
     
     <summary type="html">
     
@@ -188,39 +124,28 @@
     </summary>
     
     
-      <category term="其它技术" scheme="http://powman.org/tags/%E5%85%B6%E5%AE%83%E6%8A%80%E6%9C%AF/"/>
+      <category term="其它技术" scheme="https://powman.org/tags/%E5%85%B6%E5%AE%83%E6%8A%80%E6%9C%AF/"/>
     
-      <category term="协议" scheme="http://powman.org/tags/%E5%8D%8F%E8%AE%AE/"/>
+      <category term="协议" scheme="https://powman.org/tags/%E5%8D%8F%E8%AE%AE/"/>
     
-      <category term="技术" scheme="http://powman.org/tags/%E6%8A%80%E6%9C%AF/"/>
+      <category term="技术" scheme="https://powman.org/tags/%E6%8A%80%E6%9C%AF/"/>
     
-      <category term="游戏开发" scheme="http://powman.org/tags/%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91/"/>
+      <category term="游戏开发" scheme="https://powman.org/tags/%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91/"/>
     
-      <category term="算法" scheme="http://powman.org/tags/%E7%AE%97%E6%B3%95/"/>
+      <category term="算法" scheme="https://powman.org/tags/%E7%AE%97%E6%B3%95/"/>
     
-      <category term="网游服务器" scheme="http://powman.org/tags/%E7%BD%91%E6%B8%B8%E6%9C%8D%E5%8A%A1%E5%99%A8/"/>
+      <category term="网游服务器" scheme="https://powman.org/tags/%E7%BD%91%E6%B8%B8%E6%9C%8D%E5%8A%A1%E5%99%A8/"/>
     
   </entry>
   
   <entry>
     <title>清爽的列表式游戏背包设计</title>
-    <link href="http://powman.org/archives/item-list-ui.html"/>
-    <id>http://powman.org/archives/item-list-ui.html</id>
+    <link href="https://powman.org/archives/item-list-ui.html"/>
+    <id>https://powman.org/archives/item-list-ui.html</id>
     <published>2014-11-16T17:05:50.000Z</published>
     <updated>2017-03-11T09:41:57.000Z</updated>
     
-    <content type="html"><![CDATA[<p><a href="/images/wp-migrate-res/2014/11/coeus_ui.png"><img src="/images/wp-migrate-res/2014/11/coeus_ui.png" alt="coeus_ui"></a></p>
-<p>周末花了一个下午的时间学习配色，给Coeus做了一个功能界面的美术原型图，总结了一些经验。实际上我也没有严格按照配色表的理论去搭配颜色，我觉得视觉效果带来的冲击力强度在不同场合是不一样的。<br><a id="more"></a></p>
-<ul>
-<li>针对游戏而言，游戏物品通常充当着功能性道具的角色，而根据我们以往的经验，物品名称的颜色值决定了玩家的第一感观，这也是我们为什么喜欢根据不同颜色的特性来划分游戏道具品质的原因。</li>
-<li>物品的描述我使用灰色，因为这段文本对游戏并没有影响（通常而言），灰色可能显得比较朴素优雅。</li>
-<li>绿色的TIPS则起到了一个很好的提示作用，因为建立在暗黑色的背景上，绿色实在是太鲜艳漂亮了（很明显是我自己认为的……）。</li>
-<li>对于道具效果加成，我使用了比米黄更深一点的暖黄色，其实之所以采用这个颜色，是因为其它色调不是被占用就是实在是搭配不起来了……</li>
-<li>物品数量采取圆圈包数字的方式实在算不上是好的设计，这有点像未读消息的数量，我想这也许能逼死不少强迫症……不过由于物品图标暂时不考虑使用框框，所以这个数量标记无论如何都要更加突出，只是要不要用圆形标记就等后面再进行优化了。<br>颜色搭配很鲜艳，也很有动感。长期玩游戏的人看着会很有冲击力和快感，算是一种很直观的男人在颜色艺术上的浪漫了。不过也有人会觉得花俏，我正在想办法让它看起来更加朴素深沉一些。</li>
-</ul>
-<p>之前决定了不采取格子式布局的背包时，我就构思了这么一种清爽的列表背包，物品的信息一目了然，感觉也很清爽。传统的格子布局有个很大的诟病，取决于物品图标的样式，在风格统一的前提下会特别容易混淆，无法直观看到物品信息的情况就只能一个个查看（在PC游戏中通常是使用鼠标指针移过物品查看弹出的TIPS，移动设备则通常要多一次点击操作）。</p>
-<p>其实早期的游戏也没有格子背包的概念，那是因为以前的游戏设计中物品通常很少，不需要用网格的方式进行布局。这也是我们现在采用列表式布局遇到的问题之一，不过我也想好了对策。因为玩家在找物品的时候都很有目的性，物品本身是有归类的，只要分类功能设计妥当其实我觉得并不比格子背包麻烦，毕竟列表式布局除了翻页（滚屏）带来的额外操作之外，物品的详情可以很容易被检索。</p>
-]]></content>
+    <content type="html"><![CDATA[<p><a href="/images/wp-migrate-res/2014/11/coeus_ui.png"><img src="/images/wp-migrate-res/2014/11/coeus_ui.png" alt="coeus_ui"></a></p><p>周末花了一个下午的时间学习配色，给Coeus做了一个功能界面的美术原型图，总结了一些经验。实际上我也没有严格按照配色表的理论去搭配颜色，我觉得视觉效果带来的冲击力强度在不同场合是不一样的。<br><a id="more"></a></p><ul><li>针对游戏而言，游戏物品通常充当着功能性道具的角色，而根据我们以往的经验，物品名称的颜色值决定了玩家的第一感观，这也是我们为什么喜欢根据不同颜色的特性来划分游戏道具品质的原因。</li><li>物品的描述我使用灰色，因为这段文本对游戏并没有影响（通常而言），灰色可能显得比较朴素优雅。</li><li>绿色的TIPS则起到了一个很好的提示作用，因为建立在暗黑色的背景上，绿色实在是太鲜艳漂亮了（很明显是我自己认为的……）。</li><li>对于道具效果加成，我使用了比米黄更深一点的暖黄色，其实之所以采用这个颜色，是因为其它色调不是被占用就是实在是搭配不起来了……</li><li>物品数量采取圆圈包数字的方式实在算不上是好的设计，这有点像未读消息的数量，我想这也许能逼死不少强迫症……不过由于物品图标暂时不考虑使用框框，所以这个数量标记无论如何都要更加突出，只是要不要用圆形标记就等后面再进行优化了。<br>颜色搭配很鲜艳，也很有动感。长期玩游戏的人看着会很有冲击力和快感，算是一种很直观的男人在颜色艺术上的浪漫了。不过也有人会觉得花俏，我正在想办法让它看起来更加朴素深沉一些。</li></ul><p>之前决定了不采取格子式布局的背包时，我就构思了这么一种清爽的列表背包，物品的信息一目了然，感觉也很清爽。传统的格子布局有个很大的诟病，取决于物品图标的样式，在风格统一的前提下会特别容易混淆，无法直观看到物品信息的情况就只能一个个查看（在PC游戏中通常是使用鼠标指针移过物品查看弹出的TIPS，移动设备则通常要多一次点击操作）。</p><p>其实早期的游戏也没有格子背包的概念，那是因为以前的游戏设计中物品通常很少，不需要用网格的方式进行布局。这也是我们现在采用列表式布局遇到的问题之一，不过我也想好了对策。因为玩家在找物品的时候都很有目的性，物品本身是有归类的，只要分类功能设计妥当其实我觉得并不比格子背包麻烦，毕竟列表式布局除了翻页（滚屏）带来的额外操作之外，物品的详情可以很容易被检索。</p>]]></content>
     
     <summary type="html">
     
@@ -230,50 +155,24 @@
     </summary>
     
     
-      <category term="杂项" scheme="http://powman.org/tags/%E6%9D%82%E9%A1%B9/"/>
+      <category term="杂项" scheme="https://powman.org/tags/%E6%9D%82%E9%A1%B9/"/>
     
-      <category term="技术" scheme="http://powman.org/tags/%E6%8A%80%E6%9C%AF/"/>
+      <category term="技术" scheme="https://powman.org/tags/%E6%8A%80%E6%9C%AF/"/>
     
-      <category term="UI" scheme="http://powman.org/tags/UI/"/>
+      <category term="UI" scheme="https://powman.org/tags/UI/"/>
     
-      <category term="美术" scheme="http://powman.org/tags/%E7%BE%8E%E6%9C%AF/"/>
+      <category term="美术" scheme="https://powman.org/tags/%E7%BE%8E%E6%9C%AF/"/>
     
   </entry>
   
   <entry>
     <title>记GDC China 2014</title>
-    <link href="http://powman.org/archives/gdc-china-2014.html"/>
-    <id>http://powman.org/archives/gdc-china-2014.html</id>
+    <link href="https://powman.org/archives/gdc-china-2014.html"/>
+    <id>https://powman.org/archives/gdc-china-2014.html</id>
     <published>2014-10-21T19:53:24.000Z</published>
     <updated>2017-03-11T09:41:30.000Z</updated>
     
-    <content type="html"><![CDATA[<p>从上海回到广州时已经是凌晨了，东航老是晚点。附近的店铺基本上都也已经打烊，吃不到好东西了。</p>
-<p>说起这次GDC，我们主要是奔着IGF去的，我之前对独立游戏的概念并没有太深刻的印象，对现在的游戏行业来说，独立游戏和商业游戏之间的界限也变得越来越模糊，对于团队而言，在没有资金的影响下完成一个游戏项目，都可以称为独立游戏项目。也有一批纯粹的概念性粉丝认为，只有单纯地为游戏本身而开发才能算是独立游戏。<br><a id="more"></a><br><img src="/images/wp-migrate-res/2014/10/IMG_2537.jpg" alt="IMG_2537"></p>
-<p>据说这次展会的参与人数大约为24000人，刷新了往年记录。不过我在会场感受比较深刻的是外国人比较多，看来GDC在国内的影响力还不够，并且这次也是亚洲赛区的作品峰会。和我一起同行的有两人，是来自我们脑洞工作室的小伙伴，他们从北京赶到上海。</p>
-<p>IGF的入围作品都很优秀，奖金总共为8000美元（5万人民币），分为职业组和学生组两个赛组。他们之间有已经在Steam或AppStore上卖的很好的游戏。</p>
-<h3 id="作品印象"><a href="#作品印象" class="headerlink" title="作品印象"></a><strong>作品印象</strong></h3><p>职业组作品中我最喜欢的是《Duet》，在还没知道它是本届IGF亚洲赛区的参赛作品时，我就已经在AppStore上购买并且玩了一段时间，这是个很不错的游戏，作者是澳大利亚的Kumobius.</p>
-<p>《巫剑神威控》是日本「ZENITH BLUE」社团的C84新作，也是我在现场体验过的唯一一款职业组作品。这是一款3D游戏，游戏主角是一名女高中生，以快速剑技为重要玩法，用不同的格斗技巧击杀敌人。画面很炫并且很有快感，用手柄玩起来也相当有快感，但是缺乏可玩性，战斗过程还是略显乏味。不过游戏的负责人很热情，我走到旁边他就拉着我问我是否要尝试一下，就是他教我操作时说日式英文实在太难懂了……</p>
-<p><img src="/images/wp-migrate-res/2014/10/IMG_2535.jpg" alt="IMG_2535"></p>
-<p>职业组的两款中国的作品分别是《Zombie Commando（僵尸别动队）》以及《Ghost Blade》。</p>
-<p>天宇在体验僵尸别动队的时候，一边和他们的创始人交流了起来。聊到了开发上的一些故事以及过程中遇到的问题。这款游戏在AppStore中国区免费帮前20名，起始团队只有3人，没有投资的情况下3人凑了2万，美术是外包的，因为国内几乎没有擅长像素画的外包公司，因此他们选择了海外的。另外，创始人提到他们的程序员非常牛。这款游戏的画面给人感觉很清新，8位像素风格，团队型战略即时战斗游戏，在Pad上体验很不错，但我在旁边用手机也玩了一会儿，由于分辨率的问题操作有些困难，主要是摇杆区域占了很大一部分比例。</p>
-<p><img src="/images/wp-migrate-res/2014/10/IMG_2528.jpg" alt="IMG_2528"></p>
-<p>《Ghost Blade（剑无生）》是一款3D动作游戏，通过手势滑动进行技巧性攻击。给我第一印象是水果忍者划西瓜。但这款游戏的工作量看起来很大，美术方面不错，使用虚幻引擎开发，可跨平台。在Pad上默认的操作方式体验可能会有一些障碍，手指在操作的时候可能挡住屏幕。场景整体风格不错，特别是远景图，和画面整体风格相当切合。这款游戏并没有太多针对移动设备的特征，讲究操作技巧。作者现场促销并怂恿我们购买……</p>
-<p>下面聊一下学生组的入围作品。学生组总共六款入围作品，但被迪吉彭理工学院新加坡分校（DigiPen Institute of Technology Singapore）占了三个名额，分别是《Iris》、《Lurking》和《Meowchine Mayhem》，另外的三个名额则都是代表中国的，分别是来自纽约大学游戏中心Team Boss的《Boss》、香港C4Cat的《Shadow of Life》以及中国传媒大学的《Xi（汐）》。</p>
-<p>《Boss》是一款逃生游戏，通过声音吸引一直在追自己的Boss并且通关。</p>
-<p><img src="/images/wp-migrate-res/2014/10/IMG_2542.jpg" alt="IMG_2542"></p>
-<p>《Lurking》是一个非常有创意的游戏，同时也是一款恐怖类的解谜游戏。这款3D游戏使用Unity开发，主要通过声音主题营造游戏的恐怖气氛，只有发出声音的主角才能看到游戏中的场景，并且需要用声音吸引“丧尸”的注意力并转移到其它地方以让自己获得逃走的机会，找到通关的办法。</p>
-<p><strong>以下是颁奖结果：</strong></p>
-<p><strong>学生组</strong><br>优秀学生作品奖：《Iris》、《Boss》<br>最佳学生作品奖：《Lurking》<br>（未获奖）入围作品：《Meowchine Mayhem》、《Shadow of Life》、《汐》（Xi）</p>
-<p><strong>职业组</strong><br>最佳美术奖：《剑无生》（Ghost Blade）<br>最佳技术奖：《Lurking》（学生组作品）<br>最佳设计奖：《二重奏》（Duet）<br>最佳音效奖：《Nom Nom Galaxy》<br>最佳移动游戏奖：《僵尸别动队》（Zombie Commando）<br>最佳游戏奖：《国王联盟：奥德赛》（King’s League: Odyssey）<br>（未获奖）入围作品：《Sumoman》、《Battle Group 2》、《巫剑神威控》</p>
-<h3 id="关于独立游戏峰会"><a href="#关于独立游戏峰会" class="headerlink" title="关于独立游戏峰会"></a>关于独立游戏峰会</h3><p>独立游戏峰会邀请了很多知名游戏制作人给我们分享了很多心得。我在现场简单做了一些笔记。<span style="line-height: 1.714285714; font-size: 1rem;">Brandon Sheffield分享的“通过游戏测试改进游戏”，给我们分享的内容大致有以下几点：</span></p>
-<p>1.了解自己游戏的设计意图。<br>2.把重心放在游戏上的好想法并且不要忘记游戏最初的设计目的。<br>3.最简单的解决方案或实现方式可能就是最好的。<br>4.必须要把握游戏中的一切，并且知道它们为什么要这样做，而不仅仅是为了存在而存在。<br>5.不要因为仅仅是已经过时了的创意而因此放弃它们。</p>
-<p>内容相对比较空泛，并且因为是全英文的缘故，很多演讲细节没能很完整地理解。</p>
-<p>《C-Wars（水晶战争）》可以算的上是现场给我感觉最好的游戏制作分享，由国内的傲逆软件创始人带来的分析报告。可以算的上是一款非常用心的游戏。C-Wars在KS上拿到了10万美元的众筹，可以说的上是国内最成功的独立游戏。除此之外还提及了如果发展海外市场，要杜绝文化差异的问题以及要注意本地话校对难度的问题。C-Wars是像素风格游戏，这类游戏在国内很小众，但对于大部分海外玩家来说却很受欢迎。但我觉得，这款游戏即使在国内也会受玩家青眯，这款游戏的画风真的相当赞！</p>
-<p><img src="/images/wp-migrate-res/2014/10/IMG_2577.jpg" alt="IMG_2577"></p>
-<p>&nbsp;</p>
-<p><strong>后话</strong><br>这次的GDC让我对游戏行业有了一个比较新的认识。游戏作品可以用很多方式去表达，不论最终的目的是不是为了获得金钱上的收入，但在过程中都要把心思放在游戏的设计上，被结果捆绑的作品始终不能算是艺术品。</p>
-<p>独立游戏比赛是一种不管卖座的盛会，和市场无关，这可能才是游戏的魅力所在，只要能带来快乐就好。游戏不应该用收入来定义成功。</p>
-]]></content>
+    <content type="html"><![CDATA[<p>从上海回到广州时已经是凌晨了，东航老是晚点。附近的店铺基本上都也已经打烊，吃不到好东西了。</p><p>说起这次GDC，我们主要是奔着IGF去的，我之前对独立游戏的概念并没有太深刻的印象，对现在的游戏行业来说，独立游戏和商业游戏之间的界限也变得越来越模糊，对于团队而言，在没有资金的影响下完成一个游戏项目，都可以称为独立游戏项目。也有一批纯粹的概念性粉丝认为，只有单纯地为游戏本身而开发才能算是独立游戏。<br><a id="more"></a><br><img src="/images/wp-migrate-res/2014/10/IMG_2537.jpg" alt="IMG_2537"></p><p>据说这次展会的参与人数大约为24000人，刷新了往年记录。不过我在会场感受比较深刻的是外国人比较多，看来GDC在国内的影响力还不够，并且这次也是亚洲赛区的作品峰会。和我一起同行的有两人，是来自我们脑洞工作室的小伙伴，他们从北京赶到上海。</p><p>IGF的入围作品都很优秀，奖金总共为8000美元（5万人民币），分为职业组和学生组两个赛组。他们之间有已经在Steam或AppStore上卖的很好的游戏。</p><h3 id="作品印象"><a href="#作品印象" class="headerlink" title="作品印象"></a><strong>作品印象</strong></h3><p>职业组作品中我最喜欢的是《Duet》，在还没知道它是本届IGF亚洲赛区的参赛作品时，我就已经在AppStore上购买并且玩了一段时间，这是个很不错的游戏，作者是澳大利亚的Kumobius.</p><p>《巫剑神威控》是日本「ZENITH BLUE」社团的C84新作，也是我在现场体验过的唯一一款职业组作品。这是一款3D游戏，游戏主角是一名女高中生，以快速剑技为重要玩法，用不同的格斗技巧击杀敌人。画面很炫并且很有快感，用手柄玩起来也相当有快感，但是缺乏可玩性，战斗过程还是略显乏味。不过游戏的负责人很热情，我走到旁边他就拉着我问我是否要尝试一下，就是他教我操作时说日式英文实在太难懂了……</p><p><img src="/images/wp-migrate-res/2014/10/IMG_2535.jpg" alt="IMG_2535"></p><p>职业组的两款中国的作品分别是《Zombie Commando（僵尸别动队）》以及《Ghost Blade》。</p><p>天宇在体验僵尸别动队的时候，一边和他们的创始人交流了起来。聊到了开发上的一些故事以及过程中遇到的问题。这款游戏在AppStore中国区免费帮前20名，起始团队只有3人，没有投资的情况下3人凑了2万，美术是外包的，因为国内几乎没有擅长像素画的外包公司，因此他们选择了海外的。另外，创始人提到他们的程序员非常牛。这款游戏的画面给人感觉很清新，8位像素风格，团队型战略即时战斗游戏，在Pad上体验很不错，但我在旁边用手机也玩了一会儿，由于分辨率的问题操作有些困难，主要是摇杆区域占了很大一部分比例。</p><p><img src="/images/wp-migrate-res/2014/10/IMG_2528.jpg" alt="IMG_2528"></p><p>《Ghost Blade（剑无生）》是一款3D动作游戏，通过手势滑动进行技巧性攻击。给我第一印象是水果忍者划西瓜。但这款游戏的工作量看起来很大，美术方面不错，使用虚幻引擎开发，可跨平台。在Pad上默认的操作方式体验可能会有一些障碍，手指在操作的时候可能挡住屏幕。场景整体风格不错，特别是远景图，和画面整体风格相当切合。这款游戏并没有太多针对移动设备的特征，讲究操作技巧。作者现场促销并怂恿我们购买……</p><p>下面聊一下学生组的入围作品。学生组总共六款入围作品，但被迪吉彭理工学院新加坡分校（DigiPen Institute of Technology Singapore）占了三个名额，分别是《Iris》、《Lurking》和《Meowchine Mayhem》，另外的三个名额则都是代表中国的，分别是来自纽约大学游戏中心Team Boss的《Boss》、香港C4Cat的《Shadow of Life》以及中国传媒大学的《Xi（汐）》。</p><p>《Boss》是一款逃生游戏，通过声音吸引一直在追自己的Boss并且通关。</p><p><img src="/images/wp-migrate-res/2014/10/IMG_2542.jpg" alt="IMG_2542"></p><p>《Lurking》是一个非常有创意的游戏，同时也是一款恐怖类的解谜游戏。这款3D游戏使用Unity开发，主要通过声音主题营造游戏的恐怖气氛，只有发出声音的主角才能看到游戏中的场景，并且需要用声音吸引“丧尸”的注意力并转移到其它地方以让自己获得逃走的机会，找到通关的办法。</p><p><strong>以下是颁奖结果：</strong></p><p><strong>学生组</strong><br>优秀学生作品奖：《Iris》、《Boss》<br>最佳学生作品奖：《Lurking》<br>（未获奖）入围作品：《Meowchine Mayhem》、《Shadow of Life》、《汐》（Xi）</p><p><strong>职业组</strong><br>最佳美术奖：《剑无生》（Ghost Blade）<br>最佳技术奖：《Lurking》（学生组作品）<br>最佳设计奖：《二重奏》（Duet）<br>最佳音效奖：《Nom Nom Galaxy》<br>最佳移动游戏奖：《僵尸别动队》（Zombie Commando）<br>最佳游戏奖：《国王联盟：奥德赛》（King’s League: Odyssey）<br>（未获奖）入围作品：《Sumoman》、《Battle Group 2》、《巫剑神威控》</p><h3 id="关于独立游戏峰会"><a href="#关于独立游戏峰会" class="headerlink" title="关于独立游戏峰会"></a>关于独立游戏峰会</h3><p>独立游戏峰会邀请了很多知名游戏制作人给我们分享了很多心得。我在现场简单做了一些笔记。<span style="line-height: 1.714285714; font-size: 1rem;">Brandon Sheffield分享的“通过游戏测试改进游戏”，给我们分享的内容大致有以下几点：</span></p><p>1.了解自己游戏的设计意图。<br>2.把重心放在游戏上的好想法并且不要忘记游戏最初的设计目的。<br>3.最简单的解决方案或实现方式可能就是最好的。<br>4.必须要把握游戏中的一切，并且知道它们为什么要这样做，而不仅仅是为了存在而存在。<br>5.不要因为仅仅是已经过时了的创意而因此放弃它们。</p><p>内容相对比较空泛，并且因为是全英文的缘故，很多演讲细节没能很完整地理解。</p><p>《C-Wars（水晶战争）》可以算的上是现场给我感觉最好的游戏制作分享，由国内的傲逆软件创始人带来的分析报告。可以算的上是一款非常用心的游戏。C-Wars在KS上拿到了10万美元的众筹，可以说的上是国内最成功的独立游戏。除此之外还提及了如果发展海外市场，要杜绝文化差异的问题以及要注意本地话校对难度的问题。C-Wars是像素风格游戏，这类游戏在国内很小众，但对于大部分海外玩家来说却很受欢迎。但我觉得，这款游戏即使在国内也会受玩家青眯，这款游戏的画风真的相当赞！</p><p><img src="/images/wp-migrate-res/2014/10/IMG_2577.jpg" alt="IMG_2577"></p><p>&nbsp;</p><p><strong>后话</strong><br>这次的GDC让我对游戏行业有了一个比较新的认识。游戏作品可以用很多方式去表达，不论最终的目的是不是为了获得金钱上的收入，但在过程中都要把心思放在游戏的设计上，被结果捆绑的作品始终不能算是艺术品。</p><p>独立游戏比赛是一种不管卖座的盛会，和市场无关，这可能才是游戏的魅力所在，只要能带来快乐就好。游戏不应该用收入来定义成功。</p>]]></content>
     
     <summary type="html">
     
@@ -283,32 +182,18 @@
     </summary>
     
     
-      <category term="杂项" scheme="http://powman.org/tags/%E6%9D%82%E9%A1%B9/"/>
+      <category term="杂项" scheme="https://powman.org/tags/%E6%9D%82%E9%A1%B9/"/>
     
   </entry>
   
   <entry>
     <title>烘焙：泡面的水果Pizza</title>
-    <link href="http://powman.org/archives/powman-cooking-1.html"/>
-    <id>http://powman.org/archives/powman-cooking-1.html</id>
+    <link href="https://powman.org/archives/powman-cooking-1.html"/>
+    <id>https://powman.org/archives/powman-cooking-1.html</id>
     <published>2014-10-12T08:44:30.000Z</published>
     <updated>2017-03-09T13:29:58.000Z</updated>
     
-    <content type="html"><![CDATA[<p>我上次假期烤了一个烤肉pizza，因为和面的时候出了点意外（水太多），肉没有预处理，而且选的鸡肉不是鸡胸肉，骨头太多。另一方面，烤箱温度和时间都没控制好，因此最后吃起来一般般。吸取了上次的经验，这次把过程给记录了下来，虽然和面仍失水准，并且最后的结果虽然有点焦，但吃起来还是不错的！</p>
-<p>我把我的步骤大致说说，也方便有想做pizza的同学参考一下。</p>
-<a id="more"></a>
-<p><strong>食材</strong><br>首先要确定要烤一个什么样的pizza，其实有肉和没肉步骤是不太一样的，需要烤肉的pizza要求更高，烤肉需要先腌制以及先弄个半熟（微波或者水炒一下）。这里以水果为主。<br>[table id=2 /]</p>
-<p><strong>工具</strong><br>工具可以在淘宝或者亚马逊买到，除了pizza盘之外，以下工具大部分是辅助使用，并非必要。<br>[table id=3 /]</p>
-<p>把以上工具准备好之后就可以开始干活了。</p>
-<p><strong>一、和面</strong><br>这个步骤其实很重要，把面粉、鸡蛋、酵母、橄榄油、细盐与水混在一起，倒进和面袋里，他们的比例拿捏很重要。因为缺少份量参考，这里我就不把配料的成份细写，只能凭经验啦。水是不能多加的，尤其是加了鸡蛋的情况下，因为鸡蛋被打混了之后，也属于大部分液体，所以水要慢慢加，直到你把其和成一个面团为止。接下来，就应该等待发酵。在此期间，可以去准备水果。</p>
-<p><strong>二、准备水果</strong><br>水果一般切块，根据自己的喜好切就好。另外如果有苹果，可留到最后切，不然苹果切开太久了容易氧化变黄。</p>
-<p><strong>三、准备烤盘</strong><br>在烤盘表面涂上一层油，这是为了在烘焙的时候不粘底。然后把面团平铺在烤盘上，加上你喜欢的水果并且摆出一个喜欢的图案，这样看起来可能会比较舒服。例如用锯齿刀给苹果削皮可以削出一些比较好看的图案，切番茄的时候用锯齿刀不会让番茄汁流出来。<br><a href="/images/wp-migrate-res/2014/10/pizza2.jpg"><img src="/images/wp-migrate-res/2014/10/pizza2.jpg" alt="pizza2"></a></p>
-<p>（另外这是我和面的时候多放了蛋和水所的产物。这看起来更像蛋糕的和面比例。）</p>
-<p><strong>四、开始烤</strong><br>建议把Pizza放在烤箱的中间一层，然后把上管温度调到150度左右，下管温度调到120度左右，烘焙时间大约25分钟。这是基本参数，但烘焙过程一定要多观察，如果油花沸腾了之后就把温度调小，否则就容易烤焦~~时间不一定是25分钟，需要在过程中自己拿捏。</p>
-<p>烤完了之后注意烤箱内烤网以及烤盘的温度，不要用手接触，因为余温是很高的。用烤网钩子把烤网拉出来，过一会儿就可以把烤盘拿走开吃了。当然，既然是水果披萨，记得按口味加炼奶或者沙拉。</p>
-<p>Enjoy it !!!!</p>
-<p>&nbsp;</p>
-]]></content>
+    <content type="html"><![CDATA[<p>我上次假期烤了一个烤肉pizza，因为和面的时候出了点意外（水太多），肉没有预处理，而且选的鸡肉不是鸡胸肉，骨头太多。另一方面，烤箱温度和时间都没控制好，因此最后吃起来一般般。吸取了上次的经验，这次把过程给记录了下来，虽然和面仍失水准，并且最后的结果虽然有点焦，但吃起来还是不错的！</p><p>我把我的步骤大致说说，也方便有想做pizza的同学参考一下。</p><a id="more"></a><p><strong>食材</strong><br>首先要确定要烤一个什么样的pizza，其实有肉和没肉步骤是不太一样的，需要烤肉的pizza要求更高，烤肉需要先腌制以及先弄个半熟（微波或者水炒一下）。这里以水果为主。<br>[table id=2 /]</p><p><strong>工具</strong><br>工具可以在淘宝或者亚马逊买到，除了pizza盘之外，以下工具大部分是辅助使用，并非必要。<br>[table id=3 /]</p><p>把以上工具准备好之后就可以开始干活了。</p><p><strong>一、和面</strong><br>这个步骤其实很重要，把面粉、鸡蛋、酵母、橄榄油、细盐与水混在一起，倒进和面袋里，他们的比例拿捏很重要。因为缺少份量参考，这里我就不把配料的成份细写，只能凭经验啦。水是不能多加的，尤其是加了鸡蛋的情况下，因为鸡蛋被打混了之后，也属于大部分液体，所以水要慢慢加，直到你把其和成一个面团为止。接下来，就应该等待发酵。在此期间，可以去准备水果。</p><p><strong>二、准备水果</strong><br>水果一般切块，根据自己的喜好切就好。另外如果有苹果，可留到最后切，不然苹果切开太久了容易氧化变黄。</p><p><strong>三、准备烤盘</strong><br>在烤盘表面涂上一层油，这是为了在烘焙的时候不粘底。然后把面团平铺在烤盘上，加上你喜欢的水果并且摆出一个喜欢的图案，这样看起来可能会比较舒服。例如用锯齿刀给苹果削皮可以削出一些比较好看的图案，切番茄的时候用锯齿刀不会让番茄汁流出来。<br><a href="/images/wp-migrate-res/2014/10/pizza2.jpg"><img src="/images/wp-migrate-res/2014/10/pizza2.jpg" alt="pizza2"></a></p><p>（另外这是我和面的时候多放了蛋和水所的产物。这看起来更像蛋糕的和面比例。）</p><p><strong>四、开始烤</strong><br>建议把Pizza放在烤箱的中间一层，然后把上管温度调到150度左右，下管温度调到120度左右，烘焙时间大约25分钟。这是基本参数，但烘焙过程一定要多观察，如果油花沸腾了之后就把温度调小，否则就容易烤焦~~时间不一定是25分钟，需要在过程中自己拿捏。</p><p>烤完了之后注意烤箱内烤网以及烤盘的温度，不要用手接触，因为余温是很高的。用烤网钩子把烤网拉出来，过一会儿就可以把烤盘拿走开吃了。当然，既然是水果披萨，记得按口味加炼奶或者沙拉。</p><p>Enjoy it !!!!</p><p>&nbsp;</p>]]></content>
     
     <summary type="html">
     
@@ -318,36 +203,24 @@
     </summary>
     
     
-      <category term="杂项" scheme="http://powman.org/tags/%E6%9D%82%E9%A1%B9/"/>
+      <category term="杂项" scheme="https://powman.org/tags/%E6%9D%82%E9%A1%B9/"/>
     
-      <category term="随笔" scheme="http://powman.org/tags/%E9%9A%8F%E7%AC%94/"/>
+      <category term="随笔" scheme="https://powman.org/tags/%E9%9A%8F%E7%AC%94/"/>
     
-      <category term="C/C++" scheme="http://powman.org/tags/C-C/"/>
+      <category term="C/C++" scheme="https://powman.org/tags/C-C/"/>
     
-      <category term="吃货日记" scheme="http://powman.org/tags/%E5%90%83%E8%B4%A7%E6%97%A5%E8%AE%B0/"/>
+      <category term="吃货日记" scheme="https://powman.org/tags/%E5%90%83%E8%B4%A7%E6%97%A5%E8%AE%B0/"/>
     
   </entry>
   
   <entry>
     <title>好玩的charas.EX</title>
-    <link href="http://powman.org/archives/charas-ex.html"/>
-    <id>http://powman.org/archives/charas-ex.html</id>
+    <link href="https://powman.org/archives/charas-ex.html"/>
+    <id>https://powman.org/archives/charas-ex.html</id>
     <published>2014-09-16T09:55:19.000Z</published>
     <updated>2017-03-11T09:40:25.000Z</updated>
     
-    <content type="html"><![CDATA[<p>天宇找了个好玩的2D纸娃娃系统，叫做charas.EX.</p>
-<p>工具很不错，虽然有点儿简陋，不过想想已经十年历史了也挺正常的。charas.EX带了很多像素风格的素材，可以满足很多小游戏的需求。<br><a id="more"></a><br>“纸娃娃系统”的意思是把不同部件组装成一个新的游戏角色，这样就可以动态的更换身体部件，组成新的样式。传统的2D纸娃娃是在不同部件的图片都制作一套动画，再组装起来播放；还有一种是基于骨骼系统的，只有骨骼在运动，部件都是绑定在骨骼上的，这样可以省大量的美术成本。</p>
-<p>因为软件比较古老了，有些界面上的英文词汇很随意，我就花了点间把这个工具给汉化了，部分词汇似乎是已经被抛弃了的功能，并且没法理解其上下文意思，我就没有汉化，除此之外的一些菜单项、对话框提示问吧、以及“你知道吗”都已经汉化了。</p>
-<p>原版的charas.EX：<br><a href="/images/wp-migrate-res/2014/09/charas_ex_1.png"><img src="/images/wp-migrate-res/2014/09/charas_ex_1.png" alt="charas_ex_1"></a></p>
-<p>汉化后的界面：<br><a href="/images/wp-migrate-res/2014/09/charas_ex_2.jpg"><img src="/images/wp-migrate-res/2014/09/charas_ex_2.jpg" alt="charas_ex_2"></a></p>
-<p>这个工具很小巧，汉化的工作量不大，如果有感到不适的翻译请联系我~<br>另外在这个工具的Additionals下面是有福利的，分别带了这个工具的源代码和用到的FreeImage插件。</p>
-<p>中文语言包：<a href="/images/wp-migrate-res/2014/09/Chinese.zip">Chinese.zip</a><br>（解压到language目录下即可）</p>
-<p>这个工具所有素材都来自在线资源库：<a href="http://charas-project.net/charas2/index.php" target="_blank" rel="external">http://charas-project.net/charas2/index.php</a><br>桌面版原版下载：<a href="http://charas-project.net/charas.ex/Charas.EX_04-10-02.zip" target="_blank" rel="external">http://charas-project.net/charas.ex/Charas.EX_04-10-02.zip</a></p>
-<hr>
-<p>国内部分地区可能会墙掉了原版下载地址，所以我在这里上传一个：<br><a href="/images/wp-migrate-res/2014/09/Charas.EX_04-10-02.zip">Charas.EX_04-10-02.zip</a></p>
-<p><span style="color: #ff0000;">如果Windows8系统下崩溃，尝试用兼容模式。在执行charas.EX.exe之前，先执行Charas.Updater.exe</span></p>
-<p>（桌面版在运行的时候会提示你更新素材库）</p>
-]]></content>
+    <content type="html"><![CDATA[<p>天宇找了个好玩的2D纸娃娃系统，叫做charas.EX.</p><p>工具很不错，虽然有点儿简陋，不过想想已经十年历史了也挺正常的。charas.EX带了很多像素风格的素材，可以满足很多小游戏的需求。<br><a id="more"></a><br>“纸娃娃系统”的意思是把不同部件组装成一个新的游戏角色，这样就可以动态的更换身体部件，组成新的样式。传统的2D纸娃娃是在不同部件的图片都制作一套动画，再组装起来播放；还有一种是基于骨骼系统的，只有骨骼在运动，部件都是绑定在骨骼上的，这样可以省大量的美术成本。</p><p>因为软件比较古老了，有些界面上的英文词汇很随意，我就花了点间把这个工具给汉化了，部分词汇似乎是已经被抛弃了的功能，并且没法理解其上下文意思，我就没有汉化，除此之外的一些菜单项、对话框提示问吧、以及“你知道吗”都已经汉化了。</p><p>原版的charas.EX：<br><a href="/images/wp-migrate-res/2014/09/charas_ex_1.png"><img src="/images/wp-migrate-res/2014/09/charas_ex_1.png" alt="charas_ex_1"></a></p><p>汉化后的界面：<br><a href="/images/wp-migrate-res/2014/09/charas_ex_2.jpg"><img src="/images/wp-migrate-res/2014/09/charas_ex_2.jpg" alt="charas_ex_2"></a></p><p>这个工具很小巧，汉化的工作量不大，如果有感到不适的翻译请联系我~<br>另外在这个工具的Additionals下面是有福利的，分别带了这个工具的源代码和用到的FreeImage插件。</p><p>中文语言包：<a href="/images/wp-migrate-res/2014/09/Chinese.zip">Chinese.zip</a><br>（解压到language目录下即可）</p><p>这个工具所有素材都来自在线资源库：<a href="http://charas-project.net/charas2/index.php" target="_blank" rel="noopener">http://charas-project.net/charas2/index.php</a><br>桌面版原版下载：<a href="http://charas-project.net/charas.ex/Charas.EX_04-10-02.zip" target="_blank" rel="noopener">http://charas-project.net/charas.ex/Charas.EX_04-10-02.zip</a></p><hr><p>国内部分地区可能会墙掉了原版下载地址，所以我在这里上传一个：<br><a href="/images/wp-migrate-res/2014/09/Charas.EX_04-10-02.zip">Charas.EX_04-10-02.zip</a></p><p><span style="color: #ff0000;">如果Windows8系统下崩溃，尝试用兼容模式。在执行charas.EX.exe之前，先执行Charas.Updater.exe</span></p><p>（桌面版在运行的时候会提示你更新素材库）</p>]]></content>
     
     <summary type="html">
     
@@ -357,27 +230,20 @@
     </summary>
     
     
-      <category term="工具" scheme="http://powman.org/tags/%E5%B7%A5%E5%85%B7/"/>
+      <category term="工具" scheme="https://powman.org/tags/%E5%B7%A5%E5%85%B7/"/>
     
-      <category term="游戏工具" scheme="http://powman.org/tags/%E6%B8%B8%E6%88%8F%E5%B7%A5%E5%85%B7/"/>
+      <category term="游戏工具" scheme="https://powman.org/tags/%E6%B8%B8%E6%88%8F%E5%B7%A5%E5%85%B7/"/>
     
   </entry>
   
   <entry>
     <title>广东饮食文化</title>
-    <link href="http://powman.org/archives/cantonese-cuisine.html"/>
-    <id>http://powman.org/archives/cantonese-cuisine.html</id>
+    <link href="https://powman.org/archives/cantonese-cuisine.html"/>
+    <id>https://powman.org/archives/cantonese-cuisine.html</id>
     <published>2014-09-11T10:31:15.000Z</published>
     <updated>2017-03-11T09:40:18.000Z</updated>
     
-    <content type="html"><![CDATA[<p>看了一期BBC美食纪录片，我也顺便介绍一下广东的饮食文化。</p>
-<p>广东料理（Cantonese Cuisine）是我们俗称的粤菜，也包括了在潮汕那一带的客家菜。有句话说“四条腿除了板凳，带翅膀的除了飞机，广东人都敢吃”，虽是高级黑，但广东的饮食的确很丰富，这是因为很久以前这边很缺乏食物，所以吃的东西比较广。<br><a id="more"></a><br>平时在广东经常可以吃到什么呢？家禽类要属鸡肉最多了，白切鸡很有名，是我最喜欢的食物之一。它通常不是完全熟透的，基本上保持原味，可以配合很多种调料蘸着吃，所以有些外地人不能习惯。其次是海鲜，广东是沿海的省份，因此运输海鲜也不是很难的事，最经常吃到的就是清蒸鱼、生蚝（牡蛎, oyster）、花甲（蛤蜊，clam）、小虾（shrimp）。</p>
-<p>大部分广东人口味淡，所以喜欢清蒸，因为这样可以保持鲜味。我是个很喜欢海鲜的人，几乎每次外出觅食都会点海鲜，并且聚餐的时候一定要点清蒸鱼，清蒸鱼其实不淡，但这要看厨师的功力，如果调味足够好，是一道非常不错的菜，鱼肉鲜美而且不会没有味道，它通常会带有姜、葱、香菜用于去腥，在广州的餐馆里最多的是鲈鱼和桂花鱼。清蒸鱼也是我最喜欢的食物之一。</p>
-<p>然后要说一下生蚝，在传统酒楼的餐桌上其实很少点生蚝的，一般在吃烧烤的地方比较多，这几乎也成为在吃烧烤时必点的食物，生蚝也是我最喜欢的食物之一，我每次都会吃很多。</p>
-<p>广东流行老火汤，传统的老火汤一般是用瓦锅或砂锅煮或者炖。煮出来的汤，食物的养分会完全在汤里面，有个古老习惯是汤里面的肉和食材是不和汤一起吃的，要先喝汤再吃。所以也有做法是把肉用来煮汤，煮完之后再把肉捞起来炒。</p>
-<p>炖汤通常和比较名贵的药材一起，汤和里面的食材都可以吃，属于很滋补的汤类，也是我最喜欢的汤类做法。在广州常见的炖汤是乌鸡和花旗参，或者和当归枸杞一起，还可以用老母鸡加田七。除了滋补类的汤，还有比较清凉的，如排骨玉米和红萝卜汤。一般来说，汤里面都不会放姜、葱或香菜。有哪些汤可以用姜葱和香菜去腥呢？那就是带有水产品的汤，例如俗称可以减肥的鱼头豆腐汤、还有鱿鱼汤、瑶柱汤、花甲汤，他们都属于海鲜类。其实正常情况下汤一般要炖好几个小时，因此在餐馆或者酒楼里的汤大多都是速成的，食材也通常是煮熟之后冷藏的。如果在广东不喝上一些好喝的炖汤，那就白来啦。</p>
-<p>然后说一下其它菜，扣肉、烧鹅、咕噜肉（甜酸肉）、叉烧、沙茶牛肉（潮汕）、猪手、炸子鸡、凤爪、炒田螺等。广州有很多其它地方的人，所以很多菜式逐渐在结合其它地方的菜式的口味，这也是一大特色，因此吃不到地道的粤菜也不会很奇怪。但是广东人开的小餐馆的粤菜就一定比较地道，因为那都是他们家乡的口味。</p>
-]]></content>
+    <content type="html"><![CDATA[<p>看了一期BBC美食纪录片，我也顺便介绍一下广东的饮食文化。</p><p>广东料理（Cantonese Cuisine）是我们俗称的粤菜，也包括了在潮汕那一带的客家菜。有句话说“四条腿除了板凳，带翅膀的除了飞机，广东人都敢吃”，虽是高级黑，但广东的饮食的确很丰富，这是因为很久以前这边很缺乏食物，所以吃的东西比较广。<br><a id="more"></a><br>平时在广东经常可以吃到什么呢？家禽类要属鸡肉最多了，白切鸡很有名，是我最喜欢的食物之一。它通常不是完全熟透的，基本上保持原味，可以配合很多种调料蘸着吃，所以有些外地人不能习惯。其次是海鲜，广东是沿海的省份，因此运输海鲜也不是很难的事，最经常吃到的就是清蒸鱼、生蚝（牡蛎, oyster）、花甲（蛤蜊，clam）、小虾（shrimp）。</p><p>大部分广东人口味淡，所以喜欢清蒸，因为这样可以保持鲜味。我是个很喜欢海鲜的人，几乎每次外出觅食都会点海鲜，并且聚餐的时候一定要点清蒸鱼，清蒸鱼其实不淡，但这要看厨师的功力，如果调味足够好，是一道非常不错的菜，鱼肉鲜美而且不会没有味道，它通常会带有姜、葱、香菜用于去腥，在广州的餐馆里最多的是鲈鱼和桂花鱼。清蒸鱼也是我最喜欢的食物之一。</p><p>然后要说一下生蚝，在传统酒楼的餐桌上其实很少点生蚝的，一般在吃烧烤的地方比较多，这几乎也成为在吃烧烤时必点的食物，生蚝也是我最喜欢的食物之一，我每次都会吃很多。</p><p>广东流行老火汤，传统的老火汤一般是用瓦锅或砂锅煮或者炖。煮出来的汤，食物的养分会完全在汤里面，有个古老习惯是汤里面的肉和食材是不和汤一起吃的，要先喝汤再吃。所以也有做法是把肉用来煮汤，煮完之后再把肉捞起来炒。</p><p>炖汤通常和比较名贵的药材一起，汤和里面的食材都可以吃，属于很滋补的汤类，也是我最喜欢的汤类做法。在广州常见的炖汤是乌鸡和花旗参，或者和当归枸杞一起，还可以用老母鸡加田七。除了滋补类的汤，还有比较清凉的，如排骨玉米和红萝卜汤。一般来说，汤里面都不会放姜、葱或香菜。有哪些汤可以用姜葱和香菜去腥呢？那就是带有水产品的汤，例如俗称可以减肥的鱼头豆腐汤、还有鱿鱼汤、瑶柱汤、花甲汤，他们都属于海鲜类。其实正常情况下汤一般要炖好几个小时，因此在餐馆或者酒楼里的汤大多都是速成的，食材也通常是煮熟之后冷藏的。如果在广东不喝上一些好喝的炖汤，那就白来啦。</p><p>然后说一下其它菜，扣肉、烧鹅、咕噜肉（甜酸肉）、叉烧、沙茶牛肉（潮汕）、猪手、炸子鸡、凤爪、炒田螺等。广州有很多其它地方的人，所以很多菜式逐渐在结合其它地方的菜式的口味，这也是一大特色，因此吃不到地道的粤菜也不会很奇怪。但是广东人开的小餐馆的粤菜就一定比较地道，因为那都是他们家乡的口味。</p>]]></content>
     
     <summary type="html">
     
@@ -387,31 +253,20 @@
     </summary>
     
     
-      <category term="杂项" scheme="http://powman.org/tags/%E6%9D%82%E9%A1%B9/"/>
+      <category term="杂项" scheme="https://powman.org/tags/%E6%9D%82%E9%A1%B9/"/>
     
-      <category term="随笔" scheme="http://powman.org/tags/%E9%9A%8F%E7%AC%94/"/>
+      <category term="随笔" scheme="https://powman.org/tags/%E9%9A%8F%E7%AC%94/"/>
     
   </entry>
   
   <entry>
     <title>TCP性能分析技术(7)：socket的数据发送与接收</title>
-    <link href="http://powman.org/archives/tcp-prof-7.html"/>
-    <id>http://powman.org/archives/tcp-prof-7.html</id>
+    <link href="https://powman.org/archives/tcp-prof-7.html"/>
+    <id>https://powman.org/archives/tcp-prof-7.html</id>
     <published>2014-08-02T12:53:14.000Z</published>
     <updated>2017-03-11T09:43:23.000Z</updated>
     
-    <content type="html"><![CDATA[<h3 id="总流程图"><a href="#总流程图" class="headerlink" title="总流程图"></a>总流程图</h3><p><a href="/images/wp-migrate-res/2014/08/process_of_socket.png"><img src="/images/wp-migrate-res/2014/08/process_of_socket.png" alt="process_of_socket"></a></p>
-<h3 id="接收流程"><a href="#接收流程" class="headerlink" title="接收流程"></a>接收流程</h3><p>TCP接收到数据之后会写入到TCP本身的Buffer里，然后会拷贝到应用层（亦即我们的应用程序）的接收Buffer中。在满足以下条件时，TCP接收Buffer的数据会被写入到到应用层的接收Buffer并且recv()返回：</p>
-<ul>
-<li>TCP头部中的PSH被置为1</li>
-<li>TCP接收Buffer溢出</li>
-<li>数据在TCP接收Buffer中存放的时间超过了0.5s</li>
-</ul>
-<h3 id="发送流程"><a href="#发送流程" class="headerlink" title="发送流程"></a>发送流程</h3><p>应用层的发送Buffer把数据写入到TCP的Buffer中：<br>如果应用层的发送Buffer超过了TCP发送Buffer的大小，就会发生阻塞，直到把所有数据写入到TCP的Buffer中才会返回。</p>
-<p>在TCP进行Nagle优化时，如果发送的Buffer太大并且满足了Nagle算法优化场合，TCP就会先发送部分数据，这时候对端就会出现我们平时所说的粘包或者残包，需要在业务上进行拼接和解析。</p>
-<h3 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h3><p>这个系列到此结束了，主要讲述了TCP协议的一些比较底层的理论问题，也许大多数人甚至是从事网络通信（如写服务器）的程序员也不一定了解过，工作上也几乎很少用到。不过有必要建议还是花点时间了解一下，不一定要深究，但至少对得起自己的情怀和职业呀。。</p>
-<p>参考书籍：《TCP/IP详解》</p>
-<a id="more"></a>]]></content>
+    <content type="html"><![CDATA[<h3 id="总流程图"><a href="#总流程图" class="headerlink" title="总流程图"></a>总流程图</h3><p><a href="/images/wp-migrate-res/2014/08/process_of_socket.png"><img src="/images/wp-migrate-res/2014/08/process_of_socket.png" alt="process_of_socket"></a></p><h3 id="接收流程"><a href="#接收流程" class="headerlink" title="接收流程"></a>接收流程</h3><p>TCP接收到数据之后会写入到TCP本身的Buffer里，然后会拷贝到应用层（亦即我们的应用程序）的接收Buffer中。在满足以下条件时，TCP接收Buffer的数据会被写入到到应用层的接收Buffer并且recv()返回：</p><ul><li>TCP头部中的PSH被置为1</li><li>TCP接收Buffer溢出</li><li>数据在TCP接收Buffer中存放的时间超过了0.5s</li></ul><h3 id="发送流程"><a href="#发送流程" class="headerlink" title="发送流程"></a>发送流程</h3><p>应用层的发送Buffer把数据写入到TCP的Buffer中：<br>如果应用层的发送Buffer超过了TCP发送Buffer的大小，就会发生阻塞，直到把所有数据写入到TCP的Buffer中才会返回。</p><p>在TCP进行Nagle优化时，如果发送的Buffer太大并且满足了Nagle算法优化场合，TCP就会先发送部分数据，这时候对端就会出现我们平时所说的粘包或者残包，需要在业务上进行拼接和解析。</p><h3 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h3><p>这个系列到此结束了，主要讲述了TCP协议的一些比较底层的理论问题，也许大多数人甚至是从事网络通信（如写服务器）的程序员也不一定了解过，工作上也几乎很少用到。不过有必要建议还是花点时间了解一下，不一定要深究，但至少对得起自己的情怀和职业呀。。</p><p>参考书籍：《TCP/IP详解》</p><a id="more"></a>]]></content>
     
     <summary type="html">
     
@@ -430,26 +285,24 @@
     </summary>
     
     
-      <category term="协议" scheme="http://powman.org/tags/%E5%8D%8F%E8%AE%AE/"/>
+      <category term="协议" scheme="https://powman.org/tags/%E5%8D%8F%E8%AE%AE/"/>
     
-      <category term="技术" scheme="http://powman.org/tags/%E6%8A%80%E6%9C%AF/"/>
+      <category term="技术" scheme="https://powman.org/tags/%E6%8A%80%E6%9C%AF/"/>
     
-      <category term="算法" scheme="http://powman.org/tags/%E7%AE%97%E6%B3%95/"/>
+      <category term="算法" scheme="https://powman.org/tags/%E7%AE%97%E6%B3%95/"/>
     
-      <category term="网络与底层" scheme="http://powman.org/tags/%E7%BD%91%E7%BB%9C%E4%B8%8E%E5%BA%95%E5%B1%82/"/>
+      <category term="网络与底层" scheme="https://powman.org/tags/%E7%BD%91%E7%BB%9C%E4%B8%8E%E5%BA%95%E5%B1%82/"/>
     
   </entry>
   
   <entry>
     <title>TCP性能分析技术(6)：应用层通信流程</title>
-    <link href="http://powman.org/archives/tcp-prof-6.html"/>
-    <id>http://powman.org/archives/tcp-prof-6.html</id>
+    <link href="https://powman.org/archives/tcp-prof-6.html"/>
+    <id>https://powman.org/archives/tcp-prof-6.html</id>
     <published>2014-07-27T15:06:02.000Z</published>
     <updated>2017-03-11T09:43:18.000Z</updated>
     
-    <content type="html"><![CDATA[<p>应用层的发包一般指调用系统的socket api的过程。</p>
-<h3 id="E2E数据发送与接收时序（流程）图"><a href="#E2E数据发送与接收时序（流程）图" class="headerlink" title="E2E数据发送与接收时序（流程）图"></a>E2E数据发送与接收时序（流程）图</h3><p><a href="/images/wp-migrate-res/2014/07/process_of_cs.png"><img src="/images/wp-migrate-res/2014/07/process_of_cs.png" alt="process_of_cs"></a></p>
-<a id="more"></a>]]></content>
+    <content type="html"><![CDATA[<p>应用层的发包一般指调用系统的socket api的过程。</p><h3 id="E2E数据发送与接收时序（流程）图"><a href="#E2E数据发送与接收时序（流程）图" class="headerlink" title="E2E数据发送与接收时序（流程）图"></a>E2E数据发送与接收时序（流程）图</h3><p><a href="/images/wp-migrate-res/2014/07/process_of_cs.png"><img src="/images/wp-migrate-res/2014/07/process_of_cs.png" alt="process_of_cs"></a></p><a id="more"></a>]]></content>
     
     <summary type="html">
     
@@ -459,26 +312,24 @@
     </summary>
     
     
-      <category term="协议" scheme="http://powman.org/tags/%E5%8D%8F%E8%AE%AE/"/>
+      <category term="协议" scheme="https://powman.org/tags/%E5%8D%8F%E8%AE%AE/"/>
     
-      <category term="技术" scheme="http://powman.org/tags/%E6%8A%80%E6%9C%AF/"/>
+      <category term="技术" scheme="https://powman.org/tags/%E6%8A%80%E6%9C%AF/"/>
     
-      <category term="算法" scheme="http://powman.org/tags/%E7%AE%97%E6%B3%95/"/>
+      <category term="算法" scheme="https://powman.org/tags/%E7%AE%97%E6%B3%95/"/>
     
-      <category term="网络与底层" scheme="http://powman.org/tags/%E7%BD%91%E7%BB%9C%E4%B8%8E%E5%BA%95%E5%B1%82/"/>
+      <category term="网络与底层" scheme="https://powman.org/tags/%E7%BD%91%E7%BB%9C%E4%B8%8E%E5%BA%95%E5%B1%82/"/>
     
   </entry>
   
   <entry>
     <title>TCP性能分析技术(5)：数据发送端流程图</title>
-    <link href="http://powman.org/archives/tcp-prof-5.html"/>
-    <id>http://powman.org/archives/tcp-prof-5.html</id>
+    <link href="https://powman.org/archives/tcp-prof-5.html"/>
+    <id>https://powman.org/archives/tcp-prof-5.html</id>
     <published>2014-07-27T13:12:49.000Z</published>
     <updated>2017-03-11T09:43:14.000Z</updated>
     
-    <content type="html"><![CDATA[<p>画一个流程图方便理解<a href="http://powman.org/archives/tcp_prof_4.html">上一章</a>的内容：</p>
-<p><a href="/images/wp-migrate-res/2014/07/process_of_sending.png"><img src="/images/wp-migrate-res/2014/07/process_of_sending.png" alt="process_of_sending"></a></p>
-<a id="more"></a>]]></content>
+    <content type="html"><![CDATA[<p>画一个流程图方便理解<a href="http://powman.org/archives/tcp_prof_4.html">上一章</a>的内容：</p><p><a href="/images/wp-migrate-res/2014/07/process_of_sending.png"><img src="/images/wp-migrate-res/2014/07/process_of_sending.png" alt="process_of_sending"></a></p><a id="more"></a>]]></content>
     
     <summary type="html">
     
@@ -488,54 +339,24 @@
     </summary>
     
     
-      <category term="协议" scheme="http://powman.org/tags/%E5%8D%8F%E8%AE%AE/"/>
+      <category term="协议" scheme="https://powman.org/tags/%E5%8D%8F%E8%AE%AE/"/>
     
-      <category term="技术" scheme="http://powman.org/tags/%E6%8A%80%E6%9C%AF/"/>
+      <category term="技术" scheme="https://powman.org/tags/%E6%8A%80%E6%9C%AF/"/>
     
-      <category term="算法" scheme="http://powman.org/tags/%E7%AE%97%E6%B3%95/"/>
+      <category term="算法" scheme="https://powman.org/tags/%E7%AE%97%E6%B3%95/"/>
     
-      <category term="网络与底层" scheme="http://powman.org/tags/%E7%BD%91%E7%BB%9C%E4%B8%8E%E5%BA%95%E5%B1%82/"/>
+      <category term="网络与底层" scheme="https://powman.org/tags/%E7%BD%91%E7%BB%9C%E4%B8%8E%E5%BA%95%E5%B1%82/"/>
     
   </entry>
   
   <entry>
     <title>TCP性能分析技术(4)：数据发送端行为分析</title>
-    <link href="http://powman.org/archives/tcp-prof-4.html"/>
-    <id>http://powman.org/archives/tcp-prof-4.html</id>
+    <link href="https://powman.org/archives/tcp-prof-4.html"/>
+    <id>https://powman.org/archives/tcp-prof-4.html</id>
     <published>2014-07-20T03:31:07.000Z</published>
     <updated>2017-03-11T09:43:09.000Z</updated>
     
-    <content type="html"><![CDATA[<h3 id="基本行为"><a href="#基本行为" class="headerlink" title="基本行为"></a>基本行为</h3><p><strong>（1） 发包的时机</strong><br>每个ACK都有可能触发发包，是否发包取决于根据’(2)’中的公式所算结果是否大于零。</p>
-<ul>
-<li>RTT测量的ACK会启动发包。（这一条是错的）</li>
-<li>重复ACK会启动发包。</li>
-<li>紧跟在重复ACK后回复的第一个新的ACK会启动发包。</li>
-<li>快速重传、超时重传也会启动发包。<br><strong>（2）发包的数量：</strong><br>发送端根据启动发包时刻的发送窗口、接收窗口、拥塞窗口大小来确定发包数量。计算公式如下：<br><span style="color: #ff0000;">发包数量 = min(发送窗口大小, 接收窗口大小, 拥塞窗口大小) - 已发送未确认数据的字节数</span></li>
-</ul>
-<a id="more"></a>
-<h3 id="RTT测量原理"><a href="#RTT测量原理" class="headerlink" title="RTT测量原理"></a>RTT测量原理</h3><p>基本原理：在一个RTT时间内只会启动一次测量。用于RTT测量的ACK才会启动发包，期间收到的其它ACK不启动发包（重复ACK以及跟随其后的第一个新的ACK除外~）</p>
-<p><a href="/images/wp-migrate-res/2014/07/RTT_Measurement.jpg"><img src="/images/wp-migrate-res/2014/07/RTT_Measurement.jpg" alt="RTT_Measurement"></a></p>
-<p>（数据包交换以及RTT测量，图来源于网络我不想画图了。。。大概就这样）</p>
-<h3 id="滑动窗口原理"><a href="#滑动窗口原理" class="headerlink" title="滑动窗口原理"></a>滑动窗口原理</h3><p>参见 <a href="http://powman.org/archives/tcp_prof_1.html">《TCP性能分析技术：Windows下TCP/IP协议栈的实现中》的协议栈图</a>。</p>
-<p>在接收窗口受限的情况下，发包数量取决于接收窗口的大小：接收窗口增大，则发包数量增加；接收窗口减小，则发包数量减少。</p>
-<h3 id="拥塞窗口更新"><a href="#拥塞窗口更新" class="headerlink" title="拥塞窗口更新"></a>拥塞窗口更新</h3><p>发送端对接收到的每个ACK都会启动拥塞窗口更新。具体如何更新和接收到ACK时所处的阶段是有关的。</p>
-<p><strong>（1）慢阶段启动</strong><br>TCP建立的时候，CWND = 1(MSS)，之后每收到一个ACK，CWND = CWND + 1，直到满足 CWND ≤ ssthresh(慢启动阈值)，则慢启动阶段结束。之所以叫“慢启动”，是相对于没有拥塞控制只有流控制的情况下发送端一次发下不超过接收窗口大小的数据来讲的。</p>
-<p>启动过程：<br>[慢启动门限更新] ：初始化为65535 Bytes，发生拥塞时调整为当前拥塞窗口的一半。<br>[拥塞窗口更新]：CWND = CWND + 1，假设接收端收到了1个包，回1个ACK，ssthresh = 16</p>
-<p>CWND = 1，第一个RTT期间，发出1个包，回来1个ACK<br>CWND = 2，第二个RTT期间，发出2个包，回来2个ACK<br>CWND = 4，第三个RTT期间，发出4个包，回来4个ACK<br>CWND = 8，第四个RTT期间，发出8个包，回来8个ACK<br>CWND = 16，达到慢启动门限，慢启动阶段结束。</p>
-<p>这里为了方便，在描述拥塞窗口的时候用的单位都是1个MSS（最大报文段长度，Maximum Segment Size），实际上使用的拥塞窗口单位都是Bytes（字节）。</p>
-<p>慢启动特征：<br>拥塞窗口大小是随着时间指数上升的。<br><a href="/images/wp-migrate-res/2014/07/slow_start_stage.jpg"><img src="/images/wp-migrate-res/2014/07/slow_start_stage.jpg" alt="slow_start_stage"></a><br>（慢启动和拥塞避免情况下拥塞窗口大小随时间的变化规律，图来源于网络我不想画图了。。。大概就这样）</p>
-<p><strong>（2）拥塞避免阶段</strong><br>CWND超过慢启动门限就会进入拥塞避免阶段。</p>
-<p>拥塞避免过程：<br>[拥塞窗口更新] ：CWND = CWND + 1 / CWND，<br>假设CWND = 16,<br>CWND = 16， 第一个RTT期间，发出16个包，回来16个ACK，<br>CWND = 17， 第二个RTT期间，发出17个包，回来17个ACK，<br>CWND = 18， 第三个RTT期间，发出18个包，回来18个ACK，<br>CWND = 19， 第四个RTT期间，发出19个包，回来19个ACK，<br>CWND = 20， ——————</p>
-<p>拥塞窗口的大小会随着时间线性上升。</p>
-<p><strong>（3）快速重传阶段</strong><br>收到3个重复ACK就会启动快速重传而进入快速重传阶段。<br>重传数据包，不需要等待重传定时器超时。收到3个重复ACK后立即重传数据包。</p>
-<p><strong>（4）快速恢复阶段</strong><br>快速重传结束后，不进入慢启动阶段，而是进入拥塞避免阶段，这就是快速恢复。</p>
-<p>快速恢复过程：<br>[慢启动门限更新] ：更新为当前CWND 的一半，即 ssthresh = CWND / 2<br>[拥塞窗口更新] ： CWND = ssthresh + 3(MSS)</p>
-<p><strong>（5）超时重传阶段</strong><br>在超时定时器超时之前，没有收到ACK，也没有收到重复ACK，就会进入超时重传阶段。<br>重传定时器超时后，重发数据包。</p>
-<p>CWND = 1,<br>ssthresh = 65535</p>
-<p>进入慢启动阶段。</p>
-<hr>
-<p>上面5个阶段划分都是站在发送端的角度去考虑的。这章比较长而且不容易理解，可以消化一段时间了。</p>
-]]></content>
+    <content type="html"><![CDATA[<h3 id="基本行为"><a href="#基本行为" class="headerlink" title="基本行为"></a>基本行为</h3><p><strong>（1） 发包的时机</strong><br>每个ACK都有可能触发发包，是否发包取决于根据’(2)’中的公式所算结果是否大于零。</p><ul><li>RTT测量的ACK会启动发包。（这一条是错的）</li><li>重复ACK会启动发包。</li><li>紧跟在重复ACK后回复的第一个新的ACK会启动发包。</li><li>快速重传、超时重传也会启动发包。<br><strong>（2）发包的数量：</strong><br>发送端根据启动发包时刻的发送窗口、接收窗口、拥塞窗口大小来确定发包数量。计算公式如下：<br><span style="color: #ff0000;">发包数量 = min(发送窗口大小, 接收窗口大小, 拥塞窗口大小) - 已发送未确认数据的字节数</span></li></ul><a id="more"></a><h3 id="RTT测量原理"><a href="#RTT测量原理" class="headerlink" title="RTT测量原理"></a>RTT测量原理</h3><p>基本原理：在一个RTT时间内只会启动一次测量。用于RTT测量的ACK才会启动发包，期间收到的其它ACK不启动发包（重复ACK以及跟随其后的第一个新的ACK除外~）</p><p><a href="/images/wp-migrate-res/2014/07/RTT_Measurement.jpg"><img src="/images/wp-migrate-res/2014/07/RTT_Measurement.jpg" alt="RTT_Measurement"></a></p><p>（数据包交换以及RTT测量，图来源于网络我不想画图了。。。大概就这样）</p><h3 id="滑动窗口原理"><a href="#滑动窗口原理" class="headerlink" title="滑动窗口原理"></a>滑动窗口原理</h3><p>参见 <a href="http://powman.org/archives/tcp_prof_1.html">《TCP性能分析技术：Windows下TCP/IP协议栈的实现中》的协议栈图</a>。</p><p>在接收窗口受限的情况下，发包数量取决于接收窗口的大小：接收窗口增大，则发包数量增加；接收窗口减小，则发包数量减少。</p><h3 id="拥塞窗口更新"><a href="#拥塞窗口更新" class="headerlink" title="拥塞窗口更新"></a>拥塞窗口更新</h3><p>发送端对接收到的每个ACK都会启动拥塞窗口更新。具体如何更新和接收到ACK时所处的阶段是有关的。</p><p><strong>（1）慢阶段启动</strong><br>TCP建立的时候，CWND = 1(MSS)，之后每收到一个ACK，CWND = CWND + 1，直到满足 CWND ≤ ssthresh(慢启动阈值)，则慢启动阶段结束。之所以叫“慢启动”，是相对于没有拥塞控制只有流控制的情况下发送端一次发下不超过接收窗口大小的数据来讲的。</p><p>启动过程：<br>[慢启动门限更新] ：初始化为65535 Bytes，发生拥塞时调整为当前拥塞窗口的一半。<br>[拥塞窗口更新]：CWND = CWND + 1，假设接收端收到了1个包，回1个ACK，ssthresh = 16</p><p>CWND = 1，第一个RTT期间，发出1个包，回来1个ACK<br>CWND = 2，第二个RTT期间，发出2个包，回来2个ACK<br>CWND = 4，第三个RTT期间，发出4个包，回来4个ACK<br>CWND = 8，第四个RTT期间，发出8个包，回来8个ACK<br>CWND = 16，达到慢启动门限，慢启动阶段结束。</p><p>这里为了方便，在描述拥塞窗口的时候用的单位都是1个MSS（最大报文段长度，Maximum Segment Size），实际上使用的拥塞窗口单位都是Bytes（字节）。</p><p>慢启动特征：<br>拥塞窗口大小是随着时间指数上升的。<br><a href="/images/wp-migrate-res/2014/07/slow_start_stage.jpg"><img src="/images/wp-migrate-res/2014/07/slow_start_stage.jpg" alt="slow_start_stage"></a><br>（慢启动和拥塞避免情况下拥塞窗口大小随时间的变化规律，图来源于网络我不想画图了。。。大概就这样）</p><p><strong>（2）拥塞避免阶段</strong><br>CWND超过慢启动门限就会进入拥塞避免阶段。</p><p>拥塞避免过程：<br>[拥塞窗口更新] ：CWND = CWND + 1 / CWND，<br>假设CWND = 16,<br>CWND = 16， 第一个RTT期间，发出16个包，回来16个ACK，<br>CWND = 17， 第二个RTT期间，发出17个包，回来17个ACK，<br>CWND = 18， 第三个RTT期间，发出18个包，回来18个ACK，<br>CWND = 19， 第四个RTT期间，发出19个包，回来19个ACK，<br>CWND = 20， ——————</p><p>拥塞窗口的大小会随着时间线性上升。</p><p><strong>（3）快速重传阶段</strong><br>收到3个重复ACK就会启动快速重传而进入快速重传阶段。<br>重传数据包，不需要等待重传定时器超时。收到3个重复ACK后立即重传数据包。</p><p><strong>（4）快速恢复阶段</strong><br>快速重传结束后，不进入慢启动阶段，而是进入拥塞避免阶段，这就是快速恢复。</p><p>快速恢复过程：<br>[慢启动门限更新] ：更新为当前CWND 的一半，即 ssthresh = CWND / 2<br>[拥塞窗口更新] ： CWND = ssthresh + 3(MSS)</p><p><strong>（5）超时重传阶段</strong><br>在超时定时器超时之前，没有收到ACK，也没有收到重复ACK，就会进入超时重传阶段。<br>重传定时器超时后，重发数据包。</p><p>CWND = 1,<br>ssthresh = 65535</p><p>进入慢启动阶段。</p><hr><p>上面5个阶段划分都是站在发送端的角度去考虑的。这章比较长而且不容易理解，可以消化一段时间了。</p>]]></content>
     
     <summary type="html">
     
@@ -550,33 +371,24 @@
     </summary>
     
     
-      <category term="协议" scheme="http://powman.org/tags/%E5%8D%8F%E8%AE%AE/"/>
+      <category term="协议" scheme="https://powman.org/tags/%E5%8D%8F%E8%AE%AE/"/>
     
-      <category term="技术" scheme="http://powman.org/tags/%E6%8A%80%E6%9C%AF/"/>
+      <category term="技术" scheme="https://powman.org/tags/%E6%8A%80%E6%9C%AF/"/>
     
-      <category term="算法" scheme="http://powman.org/tags/%E7%AE%97%E6%B3%95/"/>
+      <category term="算法" scheme="https://powman.org/tags/%E7%AE%97%E6%B3%95/"/>
     
-      <category term="网络与底层" scheme="http://powman.org/tags/%E7%BD%91%E7%BB%9C%E4%B8%8E%E5%BA%95%E5%B1%82/"/>
+      <category term="网络与底层" scheme="https://powman.org/tags/%E7%BD%91%E7%BB%9C%E4%B8%8E%E5%BA%95%E5%B1%82/"/>
     
   </entry>
   
   <entry>
     <title>TCP性能分析技术(3)：数据接收端行为分析</title>
-    <link href="http://powman.org/archives/tcp-prof-3.html"/>
-    <id>http://powman.org/archives/tcp-prof-3.html</id>
+    <link href="https://powman.org/archives/tcp-prof-3.html"/>
+    <id>https://powman.org/archives/tcp-prof-3.html</id>
     <published>2014-07-12T10:14:21.000Z</published>
     <updated>2017-03-11T09:43:04.000Z</updated>
     
-    <content type="html"><![CDATA[<h3 id="基本行为"><a href="#基本行为" class="headerlink" title="基本行为"></a>基本行为</h3><p>接收端的基本行为有：接收数据包、回复ACK，适当时将数据送往应用层缓冲区。</p>
-<p>（1）一般情况下收到2个包回1个ACK，除非第二个数据包在200ms内没有收到（这种情况下所回复的ACK被成为Delayed-ACK, 200ms定时器则称为Delayed-ACK Timer）。<br>（2）如果出现丢包情况，对于后续收到的每一个数据包则重新回复ACK.<br>（3）重传的数据包收到之后，会和之前收到的所有数据包一起回复ACK.<br>（4）还有就是，满足以下任何一个条件时数据都会被送往应用层缓冲区：</p>
-<ul>
-<li>应用程序通过recv()方法准备接收数据</li>
-<li>TCP头部中的PSH标识被置为1</li>
-<li>TCP接收Buffer溢出了</li>
-<li>数据在TCP接收Buffer中存放的时间超过了500ms</li>
-</ul>
-<h3 id="TCP接收端处理流程图"><a href="#TCP接收端处理流程图" class="headerlink" title="TCP接收端处理流程图"></a>TCP接收端处理流程图</h3><p><a href="/images/wp-migrate-res/2014/07/ppud.png"><img src="/images/wp-migrate-res/2014/07/ppud.png" alt="ppud"></a></p>
-<a id="more"></a>]]></content>
+    <content type="html"><![CDATA[<h3 id="基本行为"><a href="#基本行为" class="headerlink" title="基本行为"></a>基本行为</h3><p>接收端的基本行为有：接收数据包、回复ACK，适当时将数据送往应用层缓冲区。</p><p>（1）一般情况下收到2个包回1个ACK，除非第二个数据包在200ms内没有收到（这种情况下所回复的ACK被成为Delayed-ACK, 200ms定时器则称为Delayed-ACK Timer）。<br>（2）如果出现丢包情况，对于后续收到的每一个数据包则重新回复ACK.<br>（3）重传的数据包收到之后，会和之前收到的所有数据包一起回复ACK.<br>（4）还有就是，满足以下任何一个条件时数据都会被送往应用层缓冲区：</p><ul><li>应用程序通过recv()方法准备接收数据</li><li>TCP头部中的PSH标识被置为1</li><li>TCP接收Buffer溢出了</li><li>数据在TCP接收Buffer中存放的时间超过了500ms</li></ul><h3 id="TCP接收端处理流程图"><a href="#TCP接收端处理流程图" class="headerlink" title="TCP接收端处理流程图"></a>TCP接收端处理流程图</h3><p><a href="/images/wp-migrate-res/2014/07/ppud.png"><img src="/images/wp-migrate-res/2014/07/ppud.png" alt="ppud"></a></p><a id="more"></a>]]></content>
     
     <summary type="html">
     
@@ -593,28 +405,24 @@
     </summary>
     
     
-      <category term="协议" scheme="http://powman.org/tags/%E5%8D%8F%E8%AE%AE/"/>
+      <category term="协议" scheme="https://powman.org/tags/%E5%8D%8F%E8%AE%AE/"/>
     
-      <category term="技术" scheme="http://powman.org/tags/%E6%8A%80%E6%9C%AF/"/>
+      <category term="技术" scheme="https://powman.org/tags/%E6%8A%80%E6%9C%AF/"/>
     
-      <category term="算法" scheme="http://powman.org/tags/%E7%AE%97%E6%B3%95/"/>
+      <category term="算法" scheme="https://powman.org/tags/%E7%AE%97%E6%B3%95/"/>
     
-      <category term="网络与底层" scheme="http://powman.org/tags/%E7%BD%91%E7%BB%9C%E4%B8%8E%E5%BA%95%E5%B1%82/"/>
+      <category term="网络与底层" scheme="https://powman.org/tags/%E7%BD%91%E7%BB%9C%E4%B8%8E%E5%BA%95%E5%B1%82/"/>
     
   </entry>
   
   <entry>
     <title>FlatBuffers : 用于生成cxx的python脚本</title>
-    <link href="http://powman.org/archives/flatbuffers-python-helper.html"/>
-    <id>http://powman.org/archives/flatbuffers-python-helper.html</id>
+    <link href="https://powman.org/archives/flatbuffers-python-helper.html"/>
+    <id>https://powman.org/archives/flatbuffers-python-helper.html</id>
     <published>2014-07-08T02:09:46.000Z</published>
     <updated>2017-03-11T09:41:08.000Z</updated>
     
-    <content type="html"><![CDATA[<p>Flatbuffers的编译器有个-c参数选项，这个选项需要一个个传入<em>.fbs文件的路径，给维护带来很大的不便。昨晚改了下flatbuffers的编译器代码，把cpp代码生成器生成的部分变量名以及生成的cxx文件后缀改掉了，这样看起来违和感没那么强，符合Coeus的代码风格。本来也想把-c选项改成支持’</em>‘通配符的，这样便可以肆无忌惮地给出一个目录让编译器自己去遍历.fbs文件。但回头一想这似乎不应该是编译器做的事情，所以就把这个想法搁掉了。于是写了个简单的python脚本(2.7.x)，用来维护fbs文件并且把生成的cxx文件输出到指定目录。<br><a id="more"></a></p>
-<p>代码如下：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div></pre></td><td class="code"><pre><div class="line">#Author By AngryPowman</div><div class="line">#Copyright 2014 Coeus</div><div class="line"></div><div class="line">import os</div><div class="line">import glob</div><div class="line"></div><div class="line">FBS_COMPILER = os.path.abspath(&amp;quot;./tools/flatc.exe&amp;quot;)</div><div class="line">FBS_PATH = &amp;quot;./fbs/*.fbs&amp;quot;</div><div class="line">FBS_CXX_OUTPUT = &amp;quot;./protocol/&amp;quot;</div><div class="line">FBS_FILES = &apos;&apos;</div><div class="line"></div><div class="line">def search(path) :</div><div class="line">	global FBS_FILES</div><div class="line">	for filename in glob.glob(path):</div><div class="line">		if os.path.isdir(filename):</div><div class="line">			search(filename)</div><div class="line">		else:</div><div class="line">			base_file_name = os.path.basename(filename)</div><div class="line">			FBS_FILES += filename + &apos; &apos;</div><div class="line">			print filename</div><div class="line"></div><div class="line">if __name__ == &apos;__main__&apos;:</div><div class="line">	#search files</div><div class="line">	search(FBS_PATH)</div><div class="line">	#compile</div><div class="line">	print &amp;quot;FBS Environment :&amp;quot;</div><div class="line">	print &amp;quot;		&amp;gt;&amp;gt; FBS_COMPILER : &amp;quot; + FBS_COMPILER</div><div class="line">	print &amp;quot;		&amp;gt;&amp;gt; FBS_PATH : &amp;quot; + FBS_PATH</div><div class="line">	print &amp;quot;		&amp;gt;&amp;gt; FBS_CXX_OUTPUT : &amp;quot; + FBS_CXX_OUTPUT</div><div class="line">	print &amp;quot;		&amp;gt;&amp;gt; FBS_FILES : &amp;quot; + FBS_FILES</div><div class="line"></div><div class="line">	#create output directory if not exists</div><div class="line">	if not os.path.exists(FBS_CXX_OUTPUT):</div><div class="line">		os.makedirs(FBS_CXX_OUTPUT)</div><div class="line"></div><div class="line">	result = os.system(FBS_COMPILER + &amp;quot; -o &amp;quot; +FBS_CXX_OUTPUT + &amp;quot; -c &amp;quot; + FBS_FILES)</div><div class="line">	if result == 0:</div><div class="line">		print &amp;quot;Compiled Okay!&amp;quot;</div><div class="line">	else:</div><div class="line">		print &amp;quot;Failed to compile, errorcode = &amp;quot; + str(result)</div></pre></td></tr></table></figure>
-<p>相关的环境变量都在最顶部定义，没啥版权，可以按需修改：）</p>
-]]></content>
+    <content type="html"><![CDATA[<p>Flatbuffers的编译器有个-c参数选项，这个选项需要一个个传入<em>.fbs文件的路径，给维护带来很大的不便。昨晚改了下flatbuffers的编译器代码，把cpp代码生成器生成的部分变量名以及生成的cxx文件后缀改掉了，这样看起来违和感没那么强，符合Coeus的代码风格。本来也想把-c选项改成支持’</em>‘通配符的，这样便可以肆无忌惮地给出一个目录让编译器自己去遍历.fbs文件。但回头一想这似乎不应该是编译器做的事情，所以就把这个想法搁掉了。于是写了个简单的python脚本(2.7.x)，用来维护fbs文件并且把生成的cxx文件输出到指定目录。<br><a id="more"></a></p><p>代码如下：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line">#Author By AngryPowman</span><br><span class="line">#Copyright 2014 Coeus</span><br><span class="line"></span><br><span class="line">import os</span><br><span class="line">import glob</span><br><span class="line"></span><br><span class="line">FBS_COMPILER = os.path.abspath(&amp;quot;./tools/flatc.exe&amp;quot;)</span><br><span class="line">FBS_PATH = &amp;quot;./fbs/*.fbs&amp;quot;</span><br><span class="line">FBS_CXX_OUTPUT = &amp;quot;./protocol/&amp;quot;</span><br><span class="line">FBS_FILES = &apos;&apos;</span><br><span class="line"></span><br><span class="line">def search(path) :</span><br><span class="line">global FBS_FILES</span><br><span class="line">for filename in glob.glob(path):</span><br><span class="line">if os.path.isdir(filename):</span><br><span class="line">search(filename)</span><br><span class="line">else:</span><br><span class="line">base_file_name = os.path.basename(filename)</span><br><span class="line">FBS_FILES += filename + &apos; &apos;</span><br><span class="line">print filename</span><br><span class="line"></span><br><span class="line">if __name__ == &apos;__main__&apos;:</span><br><span class="line">#search files</span><br><span class="line">search(FBS_PATH)</span><br><span class="line">#compile</span><br><span class="line">print &amp;quot;FBS Environment :&amp;quot;</span><br><span class="line">print &amp;quot;&amp;gt;&amp;gt; FBS_COMPILER : &amp;quot; + FBS_COMPILER</span><br><span class="line">print &amp;quot;&amp;gt;&amp;gt; FBS_PATH : &amp;quot; + FBS_PATH</span><br><span class="line">print &amp;quot;&amp;gt;&amp;gt; FBS_CXX_OUTPUT : &amp;quot; + FBS_CXX_OUTPUT</span><br><span class="line">print &amp;quot;&amp;gt;&amp;gt; FBS_FILES : &amp;quot; + FBS_FILES</span><br><span class="line"></span><br><span class="line">#create output directory if not exists</span><br><span class="line">if not os.path.exists(FBS_CXX_OUTPUT):</span><br><span class="line">os.makedirs(FBS_CXX_OUTPUT)</span><br><span class="line"></span><br><span class="line">result = os.system(FBS_COMPILER + &amp;quot; -o &amp;quot; +FBS_CXX_OUTPUT + &amp;quot; -c &amp;quot; + FBS_FILES)</span><br><span class="line">if result == 0:</span><br><span class="line">print &amp;quot;Compiled Okay!&amp;quot;</span><br><span class="line">else:</span><br><span class="line">print &amp;quot;Failed to compile, errorcode = &amp;quot; + str(result)</span><br></pre></td></tr></table></figure><p>相关的环境变量都在最顶部定义，没啥版权，可以按需修改：）</p>]]></content>
     
     <summary type="html">
     
@@ -623,41 +431,26 @@
     </summary>
     
     
-      <category term="技术" scheme="http://powman.org/tags/%E6%8A%80%E6%9C%AF/"/>
+      <category term="技术" scheme="https://powman.org/tags/%E6%8A%80%E6%9C%AF/"/>
     
-      <category term="Coeus" scheme="http://powman.org/tags/Coeus/"/>
+      <category term="Coeus" scheme="https://powman.org/tags/Coeus/"/>
     
-      <category term="flatbuffers" scheme="http://powman.org/tags/flatbuffers/"/>
+      <category term="flatbuffers" scheme="https://powman.org/tags/flatbuffers/"/>
     
-      <category term="第三方库" scheme="http://powman.org/tags/%E7%AC%AC%E4%B8%89%E6%96%B9%E5%BA%93/"/>
+      <category term="第三方库" scheme="https://powman.org/tags/%E7%AC%AC%E4%B8%89%E6%96%B9%E5%BA%93/"/>
     
-      <category term="脚本语言" scheme="http://powman.org/tags/%E8%84%9A%E6%9C%AC%E8%AF%AD%E8%A8%80/"/>
+      <category term="脚本语言" scheme="https://powman.org/tags/%E8%84%9A%E6%9C%AC%E8%AF%AD%E8%A8%80/"/>
     
   </entry>
   
   <entry>
     <title>FlatBuffers : IDL部分编写技巧和特性说明</title>
-    <link href="http://powman.org/archives/md-schemas.html"/>
-    <id>http://powman.org/archives/md-schemas.html</id>
+    <link href="https://powman.org/archives/md-schemas.html"/>
+    <id>https://powman.org/archives/md-schemas.html</id>
     <published>2014-07-07T14:26:59.000Z</published>
     <updated>2017-03-11T09:42:14.000Z</updated>
     
-    <content type="html"><![CDATA[<p>FlatBuffers提供的Schemas (又叫IDL, Interface Definition Language) 语法在于c-like, 无论对于C语言用户还是其它IDL用户来说都很容易掌握。</p>
-<a id="more"></a>
-<p>引用官方提供的IDL例子代码：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line">// example IDL file</div><div class="line"></div><div class="line">namespace MyGame;</div><div class="line"></div><div class="line">enum Color : byte &#123; Red = 1, Green, Blue &#125;</div><div class="line"></div><div class="line">union Any &#123; Monster, Weapon, Pickup &#125;  // Weapon和Pickup不在该例子中定义</div><div class="line"></div><div class="line">struct Vec3 &#123;</div><div class="line">  x:float;</div><div class="line">  y:float;</div><div class="line">  z:float;</div><div class="line">&#125;</div><div class="line"></div><div class="line">table Monster &#123;</div><div class="line">  pos:Vec3;</div><div class="line">  mana:short = 150;</div><div class="line">  hp:short = 100;</div><div class="line">  name:string;</div><div class="line">  friendly:bool = false (deprecated, priority: 1);</div><div class="line">  inventory:[ubyte];</div><div class="line">  color:Color = Blue;</div><div class="line">  test:Any;</div><div class="line">&#125;</div><div class="line"></div><div class="line">root_type Monster;</div></pre></td></tr></table></figure>
-<h3 id="table-amp-amp-struct"><a href="#table-amp-amp-struct" class="headerlink" title="table &amp;&amp; struct"></a>table &amp;&amp; struct</h3><p>table是Flatbuffers中用来定义对象的主要方式，和struct最大的区别在于：它的每个字段都是可选的（类似protobuf中的optional字段）。而struct的所有成员都是required.</p>
-<p>table除了成员名称和类型之外，还可以给成员一个默认值，如果不显式指定，则默认为0（或空）。<br>struct不能定义scalar成员，比如说string类型的成员。在生成C++代码时，struct的成员顺序会保持和IDL的定义顺序一致，如果有必要对齐，生成器会自动生成用于对齐的额外成员。如以下IDL代码：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">struct STest</div><div class="line">&#123;</div><div class="line">	a : int;</div><div class="line">	b : int;</div><div class="line">	c : byte;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>在生成为C++代码之后，会补充两个用于padding的成员<strong>padding0与</strong>padding1：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">MANUALLY_ALIGNED_STRUCT(4) STest &#123;</div><div class="line"> private:</div><div class="line">  int32_t a_;</div><div class="line">  int32_t b_;</div><div class="line">  int8_t c_;</div><div class="line">  int8_t __padding0;</div><div class="line">  int16_t __padding1;</div><div class="line"></div><div class="line"> public:</div><div class="line">  STest(int32_t a, int32_t b, int8_t c)</div><div class="line">    : a_(flatbuffers::EndianScalar(a)), b_(flatbuffers::EndianScalar(b)), c_(flatbuffers::EndianScalar(c)), __padding0(0) &#123;&#125;</div><div class="line"></div><div class="line">  int32_t a() const &#123; return flatbuffers::EndianScalar(a_); &#125;</div><div class="line">  int32_t b() const &#123; return flatbuffers::EndianScalar(b_); &#125;</div><div class="line">  int8_t c() const &#123; return flatbuffers::EndianScalar(c_); &#125;</div><div class="line">&#125;;</div><div class="line">STRUCT_END(STest, 12);</div></pre></td></tr></table></figure>
-<p>table的成员顺序是动态调整的，这和struct有区别。在生成C++代码时，生成器会自动调整为最佳顺序以保证它占用最小的内存空间。</p>
-<h3 id="关于comment技巧"><a href="#关于comment技巧" class="headerlink" title="关于comment技巧"></a>关于comment技巧</h3><p>我们知道用”//“可以在IDL中对文本进行注释以便增加可读性。其实还有一种在生成后的代码中增加注释的方法，就是用”///“。如IDL代码：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">/// test structure</div><div class="line">struct STest</div><div class="line">&#123;</div><div class="line">	a : int;</div><div class="line">	b : int;</div><div class="line">	c : byte;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>生成的C++代码会自动加入注释：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">/// test structure</div><div class="line">MANUALLY_ALIGNED_STRUCT(4) STest &#123;</div><div class="line"> private:</div><div class="line">  int32_t a_;</div><div class="line"></div><div class="line">  // ...</div></pre></td></tr></table></figure>
-<p>Reference : <a href="http://google.github.io/flatbuffers/md__schemas.html" target="_blank" rel="external">http://google.github.io/flatbuffers/md__schemas.html</a></p>
-]]></content>
+    <content type="html"><![CDATA[<p>FlatBuffers提供的Schemas (又叫IDL, Interface Definition Language) 语法在于c-like, 无论对于C语言用户还是其它IDL用户来说都很容易掌握。</p><a id="more"></a><p>引用官方提供的IDL例子代码：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">// example IDL file</span><br><span class="line"></span><br><span class="line">namespace MyGame;</span><br><span class="line"></span><br><span class="line">enum Color : byte &#123; Red = 1, Green, Blue &#125;</span><br><span class="line"></span><br><span class="line">union Any &#123; Monster, Weapon, Pickup &#125;  // Weapon和Pickup不在该例子中定义</span><br><span class="line"></span><br><span class="line">struct Vec3 &#123;</span><br><span class="line">  x:float;</span><br><span class="line">  y:float;</span><br><span class="line">  z:float;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">table Monster &#123;</span><br><span class="line">  pos:Vec3;</span><br><span class="line">  mana:short = 150;</span><br><span class="line">  hp:short = 100;</span><br><span class="line">  name:string;</span><br><span class="line">  friendly:bool = false (deprecated, priority: 1);</span><br><span class="line">  inventory:[ubyte];</span><br><span class="line">  color:Color = Blue;</span><br><span class="line">  test:Any;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">root_type Monster;</span><br></pre></td></tr></table></figure><h3 id="table-amp-amp-struct"><a href="#table-amp-amp-struct" class="headerlink" title="table &amp;&amp; struct"></a>table &amp;&amp; struct</h3><p>table是Flatbuffers中用来定义对象的主要方式，和struct最大的区别在于：它的每个字段都是可选的（类似protobuf中的optional字段）。而struct的所有成员都是required.</p><p>table除了成员名称和类型之外，还可以给成员一个默认值，如果不显式指定，则默认为0（或空）。<br>struct不能定义scalar成员，比如说string类型的成员。在生成C++代码时，struct的成员顺序会保持和IDL的定义顺序一致，如果有必要对齐，生成器会自动生成用于对齐的额外成员。如以下IDL代码：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">struct STest</span><br><span class="line">&#123;</span><br><span class="line">a : int;</span><br><span class="line">b : int;</span><br><span class="line">c : byte;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>在生成为C++代码之后，会补充两个用于padding的成员<strong>padding0与</strong>padding1：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">MANUALLY_ALIGNED_STRUCT(4) STest &#123;</span><br><span class="line"> private:</span><br><span class="line">  int32_t a_;</span><br><span class="line">  int32_t b_;</span><br><span class="line">  int8_t c_;</span><br><span class="line">  int8_t __padding0;</span><br><span class="line">  int16_t __padding1;</span><br><span class="line"></span><br><span class="line"> public:</span><br><span class="line">  STest(int32_t a, int32_t b, int8_t c)</span><br><span class="line">    : a_(flatbuffers::EndianScalar(a)), b_(flatbuffers::EndianScalar(b)), c_(flatbuffers::EndianScalar(c)), __padding0(0) &#123;&#125;</span><br><span class="line"></span><br><span class="line">  int32_t a() const &#123; return flatbuffers::EndianScalar(a_); &#125;</span><br><span class="line">  int32_t b() const &#123; return flatbuffers::EndianScalar(b_); &#125;</span><br><span class="line">  int8_t c() const &#123; return flatbuffers::EndianScalar(c_); &#125;</span><br><span class="line">&#125;;</span><br><span class="line">STRUCT_END(STest, 12);</span><br></pre></td></tr></table></figure><p>table的成员顺序是动态调整的，这和struct有区别。在生成C++代码时，生成器会自动调整为最佳顺序以保证它占用最小的内存空间。</p><h3 id="关于comment技巧"><a href="#关于comment技巧" class="headerlink" title="关于comment技巧"></a>关于comment技巧</h3><p>我们知道用”//“可以在IDL中对文本进行注释以便增加可读性。其实还有一种在生成后的代码中增加注释的方法，就是用”///“。如IDL代码：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">/// test structure</span><br><span class="line">struct STest</span><br><span class="line">&#123;</span><br><span class="line">a : int;</span><br><span class="line">b : int;</span><br><span class="line">c : byte;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>生成的C++代码会自动加入注释：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">/// test structure</span><br><span class="line">MANUALLY_ALIGNED_STRUCT(4) STest &#123;</span><br><span class="line"> private:</span><br><span class="line">  int32_t a_;</span><br><span class="line"></span><br><span class="line">  // ...</span><br></pre></td></tr></table></figure><p>Reference : <a href="http://google.github.io/flatbuffers/md__schemas.html" target="_blank" rel="noopener">http://google.github.io/flatbuffers/md__schemas.html</a></p>]]></content>
     
     <summary type="html">
     
@@ -666,26 +459,22 @@
     </summary>
     
     
-      <category term="技术" scheme="http://powman.org/tags/%E6%8A%80%E6%9C%AF/"/>
+      <category term="技术" scheme="https://powman.org/tags/%E6%8A%80%E6%9C%AF/"/>
     
-      <category term="flatbuffers" scheme="http://powman.org/tags/flatbuffers/"/>
+      <category term="flatbuffers" scheme="https://powman.org/tags/flatbuffers/"/>
     
-      <category term="第三方库" scheme="http://powman.org/tags/%E7%AC%AC%E4%B8%89%E6%96%B9%E5%BA%93/"/>
+      <category term="第三方库" scheme="https://powman.org/tags/%E7%AC%AC%E4%B8%89%E6%96%B9%E5%BA%93/"/>
     
   </entry>
   
   <entry>
     <title>女汉子叶采</title>
-    <link href="http://powman.org/archives/yecai.html"/>
-    <id>http://powman.org/archives/yecai.html</id>
+    <link href="https://powman.org/archives/yecai.html"/>
+    <id>https://powman.org/archives/yecai.html</id>
     <published>2014-07-07T07:38:08.000Z</published>
     <updated>2017-03-11T09:43:58.000Z</updated>
     
-    <content type="html"><![CDATA[<p>叶采说我的工作很矫情，我也没办法反驳，只是用矫情来形容职业确实不是很合适。她一大早就在QQ上跟我打招呼，并且问我现在做什么了，我说在游戏公司上班，做程序员。于是就得到了她这样的评价。她说微博上都传程序员人傻钱多死的早，问我是不是真的。我说起码我不傻，至于会不会死的早我就不清楚了。</p>
-<p>叶采是我一朋友的朋友，我们在一次聚会上认识，加起来只见过两次，最后一次见面到现在也有一年多了。她有个外号叫野菜，只有我敢这么叫她，她会给我一白眼或者敲我脑壳，要是其他人（包括那个介绍我们互相认识的朋友）敢叫她野菜，她马上要发飙：野菜是你叫的吗！</p>
-<p>野菜是读行政管理的，这个专业和她的形象简直是量身定做。其实她的脾气和性格不坏，和男生很好相处，直率、不矫情、不做作，该矜持的地方她也没落下，有时候说话也会低声下气，很有主见但不强势，很尊重别人的意见，是个很聪明很懂人情世故的人。可以说是我比较欣赏的一类女性，所以认识不长的时间就和她很聊的来。</p>
-<p>她说24岁的她已经算是个大龄女青年了，估计嫁不出去。我调侃道你这种野丫头怎么有人敢要，现在都流行贤妻良母，也就我这种脾气看上去温和的人才敢跟你打交道。这相当于变相承认我是个万年受。我觉得她要发飙，不过网上聊天她也没办法动我，她很不服气，反驳说她是拥有一颗玻璃心的真汉子。对她这句话，我也没反对。所以祝野菜姐工作顺利，找到好归宿。24岁还很年轻。</p>
-<a id="more"></a>]]></content>
+    <content type="html"><![CDATA[<p>叶采说我的工作很矫情，我也没办法反驳，只是用矫情来形容职业确实不是很合适。她一大早就在QQ上跟我打招呼，并且问我现在做什么了，我说在游戏公司上班，做程序员。于是就得到了她这样的评价。她说微博上都传程序员人傻钱多死的早，问我是不是真的。我说起码我不傻，至于会不会死的早我就不清楚了。</p><p>叶采是我一朋友的朋友，我们在一次聚会上认识，加起来只见过两次，最后一次见面到现在也有一年多了。她有个外号叫野菜，只有我敢这么叫她，她会给我一白眼或者敲我脑壳，要是其他人（包括那个介绍我们互相认识的朋友）敢叫她野菜，她马上要发飙：野菜是你叫的吗！</p><p>野菜是读行政管理的，这个专业和她的形象简直是量身定做。其实她的脾气和性格不坏，和男生很好相处，直率、不矫情、不做作，该矜持的地方她也没落下，有时候说话也会低声下气，很有主见但不强势，很尊重别人的意见，是个很聪明很懂人情世故的人。可以说是我比较欣赏的一类女性，所以认识不长的时间就和她很聊的来。</p><p>她说24岁的她已经算是个大龄女青年了，估计嫁不出去。我调侃道你这种野丫头怎么有人敢要，现在都流行贤妻良母，也就我这种脾气看上去温和的人才敢跟你打交道。这相当于变相承认我是个万年受。我觉得她要发飙，不过网上聊天她也没办法动我，她很不服气，反驳说她是拥有一颗玻璃心的真汉子。对她这句话，我也没反对。所以祝野菜姐工作顺利，找到好归宿。24岁还很年轻。</p><a id="more"></a>]]></content>
     
     <summary type="html">
     
@@ -697,23 +486,20 @@
     </summary>
     
     
-      <category term="杂项" scheme="http://powman.org/tags/%E6%9D%82%E9%A1%B9/"/>
+      <category term="杂项" scheme="https://powman.org/tags/%E6%9D%82%E9%A1%B9/"/>
     
-      <category term="随笔" scheme="http://powman.org/tags/%E9%9A%8F%E7%AC%94/"/>
+      <category term="随笔" scheme="https://powman.org/tags/%E9%9A%8F%E7%AC%94/"/>
     
   </entry>
   
   <entry>
     <title>All is well</title>
-    <link href="http://powman.org/archives/all-is-well.html"/>
-    <id>http://powman.org/archives/all-is-well.html</id>
+    <link href="https://powman.org/archives/all-is-well.html"/>
+    <id>https://powman.org/archives/all-is-well.html</id>
     <published>2014-07-06T09:15:06.000Z</published>
     <updated>2017-03-11T09:38:42.000Z</updated>
     
-    <content type="html"><![CDATA[<p>今天听逗啦对我们提起他的无名指没反应了，不能动，替他难过。前段时间他伤到了右手，划了一道很大的口子，手掌伤势接近被对半分开，甚至看到露在外面的骨头。当时是我送他去医院的，一路上流了很多血，伤口看着触目惊心。<br><a id="more"></a><br>作为应届毕业生，他前天才接到了一间游戏公司的面试电话，约好了面试时间，怀着兴奋的心情想着参加次日早上的面试，但天公不作美，面试的前一天晚上就出现了这样的意外，我们作为朋友都觉得相当惋惜和心疼。对一个准备踏出社会的学生来说，这是个不小的打击。</p>
-<p>这段时间他离开广州回家休养，但愿不留下后遗症，祝他早日康复参加工作！</p>
-<p><a href="/images/wp-migrate-res/2014/07/all_is_well.png"><img src="/images/wp-migrate-res/2014/07/all_is_well.png" alt="all_is_well"></a></p>
-]]></content>
+    <content type="html"><![CDATA[<p>今天听逗啦对我们提起他的无名指没反应了，不能动，替他难过。前段时间他伤到了右手，划了一道很大的口子，手掌伤势接近被对半分开，甚至看到露在外面的骨头。当时是我送他去医院的，一路上流了很多血，伤口看着触目惊心。<br><a id="more"></a><br>作为应届毕业生，他前天才接到了一间游戏公司的面试电话，约好了面试时间，怀着兴奋的心情想着参加次日早上的面试，但天公不作美，面试的前一天晚上就出现了这样的意外，我们作为朋友都觉得相当惋惜和心疼。对一个准备踏出社会的学生来说，这是个不小的打击。</p><p>这段时间他离开广州回家休养，但愿不留下后遗症，祝他早日康复参加工作！</p><p><a href="/images/wp-migrate-res/2014/07/all_is_well.png"><img src="/images/wp-migrate-res/2014/07/all_is_well.png" alt="all_is_well"></a></p>]]></content>
     
     <summary type="html">
     
@@ -722,26 +508,20 @@
     </summary>
     
     
-      <category term="杂项" scheme="http://powman.org/tags/%E6%9D%82%E9%A1%B9/"/>
+      <category term="杂项" scheme="https://powman.org/tags/%E6%9D%82%E9%A1%B9/"/>
     
-      <category term="随笔" scheme="http://powman.org/tags/%E9%9A%8F%E7%AC%94/"/>
+      <category term="随笔" scheme="https://powman.org/tags/%E9%9A%8F%E7%AC%94/"/>
     
   </entry>
   
   <entry>
     <title>调整</title>
-    <link href="http://powman.org/archives/574.html"/>
-    <id>http://powman.org/archives/574.html</id>
+    <link href="https://powman.org/archives/574.html"/>
+    <id>https://powman.org/archives/574.html</id>
     <published>2014-07-04T08:41:00.000Z</published>
     <updated>2017-03-11T09:38:31.000Z</updated>
     
-    <content type="html"><![CDATA[<p>这几天我终于把作息时间调整过来了，这是个很好的坚持，我想应该能持续很长的一段时间。如果你发现我1点之后还在，请监督我。我发现一件事，早上的工作效率果然是比较高的，我可以用来写代码，但是晚上练琴的效率却相当低，不过不得不说，Summer真是一首非常耐听的曲子，越练越带感，就是后面速度对我来说有点太快了。<br><a id="more"></a><br>可以做个总结，在不晚睡的情况下，早上的状态做任何事都比较好。</p>
-<p>一般情况下我都不会按时作息，可能是长期习惯导致的，我经常是凌晨两三点睡觉，然后中午10点多才起床。大家把这种习惯称为晚睡强迫症。</p>
-<p>最近又发现了一件比较厉害的事，我每天实际上在工作的时间居然不到3小时，其它时间不是在看书就是看AB站和公开课。不过还是耽误到工作进度了，这个习惯也算不上太好，只是工作上的东西的确有点琐碎，断断续续的让人不知所措。其实有时候我经常盯着群聊天看各种嘴炮并且听着音乐发呆，思考人生大道理，我是不怎么喜欢插嘴了，很多相同的话题都老生常谈，反复争论也没什么意思，发个表情刷刷存在感，太高调也不好。我看我是比同龄人老了些，不过同时也羡慕他们有这么好的争论激情，估计这就是参加工作和还没参加工作的人的区别，我开始步入了中年男人的行列了。。</p>
-<p>临近毕业，又有各种担忧前途党、入坑党、找工作党来咨询问题了，我就知道。作为一名伪心理辅导师，我觉得应该要明白一句话，那就是少壮不努力，老大抢小米。合理安排娱乐，正事儿可不能落下。。好吧，我没有贬低小米或者任何人的意思。</p>
-<p><img src="/images/wp-migrate-res/2014/07/doge.jpeg" alt="doge"></p>
-<p>最近应该算是把附近能吃的地方都吃过了，不得不说附近能吃东西的地方真的很少！<br>如果换工作，一定要去一个附近有很多吃的地方。</p>
-]]></content>
+    <content type="html"><![CDATA[<p>这几天我终于把作息时间调整过来了，这是个很好的坚持，我想应该能持续很长的一段时间。如果你发现我1点之后还在，请监督我。我发现一件事，早上的工作效率果然是比较高的，我可以用来写代码，但是晚上练琴的效率却相当低，不过不得不说，Summer真是一首非常耐听的曲子，越练越带感，就是后面速度对我来说有点太快了。<br><a id="more"></a><br>可以做个总结，在不晚睡的情况下，早上的状态做任何事都比较好。</p><p>一般情况下我都不会按时作息，可能是长期习惯导致的，我经常是凌晨两三点睡觉，然后中午10点多才起床。大家把这种习惯称为晚睡强迫症。</p><p>最近又发现了一件比较厉害的事，我每天实际上在工作的时间居然不到3小时，其它时间不是在看书就是看AB站和公开课。不过还是耽误到工作进度了，这个习惯也算不上太好，只是工作上的东西的确有点琐碎，断断续续的让人不知所措。其实有时候我经常盯着群聊天看各种嘴炮并且听着音乐发呆，思考人生大道理，我是不怎么喜欢插嘴了，很多相同的话题都老生常谈，反复争论也没什么意思，发个表情刷刷存在感，太高调也不好。我看我是比同龄人老了些，不过同时也羡慕他们有这么好的争论激情，估计这就是参加工作和还没参加工作的人的区别，我开始步入了中年男人的行列了。。</p><p>临近毕业，又有各种担忧前途党、入坑党、找工作党来咨询问题了，我就知道。作为一名伪心理辅导师，我觉得应该要明白一句话，那就是少壮不努力，老大抢小米。合理安排娱乐，正事儿可不能落下。。好吧，我没有贬低小米或者任何人的意思。</p><p><img src="/images/wp-migrate-res/2014/07/doge.jpeg" alt="doge"></p><p>最近应该算是把附近能吃的地方都吃过了，不得不说附近能吃东西的地方真的很少！<br>如果换工作，一定要去一个附近有很多吃的地方。</p>]]></content>
     
     <summary type="html">
     
@@ -750,9 +530,9 @@
     </summary>
     
     
-      <category term="杂项" scheme="http://powman.org/tags/%E6%9D%82%E9%A1%B9/"/>
+      <category term="杂项" scheme="https://powman.org/tags/%E6%9D%82%E9%A1%B9/"/>
     
-      <category term="随笔" scheme="http://powman.org/tags/%E9%9A%8F%E7%AC%94/"/>
+      <category term="随笔" scheme="https://powman.org/tags/%E9%9A%8F%E7%AC%94/"/>
     
   </entry>
   
